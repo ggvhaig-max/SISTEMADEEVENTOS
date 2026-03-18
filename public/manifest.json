@@ -1,0 +1,54 @@
+{
+  "name": "Dolarito Ganador - Sorteos en Vivo",
+  "short_name": "Dolarito",
+  "description": "Participa en sorteos en vivo y gana increíbles premios. Plataforma segura y confiable para rifas y eventos en Colombia.",
+  "start_url": "https://dolaritoganador.com/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/dolaritoganadorverde.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/dolaritoganadorverde.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["entertainment", "business", "lifestyle"],
+  "shortcuts": [
+    {
+      "name": "Ver Sorteos",
+      "short_name": "Sorteos",
+      "description": "Ver todos los sorteos en vivo disponibles",
+      "url": "https://dolaritoganador.com/",
+      "icons": [{ "src": "/dolaritoganadorverde.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Panel Admin",
+      "short_name": "Admin",
+      "description": "Acceder al panel de administración",
+      "url": "https://dolaritoganador.com/admin",
+      "icons": [{ "src": "/dolaritoganadorverde.png", "sizes": "192x192" }]
+    }
+  ]
+}
