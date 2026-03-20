@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
-import { ArrowLeft, Check, X, ExternalLink, Ticket, Mail, MessageCircle, Download, Share2 } from 'lucide-react';
+import { ArrowLeft, Check, X, ExternalLink, Ticket, Mail, MessageCircle, Download, Share2, Trash2 } from 'lucide-react';
 import { TicketReceipt } from '../../components/TicketReceipt';
 import { downloadTicketPDF, shareTicketWhatsApp } from '../../utils/pdfGenerator';
 
@@ -208,6 +208,11 @@ export function PurchasesPage() {
           estado: 'disponible',
           correo_comprador: null,
           compra_id: null,
+          nombre_comprador: null,
+          telefono: null,
+          documento: null,
+          pais: null,
+          ciudad: null,
         })
         .eq('compra_id', compraId);
 
@@ -220,6 +225,54 @@ export function PurchasesPage() {
     } catch (error) {
       console.error('Error rejecting compra:', error);
       alert('Error al rechazar la compra');
+    }
+  };
+
+  const handleDelete = async (compraId: string) => {
+    const compra = compras.find(c => c.id === compraId);
+    if (!compra) return;
+
+    if (compra.estado === 'aprobada') {
+      alert('No se puede eliminar una compra aprobada. Las boletas ya fueron asignadas al comprador.');
+      return;
+    }
+
+    const mensaje = compra.estado === 'pendiente'
+      ? '¿Eliminar esta transacción? Se liberarán las boletas reservadas. Esta acción no se puede deshacer.'
+      : '¿Eliminar definitivamente esta transacción? Esta acción no se puede deshacer.';
+
+    if (!confirm(mensaje)) {
+      return;
+    }
+
+    try {
+      if (compra.estado === 'pendiente') {
+        await supabase
+          .from('entradas')
+          .update({
+            estado: 'disponible',
+            correo_comprador: null,
+            compra_id: null,
+            nombre_comprador: null,
+            telefono: null,
+            documento: null,
+            pais: null,
+            ciudad: null,
+          })
+          .eq('compra_id', compraId);
+      }
+
+      const { error } = await supabase
+        .from('compras')
+        .delete()
+        .eq('id', compraId);
+
+      if (error) throw error;
+
+      setCompras(compras.filter(c => c.id !== compraId));
+    } catch (error: any) {
+      console.error('Error deleting compra:', error);
+      alert(error?.message || 'Error al eliminar la transacción');
     }
   };
 
@@ -413,7 +466,23 @@ export function PurchasesPage() {
                             >
                               <X className="w-4 h-4" />
                             </button>
+                            <button
+                              onClick={() => handleDelete(compra.id)}
+                              className="p-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors"
+                              title="Eliminar transacción"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </button>
                           </>
+                        )}
+                        {compra.estado === 'rechazada' && (
+                          <button
+                            onClick={() => handleDelete(compra.id)}
+                            className="p-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors"
+                            title="Eliminar transacción"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
                         )}
                         {compra.estado === 'aprobada' && (
                           <>

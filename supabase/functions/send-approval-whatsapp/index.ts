@@ -35,8 +35,8 @@ Deno.serve(async (req: Request) => {
       numeros,
     } = data;
 
-    const baseUrl = Deno.env.get('APP_URL') || 'https://dolaritoganador.com';
-    const landingUrl = `${baseUrl}/${evento_slug}`;
+    const baseUrl = (Deno.env.get('APP_URL') || 'https://dolaritoganador.com').replace(/\/$/, '');
+    const landingUrl = evento_slug ? `${baseUrl}/evento/${evento_slug}` : baseUrl;
 
     const numerosOrdenados = numeros.sort((a, b) => a - b);
 
