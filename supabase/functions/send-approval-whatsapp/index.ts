@@ -1,4 +1,4 @@
-import { createClient } from 'npm:@supabase/supabase-js@2';
+import { getEventLandingUrl } from '../_shared/event-links.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -35,8 +35,7 @@ Deno.serve(async (req: Request) => {
       numeros,
     } = data;
 
-    const baseUrl = (Deno.env.get('APP_URL') || 'https://dolaritoganador.com').replace(/\/$/, '');
-    const landingUrl = evento_slug ? `${baseUrl}/evento/${evento_slug}` : baseUrl;
+    const landingUrl = getEventLandingUrl(evento_slug);
 
     const numerosOrdenados = numeros.sort((a, b) => a - b);
 

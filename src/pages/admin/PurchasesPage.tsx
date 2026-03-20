@@ -1,23 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
+import type { Database } from '../../lib/database.types';
 import { ArrowLeft, Check, X, ExternalLink, Ticket, Mail, MessageCircle, Download, Share2, Trash2 } from 'lucide-react';
 import { TicketReceipt } from '../../components/TicketReceipt';
 import { downloadTicketPDF, shareTicketWhatsApp } from '../../utils/pdfGenerator';
 
-interface Compra {
-  id: string;
-  documento_tipo: string;
-  documento_numero: string;
-  correo_comprador: string;
-  nombre_comprador: string;
-  telefono: string;
-  cantidad_entradas: number;
-  monto_total: number;
-  estado: string;
-  comprobante_url: string | null;
-  metodo_pago: string;
-  created_at: string;
+type Compra = Database['public']['Tables']['compras']['Row'];
+type EntradaUpdate = Database['public']['Tables']['entradas']['Update'];
+type EntradaNumero = Pick<Database['public']['Tables']['entradas']['Row'], 'numero_entrada'>;
+
+function getErrorMessage(error: unknown, fallback: string): string {
+  return error instanceof Error ? error.message : fallback;
 }
 
 export function PurchasesPage() {
@@ -34,13 +28,21 @@ export function PurchasesPage() {
   const [currentCompraId, setCurrentCompraId] = useState<string | null>(null);
   const [generatingPDF, setGeneratingPDF] = useState(false);
   const [evento, setEvento] = useState<{ nombre: string } | null>(null);
+  const [deletingCompraId, setDeletingCompraId] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!id) {
+      setLoading(false);
+      return;
+    }
+
     loadCompras();
     loadEvento();
   }, [id]);
 
   const loadEvento = async () => {
+    if (!id) return;
+
     try {
       const { data } = await supabase
         .from('eventos')
@@ -57,6 +59,8 @@ export function PurchasesPage() {
   };
 
   const loadCompras = async () => {
+    if (!id) return;
+
     try {
       const { data } = await supabase
         .from('compras')
@@ -116,9 +120,9 @@ export function PurchasesPage() {
       setShowNumbersModal(true);
 
       setCompras(compras.map(c => c.id === compraId ? { ...c, estado: 'aprobada' } : c));
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error approving compra:', error);
-      alert(error.message || 'Error al aprobar la compra');
+      alert(getErrorMessage(error, 'Error al aprobar la compra'));
     }
   };
 
@@ -128,9 +132,9 @@ export function PurchasesPage() {
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
       await downloadTicketPDF(`ticket-${compraId}`, `boleta-${compraId}`);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error generating PDF:', error);
-      alert(error.message || 'Error al generar el PDF');
+      alert(getErrorMessage(error, 'Error al generar el PDF'));
     } finally {
       setGeneratingPDF(false);
     }
@@ -179,7 +183,7 @@ export function PurchasesPage() {
         return;
       }
 
-      const numeros = entradasData.map((e: any) =>
+      const numeros = entradasData.map((e: EntradaNumero) =>
         e.numero_entrada.toString().padStart(4, '0')
       );
 
@@ -202,29 +206,39 @@ export function PurchasesPage() {
     }
 
     try {
-      await supabase
+      const releasePayload: EntradaUpdate = {
+        estado: 'disponible',
+        correo_comprador: null,
+        compra_id: null,
+        nombre_comprador: null,
+        telefono: null,
+        documento: null,
+        pais: null,
+        ciudad: null,
+      };
+
+      const { error: releaseError } = await supabase
         .from('entradas')
-        .update({
-          estado: 'disponible',
-          correo_comprador: null,
-          compra_id: null,
-          nombre_comprador: null,
-          telefono: null,
-          documento: null,
-          pais: null,
-          ciudad: null,
-        })
+        .update(releasePayload)
         .eq('compra_id', compraId);
 
-      await supabase
+      if (releaseError) {
+        throw releaseError;
+      }
+
+      const { error: rejectError } = await supabase
         .from('compras')
         .update({ estado: 'rechazada' })
         .eq('id', compraId);
 
+      if (rejectError) {
+        throw rejectError;
+      }
+
       setCompras(compras.map(c => c.id === compraId ? { ...c, estado: 'rechazada' } : c));
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error rejecting compra:', error);
-      alert('Error al rechazar la compra');
+      alert(getErrorMessage(error, 'Error al rechazar la compra'));
     }
   };
 
@@ -246,33 +260,33 @@ export function PurchasesPage() {
     }
 
     try {
-      if (compra.estado === 'pendiente') {
-        await supabase
-          .from('entradas')
-          .update({
-            estado: 'disponible',
-            correo_comprador: null,
-            compra_id: null,
-            nombre_comprador: null,
-            telefono: null,
-            documento: null,
-            pais: null,
-            ciudad: null,
-          })
-          .eq('compra_id', compraId);
+      setDeletingCompraId(compraId);
+
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+      const response = await fetch(`${supabaseUrl}/functions/v1/delete-purchase`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${anonKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ compra_id: compraId }),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Error al eliminar la transacción');
       }
 
-      const { error } = await supabase
-        .from('compras')
-        .delete()
-        .eq('id', compraId);
+      setCompras(current => current.filter(c => c.id !== compraId));
 
-      if (error) throw error;
-
-      setCompras(compras.filter(c => c.id !== compraId));
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error deleting compra:', error);
-      alert(error?.message || 'Error al eliminar la transacción');
+      alert(getErrorMessage(error, 'Error al eliminar la transacción'));
+    } finally {
+      setDeletingCompraId(null);
     }
   };
 
@@ -468,6 +482,7 @@ export function PurchasesPage() {
                             </button>
                             <button
                               onClick={() => handleDelete(compra.id)}
+                              disabled={deletingCompraId === compra.id}
                               className="p-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors"
                               title="Eliminar transacción"
                             >
@@ -478,6 +493,7 @@ export function PurchasesPage() {
                         {compra.estado === 'rechazada' && (
                           <button
                             onClick={() => handleDelete(compra.id)}
+                            disabled={deletingCompraId === compra.id}
                             className="p-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors"
                             title="Eliminar transacción"
                           >

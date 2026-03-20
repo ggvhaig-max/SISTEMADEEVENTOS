@@ -1,4 +1,4 @@
-import { createClient } from 'npm:@supabase/supabase-js@2';
+import { getEventLandingUrl, getEventLookupUrl } from '../_shared/event-links.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -48,9 +48,8 @@ Deno.serve(async (req: Request) => {
       monto_total,
     } = data;
 
-    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-    const landingUrl = `${new URL(supabaseUrl).origin}/${evento_slug}`;
-    const consultarUrl = `${landingUrl}?tab=consultar`;
+    const landingUrl = getEventLandingUrl(evento_slug);
+    const consultarUrl = getEventLookupUrl(evento_slug);
 
     const formatoFecha = new Date(fecha_sorteo).toLocaleDateString('es-CO', {
       year: 'numeric',
@@ -137,6 +136,9 @@ Deno.serve(async (req: Request) => {
          style="display: inline-block; background: #3b82f6; color: white; padding: 15px 35px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
         🔍 Consultar Mis Entradas
       </a>
+      <p style="margin: 15px 0 0 0; color: #6b7280; font-size: 14px;">
+        Landing del evento: <a href="${landingUrl}" style="color: #10b981; text-decoration: none;">${landingUrl}</a>
+      </p>
     </div>
 
     <div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin: 25px 0;">
@@ -185,6 +187,7 @@ PREMIOS DEL EVENTO:
 ${premios.map(p => `- ${p.tipo}: ${p.titulo}\n  ${p.descripcion}`).join('\n')}
 
 Consulta tus entradas en: ${consultarUrl}
+Landing del evento: ${landingUrl}
 
 IMPORTANTE:
 - Guarda este correo como comprobante de tu compra

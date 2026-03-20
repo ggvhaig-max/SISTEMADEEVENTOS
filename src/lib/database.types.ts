@@ -162,6 +162,11 @@ export interface Database {
           estado: 'disponible' | 'reservada' | 'pagada' | 'premiada'
           correo_comprador: string | null
           compra_id: string | null
+          nombre_comprador: string | null
+          telefono: string | null
+          documento: string | null
+          pais: string | null
+          ciudad: string | null
           es_bendecida: boolean
           premio_id: string | null
           bloqueada: boolean
@@ -178,6 +183,11 @@ export interface Database {
           estado?: 'disponible' | 'reservada' | 'pagada' | 'premiada'
           correo_comprador?: string | null
           compra_id?: string | null
+          nombre_comprador?: string | null
+          telefono?: string | null
+          documento?: string | null
+          pais?: string | null
+          ciudad?: string | null
           es_bendecida?: boolean
           premio_id?: string | null
           bloqueada?: boolean
@@ -194,6 +204,11 @@ export interface Database {
           estado?: 'disponible' | 'reservada' | 'pagada' | 'premiada'
           correo_comprador?: string | null
           compra_id?: string | null
+          nombre_comprador?: string | null
+          telefono?: string | null
+          documento?: string | null
+          pais?: string | null
+          ciudad?: string | null
           es_bendecida?: boolean
           premio_id?: string | null
           bloqueada?: boolean
@@ -208,9 +223,13 @@ export interface Database {
         Row: {
           id: string
           evento_id: string
+          documento_tipo: string | null
+          documento_numero: string | null
           correo_comprador: string
           nombre_comprador: string
           telefono: string
+          pais: string | null
+          ciudad: string | null
           cantidad_entradas: number
           monto_total: number
           estado: 'pendiente' | 'aprobada' | 'rechazada'
@@ -222,9 +241,13 @@ export interface Database {
         Insert: {
           id?: string
           evento_id: string
+          documento_tipo?: string | null
+          documento_numero?: string | null
           correo_comprador: string
           nombre_comprador: string
           telefono: string
+          pais?: string | null
+          ciudad?: string | null
           cantidad_entradas: number
           monto_total: number
           estado?: 'pendiente' | 'aprobada' | 'rechazada'
@@ -236,9 +259,13 @@ export interface Database {
         Update: {
           id?: string
           evento_id?: string
+          documento_tipo?: string | null
+          documento_numero?: string | null
           correo_comprador?: string
           nombre_comprador?: string
           telefono?: string
+          pais?: string | null
+          ciudad?: string | null
           cantidad_entradas?: number
           monto_total?: number
           estado?: 'pendiente' | 'aprobada' | 'rechazada'
