@@ -141,7 +141,7 @@ function numberStatusClass(entry: { estado: string; bloqueada: boolean; correo_c
   const sold = entry.bloqueada || entry.correo_comprador !== null || entry.estado === 'pagada' || entry.estado === 'premiada';
   if (sold) return 'border-red-500/35 bg-red-500/10 text-red-200';
   if (entry.estado === 'reservada') return 'border-amber-500/35 bg-amber-500/10 text-amber-200';
-  return 'border-blue-500/35 bg-blue-500/10 text-blue-200';
+  return 'border-orange-500/35 bg-orange-500/10 text-blue-200';
 }
 
 function numberStatusLabel(entry: { estado: string; bloqueada: boolean; correo_comprador: string | null }) {
@@ -167,7 +167,7 @@ function SectionTitle({
       <div className="inline-flex items-center gap-2 rounded-full border border-red-500/30 bg-red-500/10 px-4 py-2 text-[11px] uppercase tracking-[0.45em] text-red-300" style={fontCondensed}>
         {eyebrow}
       </div>
-      <h2 className="mt-5 text-4xl uppercase leading-none tracking-[0.08em] text-white sm:text-6xl" style={fontCondensed}>
+      <h2 className="mt-5 text-4xl uppercase leading-none tracking-[0.08em] text-slate-900 sm:text-6xl" style={fontCondensed}>
         {title}{' '}
         {accent ? <span className="bg-gradient-to-r from-red-500 via-red-400 to-blue-500 bg-clip-text text-transparent">{accent}</span> : null}
       </h2>
@@ -310,7 +310,7 @@ export function EventLanding() {
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-red-500/30 bg-red-500/10">
             <Shield className="h-8 w-8 text-red-300" />
           </div>
-          <h1 className="text-4xl uppercase tracking-[0.08em] text-white" style={fontCondensed}>
+          <h1 className="text-4xl uppercase tracking-[0.08em] text-slate-900" style={fontCondensed}>
             Evento no encontrado
           </h1>
           <p className="mt-3 text-slate-300">
@@ -354,7 +354,7 @@ export function EventLanding() {
           <div className="flex min-w-0 items-center gap-3">
             <img src={LOGO_URL} alt="Toyo Turbos RH" className="h-8 w-auto flex-shrink-0 object-contain sm:h-9" />
             <div className="min-w-0">
-              <div className="text-[14px] font-black uppercase tracking-[0.18em] text-white" style={fontCondensed}>
+              <div className="text-[14px] font-black uppercase tracking-[0.18em] text-slate-900" style={fontCondensed}>
                 TOYO TURBOS <span className="text-red-400">RH</span>
               </div>
               <div className="text-[9px] uppercase tracking-[0.32em] text-slate-500 sm:text-[10px]" style={fontCondensed}>
@@ -366,7 +366,7 @@ export function EventLanding() {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-md border border-red-500/30 bg-red-500 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-[0_8px_24px_rgba(192,21,42,0.35)] transition hover:-translate-y-0.5 hover:bg-red-600"
+            className="inline-flex items-center gap-2 rounded-md border border-red-500/30 bg-red-500 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-900 shadow-[0_8px_24px_rgba(192,21,42,0.35)] transition hover:-translate-y-0.5 hover:bg-red-600"
             style={fontCondensed}
           >
             <MessageCircle className="h-4 w-4" />
@@ -411,7 +411,7 @@ export function EventLanding() {
                   La familia Toyo Turbo presenta
                 </div>
 
-                <h1 className="text-5xl font-black uppercase leading-[0.9] tracking-[0.05em] text-white sm:text-7xl lg:text-8xl" style={fontCondensed}>
+                <h1 className="text-5xl font-black uppercase leading-[0.9] tracking-[0.05em] text-slate-900 sm:text-7xl lg:text-8xl" style={fontCondensed}>
                   <span className="block">{evento.nombre}</span>
                   <span className="block bg-gradient-to-r from-red-500 via-red-400 to-blue-500 bg-clip-text text-transparent">La Rifa del Siglo</span>
                 </h1>
@@ -432,7 +432,7 @@ export function EventLanding() {
                   <button
                     type="button"
                     onClick={() => scrollToSection('paquetes')}
-                    className="relative inline-flex items-center gap-2 overflow-hidden rounded-md border border-white/10 bg-gradient-to-r from-red-600 to-red-500 px-6 py-4 text-sm font-bold uppercase tracking-[0.24em] text-white shadow-[0_12px_32px_rgba(192,21,42,0.45)] transition hover:-translate-y-1"
+                    className="relative inline-flex items-center gap-2 overflow-hidden rounded-md border border-white/10 bg-gradient-to-r from-red-600 to-red-500 px-6 py-4 text-sm font-bold uppercase tracking-[0.24em] text-slate-900 shadow-[0_12px_32px_rgba(192,21,42,0.45)] transition hover:-translate-y-1"
                     style={fontCondensed}
                   >
                     <Ticket className="h-4 w-4" />
@@ -441,7 +441,7 @@ export function EventLanding() {
                   <button
                     type="button"
                     onClick={() => scrollToSection('premios')}
-                    className="inline-flex items-center gap-2 rounded-md border-2 border-blue-500/60 px-6 py-4 text-sm font-bold uppercase tracking-[0.24em] text-blue-300 transition hover:-translate-y-1 hover:bg-blue-500/10 hover:text-white"
+                    className="inline-flex items-center gap-2 rounded-md border-2 border-orange-500/60 px-6 py-4 text-sm font-bold uppercase tracking-[0.24em] text-blue-300 transition hover:-translate-y-1 hover:bg-orange-500/10 hover:text-slate-900"
                     style={fontCondensed}
                   >
                     <Trophy className="h-4 w-4" />
@@ -466,7 +466,7 @@ export function EventLanding() {
                   ].map((fact) => (
                     <div key={fact.label} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-center shadow-[0_12px_24px_rgba(0,0,0,0.2)]">
                       <div className="mb-1 text-lg">{fact.icon}</div>
-                      <div className="text-2xl font-black text-white" style={fontCondensed}>{fact.value}</div>
+                      <div className="text-2xl font-black text-slate-900" style={fontCondensed}>{fact.value}</div>
                       <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-slate-500" style={fontCondensed}>{fact.label}</div>
                     </div>
                   ))}
@@ -475,9 +475,9 @@ export function EventLanding() {
 
               <div className="relative">
                 <div className="absolute -left-10 top-0 h-48 w-48 rounded-full bg-red-500/15 blur-3xl" />
-                <div className="absolute -right-10 bottom-0 h-48 w-48 rounded-full bg-blue-500/15 blur-3xl" />
+                <div className="absolute -right-10 bottom-0 h-48 w-48 rounded-full bg-orange-500/15 blur-3xl" />
                 <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-[0_25px_60px_rgba(0,0,0,0.55)]">
-                  <div className="absolute left-4 top-4 z-10 rounded-md bg-red-500/90 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-white backdrop-blur" style={fontCondensed}>
+                  <div className="absolute left-4 top-4 z-10 rounded-md bg-red-500/90 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-slate-900 backdrop-blur" style={fontCondensed}>
                     🎥 Presentación oficial
                   </div>
                   <div className="aspect-[4/3] overflow-hidden bg-zinc-950">
@@ -493,7 +493,7 @@ export function EventLanding() {
                     <div className="flex items-center justify-between gap-4">
                       <div>
                         <div className="text-[11px] uppercase tracking-[0.35em] text-slate-400" style={fontCondensed}>Precio boleta</div>
-                        <div className="text-4xl font-black leading-none text-white" style={fontCondensed}>{formatCurrency(evento.precio_por_entrada)}</div>
+                        <div className="text-4xl font-black leading-none text-slate-900" style={fontCondensed}>{formatCurrency(evento.precio_por_entrada)}</div>
                       </div>
                       <div className="text-right">
                         <div className="text-[11px] uppercase tracking-[0.35em] text-slate-400" style={fontCondensed}>Sorteo</div>
@@ -502,15 +502,15 @@ export function EventLanding() {
                     </div>
                     <div className="mt-4 grid grid-cols-3 gap-3">
                       <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-3 text-center">
-                        <div className="text-2xl font-black text-white" style={fontCondensed}>{formatNumber(entradas_vendidas)}</div>
+                        <div className="text-2xl font-black text-slate-900" style={fontCondensed}>{formatNumber(entradas_vendidas)}</div>
                         <div className="mt-1 text-[10px] uppercase tracking-[0.24em] text-slate-500" style={fontCondensed}>Vendidas</div>
                       </div>
                       <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-3 text-center">
-                        <div className="text-2xl font-black text-white" style={fontCondensed}>{formatNumber(entradas_restantes)}</div>
+                        <div className="text-2xl font-black text-slate-900" style={fontCondensed}>{formatNumber(entradas_restantes)}</div>
                         <div className="mt-1 text-[10px] uppercase tracking-[0.24em] text-slate-500" style={fontCondensed}>Restan</div>
                       </div>
                       <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-3 text-center">
-                        <div className="text-2xl font-black text-white" style={fontCondensed}>{porcentaje_vendido.toFixed(1)}%</div>
+                        <div className="text-2xl font-black text-slate-900" style={fontCondensed}>{porcentaje_vendido.toFixed(1)}%</div>
                         <div className="mt-1 text-[10px] uppercase tracking-[0.24em] text-slate-500" style={fontCondensed}>Progreso</div>
                       </div>
                     </div>
@@ -542,7 +542,7 @@ export function EventLanding() {
                           { value: parts.seconds, label: 'Seg' },
                         ].map((unit) => (
                           <div key={unit.label} className="min-w-[62px] rounded-xl border border-white/10 bg-zinc-950/80 px-3 py-3 text-center sm:min-w-[76px]">
-                            <div className="text-3xl font-black leading-none text-white sm:text-4xl" style={fontCondensed}>{unit.value}</div>
+                            <div className="text-3xl font-black leading-none text-slate-900 sm:text-4xl" style={fontCondensed}>{unit.value}</div>
                             <div className="mt-1 text-[10px] uppercase tracking-[0.25em] text-slate-500" style={fontCondensed}>{unit.label}</div>
                           </div>
                         ))}
@@ -561,7 +561,7 @@ export function EventLanding() {
 
               {evento.video_url ? (
                 <div className="relative mt-10 overflow-hidden rounded-[24px] border border-red-500/20 shadow-[0_25px_60px_rgba(0,0,0,0.65)]">
-                  <div className="absolute left-4 top-4 z-10 rounded-md bg-red-500/90 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-white backdrop-blur" style={fontCondensed}>
+                  <div className="absolute left-4 top-4 z-10 rounded-md bg-red-500/90 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-slate-900 backdrop-blur" style={fontCondensed}>
                     🎥 Presentación oficial
                   </div>
                   <video autoPlay muted loop playsInline className="max-h-[420px] w-full object-cover">
@@ -591,7 +591,7 @@ export function EventLanding() {
                           <Gift className="h-3.5 w-3.5" />
                           {premio.tipo}
                         </div>
-                        <h3 className="mt-3 text-2xl font-black uppercase tracking-[0.04em] text-white" style={fontCondensed}>{premio.titulo}</h3>
+                        <h3 className="mt-3 text-2xl font-black uppercase tracking-[0.04em] text-slate-900" style={fontCondensed}>{premio.titulo}</h3>
                       </div>
                       <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-right">
                         <div className="text-[11px] uppercase tracking-[0.3em] text-amber-300" style={fontCondensed}>Valor</div>
@@ -601,7 +601,7 @@ export function EventLanding() {
                     {premio.imagen_url ? <img src={premio.imagen_url} alt={premio.titulo} className="mb-4 h-48 w-full rounded-xl object-cover" /> : null}
                     <p className="text-sm leading-6 text-slate-300">{premio.descripcion || 'Premio publicado oficialmente para este evento.'}</p>
                     {premio.numero_ganador ? (
-                      <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-blue-200" style={fontCondensed}>
+                      <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-[10px] uppercase tracking-[0.24em] text-blue-200" style={fontCondensed}>
                         <Trophy className="h-3.5 w-3.5" />
                         Número ganador #{premio.numero_ganador}
                       </div>
@@ -619,7 +619,7 @@ export function EventLanding() {
                   <Truck className="h-4 w-4 text-red-300" />
                   Panel oficial en vivo
                 </div>
-                <h2 className="mt-5 text-4xl uppercase leading-none tracking-[0.08em] text-white sm:text-6xl" style={fontCondensed}>
+                <h2 className="mt-5 text-4xl uppercase leading-none tracking-[0.08em] text-slate-900 sm:text-6xl" style={fontCondensed}>
                   ELIGE TU <span className="bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent">NÚMERO</span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-3xl text-sm text-slate-300 sm:text-base">
@@ -631,7 +631,7 @@ export function EventLanding() {
                 <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-black/30 px-5 py-4">
                   <div className="flex items-center gap-3">
                     <div className="h-2.5 w-2.5 rounded-full bg-red-500 animate-pulse" />
-                    <div className="h-2.5 w-2.5 rounded-full bg-blue-500 animate-pulse [animation-delay:200ms]" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-orange-500 animate-pulse [animation-delay:200ms]" />
                     <div className="h-2.5 w-2.5 rounded-full bg-white/70 animate-pulse [animation-delay:400ms]" />
                     <span className="text-xs uppercase tracking-[0.35em] text-slate-400" style={fontCondensed}>
                       Tablero de boletas · {evento.fecha_sorteo ? formatDateShort(evento.fecha_sorteo) : 'En vivo'}
@@ -648,7 +648,7 @@ export function EventLanding() {
                     <div className="mb-5 flex items-center justify-between gap-3">
                       <div>
                         <div className="text-xs uppercase tracking-[0.35em] text-slate-500" style={fontCondensed}>Números bendecidos</div>
-                        <div className="mt-1 text-2xl font-black uppercase tracking-[0.04em] text-white" style={fontCondensed}>
+                        <div className="mt-1 text-2xl font-black uppercase tracking-[0.04em] text-slate-900" style={fontCondensed}>
                           {formatNumber(numeros_bendecidos?.total || 0)} activos
                         </div>
                       </div>
@@ -702,7 +702,7 @@ export function EventLanding() {
                   <div className="space-y-4">
                     <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                       <div className="text-xs uppercase tracking-[0.35em] text-slate-500" style={fontCondensed}>Cómo participar</div>
-                      <h3 className="mt-2 text-3xl font-black uppercase tracking-[0.04em] text-white" style={fontCondensed}>4 pasos rápidos</h3>
+                      <h3 className="mt-2 text-3xl font-black uppercase tracking-[0.04em] text-slate-900" style={fontCondensed}>4 pasos rápidos</h3>
                       <div className="mt-5 space-y-3">
                         {[
                           ['💬', 'Escríbenos', 'Entra al grupo o contáctanos por WhatsApp para arrancar.'],
@@ -714,7 +714,7 @@ export function EventLanding() {
                             <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg border border-red-500/30 bg-red-500/10 text-xl">{icon}</div>
                             <div>
                               <div className="text-[11px] uppercase tracking-[0.3em] text-red-300" style={fontCondensed}>Paso {index + 1}</div>
-                              <div className="mt-1 text-lg font-bold uppercase tracking-[0.04em] text-white" style={fontCondensed}>{title}</div>
+                              <div className="mt-1 text-lg font-bold uppercase tracking-[0.04em] text-slate-900" style={fontCondensed}>{title}</div>
                               <p className="mt-1 text-sm leading-6 text-slate-300">{text}</p>
                             </div>
                           </div>
@@ -724,7 +724,7 @@ export function EventLanding() {
 
                     <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-red-500/10 to-blue-500/10 p-6">
                       <div className="text-xs uppercase tracking-[0.35em] text-red-200" style={fontCondensed}>Consulta rápida</div>
-                      <h3 className="mt-2 text-3xl font-black uppercase tracking-[0.04em] text-white" style={fontCondensed}>
+                      <h3 className="mt-2 text-3xl font-black uppercase tracking-[0.04em] text-slate-900" style={fontCondensed}>
                         Busca: CONSULTA TUS NÚMEROS
                       </h3>
                       <p className="mt-3 text-sm leading-6 text-slate-300">
@@ -733,7 +733,7 @@ export function EventLanding() {
                       <button
                         type="button"
                         onClick={() => scrollToSection('consulta')}
-                        className="mt-5 inline-flex items-center gap-2 rounded-md border border-blue-500/40 bg-blue-500/10 px-5 py-3 text-sm uppercase tracking-[0.2em] text-blue-200 transition hover:-translate-y-0.5 hover:bg-blue-500/20 hover:text-white"
+                        className="mt-5 inline-flex items-center gap-2 rounded-md border border-orange-500/40 bg-orange-500/10 px-5 py-3 text-sm uppercase tracking-[0.2em] text-blue-200 transition hover:-translate-y-0.5 hover:bg-orange-500/20 hover:text-slate-900"
                         style={fontCondensed}
                       >
                         <Search className="h-4 w-4" />
@@ -746,7 +746,7 @@ export function EventLanding() {
                 <div className="flex flex-col gap-4 border-t border-white/10 px-5 py-4 md:flex-row md:items-center md:justify-between">
                   <p className="text-sm text-slate-300">Los números mostrados arriba son el tablero dinámico de referencia del evento.</p>
                   <div className="flex flex-wrap items-center gap-3">
-                    <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-red-500/30 bg-red-500 px-5 py-3 text-xs uppercase tracking-[0.2em] text-white transition hover:-translate-y-0.5 hover:bg-red-600" style={fontCondensed}>
+                    <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-red-500/30 bg-red-500 px-5 py-3 text-xs uppercase tracking-[0.2em] text-slate-900 transition hover:-translate-y-0.5 hover:bg-red-600" style={fontCondensed}>
                       <MessageCircle className="h-4 w-4" />
                       Reservar por WhatsApp
                     </a>
@@ -767,13 +767,13 @@ export function EventLanding() {
 
           <div className="border-y border-emerald-500/20 bg-gradient-to-r from-[#07140a] via-[#0b2213] to-[#07140a] px-4 py-14 text-center sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl">
-              <h3 className="text-3xl font-black uppercase tracking-[0.16em] text-white sm:text-5xl" style={fontCondensed}>
+              <h3 className="text-3xl font-black uppercase tracking-[0.16em] text-slate-900 sm:text-5xl" style={fontCondensed}>
                 🚛 Asegura tu boleta ahora
               </h3>
-              <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-900/65 sm:text-base">
                 Los cupos son limitados. No dejes pasar esta oportunidad de cambiar tu vida.
               </p>
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-3 rounded-md border border-emerald-400/40 bg-emerald-400/10 px-8 py-4 text-sm font-bold uppercase tracking-[0.3em] text-emerald-300 transition hover:-translate-y-1 hover:bg-emerald-400/20 hover:text-white" style={fontCondensed}>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-3 rounded-md border border-emerald-400/40 bg-emerald-400/10 px-8 py-4 text-sm font-bold uppercase tracking-[0.3em] text-emerald-300 transition hover:-translate-y-1 hover:bg-emerald-400/20 hover:text-slate-900" style={fontCondensed}>
                 <MessageCircle className="h-5 w-5" />
                 Comprar mi boleta por WhatsApp
               </a>
@@ -794,7 +794,7 @@ export function EventLanding() {
                   <div className="text-[11px] uppercase tracking-[0.35em] text-slate-500" style={fontCondensed}>
                     Boleta oficial · {evento.nombre}
                   </div>
-                  <div className="mt-4 text-6xl font-black leading-none text-white sm:text-7xl" style={fontCondensed}>
+                  <div className="mt-4 text-6xl font-black leading-none text-slate-900 sm:text-7xl" style={fontCondensed}>
                     {formatCurrency(evento.precio_por_entrada)}
                   </div>
                   <div className="mt-2 text-sm uppercase tracking-[0.24em] text-slate-400" style={fontCondensed}>
@@ -835,17 +835,17 @@ export function EventLanding() {
                         className={`group relative overflow-hidden rounded-2xl border p-6 text-left shadow-[0_18px_40px_rgba(0,0,0,0.35)] transition hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(0,0,0,0.5)] ${paquete.es_mas_popular ? 'border-amber-400/60 bg-gradient-to-br from-amber-500/15 to-white/5' : 'border-white/10 bg-white/5'}`}
                       >
                         {paquete.es_mas_popular ? (
-                          <div className="absolute -right-8 top-5 rotate-12 bg-gradient-to-r from-amber-400 to-orange-500 px-8 py-1.5 text-[10px] font-black uppercase tracking-[0.28em] text-white shadow-lg" style={fontCondensed}>
+                          <div className="absolute -right-8 top-5 rotate-12 bg-gradient-to-r from-amber-400 to-orange-500 px-8 py-1.5 text-[10px] font-black uppercase tracking-[0.28em] text-slate-900 shadow-lg" style={fontCondensed}>
                             ⭐ Más popular
                           </div>
                         ) : null}
 
                         <div className="mb-4 rounded-2xl border border-white/10 bg-black/25 p-4 text-center">
-                          <div className="text-5xl font-black leading-none text-white" style={fontCondensed}>{formatNumber(paquete.cantidad_entradas)}</div>
+                          <div className="text-5xl font-black leading-none text-slate-900" style={fontCondensed}>{formatNumber(paquete.cantidad_entradas)}</div>
                           <div className="mt-2 text-[11px] uppercase tracking-[0.3em] text-slate-500" style={fontCondensed}>Boletas</div>
                         </div>
 
-                        <div className="text-4xl font-black text-white" style={fontCondensed}>{formatCurrency(paquete.precio_total)}</div>
+                        <div className="text-4xl font-black text-slate-900" style={fontCondensed}>{formatCurrency(paquete.precio_total)}</div>
                         <div className="mt-2 text-sm text-slate-400">{formatCurrency(paquete.precio_total / paquete.cantidad_entradas)} por entrada</div>
                         <div className="mt-4 inline-flex items-center gap-2 rounded-md border border-emerald-400/25 bg-emerald-400/10 px-4 py-2 text-[11px] uppercase tracking-[0.24em] text-emerald-200 transition group-hover:bg-emerald-400/20" style={fontCondensed}>
                           <Star className="h-3.5 w-3.5" />
@@ -864,7 +864,7 @@ export function EventLanding() {
 
               {evento.condiciones ? (
                 <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <h3 className="text-2xl font-black uppercase tracking-[0.04em] text-white" style={fontCondensed}>¿Cómo participar?</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-[0.04em] text-slate-900" style={fontCondensed}>¿Cómo participar?</h3>
                   <div className="mt-3 whitespace-pre-wrap text-sm leading-7 text-slate-300">{evento.condiciones}</div>
                 </div>
               ) : null}
@@ -873,7 +873,7 @@ export function EventLanding() {
 
           <section id="consulta" className="scroll-mt-24 px-4 py-20 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-4xl">
-              <div className="rounded-[28px] border border-blue-500/20 bg-white/5 p-6 shadow-[0_25px_60px_rgba(0,0,0,0.45)] backdrop-blur-sm sm:p-8">
+              <div className="rounded-[28px] border border-orange-500/20 bg-white/5 p-6 shadow-[0_25px_60px_rgba(0,0,0,0.45)] backdrop-blur-sm sm:p-8">
                 <SectionTitle
                   eyebrow="Consulta de boletas"
                   title="CONSULTA"
@@ -883,11 +883,11 @@ export function EventLanding() {
 
                 <form onSubmit={handleLookup} className="mt-8 space-y-5">
                   <div className="grid gap-3 sm:grid-cols-2">
-                    <label className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 transition ${lookupType === 'email' ? 'border-blue-500/40 bg-blue-500/10 text-white' : 'border-white/10 bg-black/20 text-slate-300'}`}>
+                    <label className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 transition ${lookupType === 'email' ? 'border-orange-500/40 bg-orange-500/10 text-slate-900' : 'border-white/10 bg-black/20 text-slate-300'}`}>
                       <input type="radio" checked={lookupType === 'email'} onChange={() => setLookupType('email')} className="accent-blue-500" />
                       <span className="text-sm uppercase tracking-[0.24em]" style={fontCondensed}>Correo electrónico</span>
                     </label>
-                    <label className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 transition ${lookupType === 'documento' ? 'border-blue-500/40 bg-blue-500/10 text-white' : 'border-white/10 bg-black/20 text-slate-300'}`}>
+                    <label className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 transition ${lookupType === 'documento' ? 'border-orange-500/40 bg-orange-500/10 text-slate-900' : 'border-white/10 bg-black/20 text-slate-300'}`}>
                       <input type="radio" checked={lookupType === 'documento'} onChange={() => setLookupType('documento')} className="accent-blue-500" />
                       <span className="text-sm uppercase tracking-[0.24em]" style={fontCondensed}>Número de documento</span>
                     </label>
@@ -904,14 +904,14 @@ export function EventLanding() {
                       onChange={(e) => setLookupValue(e.target.value)}
                       required
                       placeholder={lookupType === 'email' ? 'tu@correo.com' : '1234567890'}
-                      className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-4 text-white placeholder:text-slate-500 focus:border-blue-500/60 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                      className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-4 text-slate-900 placeholder:text-slate-500 focus:border-orange-500/60 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={lookingUp}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-blue-500/40 bg-gradient-to-r from-blue-600 to-blue-500 px-5 py-4 text-sm font-bold uppercase tracking-[0.26em] text-white transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-orange-500/40 bg-gradient-to-r from-orange-500 to-blue-500 px-5 py-4 text-sm font-bold uppercase tracking-[0.26em] text-slate-900 transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
                     style={fontCondensed}
                   >
                     <Search className="h-4 w-4" />
@@ -937,11 +937,11 @@ export function EventLanding() {
                           <div className="mt-4 grid gap-3 sm:grid-cols-2">
                             <div className="rounded-xl border border-white/10 bg-white/5 p-4">
                               <div className="text-xs uppercase tracking-[0.24em] text-slate-500" style={fontCondensed}>Cantidad de boletas</div>
-                              <div className="mt-2 text-3xl font-black text-white" style={fontCondensed}>{formatNumber(compra.cantidad_entradas)}</div>
+                              <div className="mt-2 text-3xl font-black text-slate-900" style={fontCondensed}>{formatNumber(compra.cantidad_entradas)}</div>
                             </div>
                             <div className="rounded-xl border border-white/10 bg-white/5 p-4">
                               <div className="text-xs uppercase tracking-[0.24em] text-slate-500" style={fontCondensed}>Total pagado</div>
-                              <div className="mt-2 text-3xl font-black text-white" style={fontCondensed}>{formatCurrency(compra.monto_total)}</div>
+                              <div className="mt-2 text-3xl font-black text-slate-900" style={fontCondensed}>{formatCurrency(compra.monto_total)}</div>
                             </div>
                           </div>
 
@@ -952,7 +952,7 @@ export function EventLanding() {
                                 {compra.entradas.map((entrada: any) => (
                                   <span
                                     key={entrada.id}
-                                    className={`inline-flex items-center rounded-lg border px-3 py-1.5 font-mono text-sm font-semibold ${entrada.es_bendecida ? 'border-amber-500/30 bg-amber-500/10 text-amber-200' : 'border-blue-500/30 bg-blue-500/10 text-blue-200'}`}
+                                    className={`inline-flex items-center rounded-lg border px-3 py-1.5 font-mono text-sm font-semibold ${entrada.es_bendecida ? 'border-amber-500/30 bg-amber-500/10 text-amber-200' : 'border-orange-500/30 bg-orange-500/10 text-blue-200'}`}
                                   >
                                     #{String(entrada.numero_entrada).padStart(4, '0')}
                                     {entrada.es_bendecida ? ' ⭐' : ''}
@@ -990,7 +990,7 @@ export function EventLanding() {
                 ].map(([icon, title, text]) => (
                   <div key={String(title)} className="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:-translate-y-1 hover:bg-white/10">
                     <div className="text-2xl">{icon}</div>
-                    <div className="mt-3 text-xl font-black uppercase tracking-[0.04em] text-white" style={fontCondensed}>{title}</div>
+                    <div className="mt-3 text-xl font-black uppercase tracking-[0.04em] text-slate-900" style={fontCondensed}>{title}</div>
                     <p className="mt-2 text-sm leading-6 text-slate-300">{text}</p>
                   </div>
                 ))}
@@ -1004,10 +1004,10 @@ export function EventLanding() {
 
           <div className="border-y border-emerald-500/20 bg-gradient-to-r from-[#0a1f0f] via-[#0d2a18] to-[#0a1f0f] px-4 py-14 text-center sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl">
-              <h3 className="text-3xl font-black uppercase tracking-[0.16em] text-white sm:text-5xl" style={fontCondensed}>🏆 No te quedes sin la tuya</h3>
-              <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">Los cupos se agotan. Cada boleta que no compras es una oportunidad que se pierde.</p>
+              <h3 className="text-3xl font-black uppercase tracking-[0.16em] text-slate-900 sm:text-5xl" style={fontCondensed}>🏆 No te quedes sin la tuya</h3>
+              <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-slate-900/65 sm:text-base">Los cupos se agotan. Cada boleta que no compras es una oportunidad que se pierde.</p>
               <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-md border border-emerald-400/40 bg-emerald-400/10 px-8 py-4 text-sm font-bold uppercase tracking-[0.3em] text-emerald-300 transition hover:-translate-y-1 hover:bg-emerald-400/20 hover:text-white" style={fontCondensed}>
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-md border border-emerald-400/40 bg-emerald-400/10 px-8 py-4 text-sm font-bold uppercase tracking-[0.3em] text-emerald-300 transition hover:-translate-y-1 hover:bg-emerald-400/20 hover:text-slate-900" style={fontCondensed}>
                   <MessageCircle className="h-5 w-5" />
                   Comprar boleta — {formatCurrency(evento.precio_por_entrada)}
                 </a>
@@ -1026,7 +1026,7 @@ export function EventLanding() {
 
           <section className="px-4 py-20 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-4xl text-center">
-              <h2 className="text-5xl font-black uppercase leading-none tracking-[0.12em] text-white sm:text-7xl" style={fontCondensed}>
+              <h2 className="text-5xl font-black uppercase leading-none tracking-[0.12em] text-slate-900 sm:text-7xl" style={fontCondensed}>
                 <span className="block">TU MOMENTO</span>
                 <span className="block bg-gradient-to-r from-red-500 via-red-400 to-blue-500 bg-clip-text text-transparent">ES AHORA</span>
               </h2>
@@ -1039,7 +1039,7 @@ export function EventLanding() {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-3 rounded-md border border-red-500/30 bg-gradient-to-r from-red-600 to-red-500 px-8 py-5 text-sm font-bold uppercase tracking-[0.3em] text-white shadow-[0_12px_40px_rgba(192,21,42,0.45)] transition hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(192,21,42,0.65)]"
+                className="mt-8 inline-flex items-center gap-3 rounded-md border border-red-500/30 bg-gradient-to-r from-red-600 to-red-500 px-8 py-5 text-sm font-bold uppercase tracking-[0.3em] text-slate-900 shadow-[0_12px_40px_rgba(192,21,42,0.45)] transition hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(192,21,42,0.65)]"
                 style={fontCondensed}
               >
                 <MessageCircle className="h-5 w-5" />
@@ -1054,7 +1054,7 @@ export function EventLanding() {
           <footer className="border-t-2 border-red-500 bg-black px-4 pb-8 pt-10 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl text-center">
               <img src={LOGO_URL} alt="Toyo Turbos RH" className="mx-auto h-14 w-auto object-contain" />
-              <div className="mt-4 text-lg font-black uppercase tracking-[0.2em] text-white" style={fontCondensed}>TOYO TURBOS RH</div>
+              <div className="mt-4 text-lg font-black uppercase tracking-[0.2em] text-slate-900" style={fontCondensed}>TOYO TURBOS RH</div>
               <div className="mt-1 text-xs uppercase tracking-[0.4em] text-slate-500" style={fontCondensed}>
                 La Rifa del Siglo · {formatDateShort(evento.fecha_sorteo || evento.fecha_cierre)}
               </div>
@@ -1071,13 +1071,13 @@ export function EventLanding() {
               </div>
 
               <div className="mt-6 flex justify-center gap-3">
-                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center rounded-md bg-emerald-500 text-white transition hover:-translate-y-1" aria-label="WhatsApp">
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center rounded-md bg-emerald-500 text-slate-900 transition hover:-translate-y-1" aria-label="WhatsApp">
                   <MessageCircle className="h-5 w-5" />
                 </a>
-                <a href="https://www.facebook.com/ToyoTurbosRH" target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center rounded-md bg-blue-600 text-white transition hover:-translate-y-1" aria-label="Facebook">
+                <a href="https://www.facebook.com/ToyoTurbosRH" target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center rounded-md bg-orange-500 text-slate-900 transition hover:-translate-y-1" aria-label="Facebook">
                   <Facebook className="h-5 w-5" />
                 </a>
-                <a href="https://www.instagram.com/toyoturbosrh25/" target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center rounded-md bg-gradient-to-br from-fuchsia-500 via-red-500 to-yellow-500 text-white transition hover:-translate-y-1" aria-label="Instagram">
+                <a href="https://www.instagram.com/toyoturbosrh25/" target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center rounded-md bg-gradient-to-br from-fuchsia-500 via-red-500 to-yellow-500 text-slate-900 transition hover:-translate-y-1" aria-label="Instagram">
                   <Instagram className="h-5 w-5" />
                 </a>
               </div>

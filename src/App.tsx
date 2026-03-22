@@ -45,12 +45,12 @@ import { SuperAdminAuditoria } from './pages/superadmin/SuperAdminAuditoria';
 
 // Mocks visuales
 const Placeholder = ({ title, desc }: { title: string; desc?: string }) => (
-  <div className="flex flex-col items-center justify-center p-8 bg-gray-800 rounded-xl border border-gray-700 text-center mt-10 max-w-2xl mx-auto shadow-2xl">
-    <div className="w-16 h-16 bg-gray-700/50 rounded-full flex items-center justify-center mb-6">
-      <div className="w-8 h-8 bg-blue-500 rounded-full animate-pulse" />
+  <div className="flex flex-col items-center justify-center p-8 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 text-center mt-10 max-w-2xl mx-auto shadow-2xl">
+    <div className="w-16 h-16 bg-slate-100/50 rounded-full flex items-center justify-center mb-6">
+      <div className="w-8 h-8 bg-orange-500 rounded-full animate-pulse" />
     </div>
-    <h1 className="text-2xl font-bold text-white mb-3">{title}</h1>
-    <p className="text-gray-400 leading-relaxed">
+    <h1 className="text-2xl font-bold text-slate-900 mb-3">{title}</h1>
+    <p className="text-slate-500 leading-relaxed">
       {desc || 'Módulo bajo construcción.'}
     </p>
   </div>

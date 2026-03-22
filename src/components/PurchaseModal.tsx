@@ -171,32 +171,32 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
 
   return (
     <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-      <div className="bg-gray-900 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-        <div className="sticky top-0 bg-gray-900 border-b border-gray-700 px-6 py-4 flex items-center justify-between">
+      <div className="bg-slate-50 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+        <div className="sticky top-0 bg-slate-50 border-b border-white/50 px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             {step > 1 && step < 4 && (
               <button
                 onClick={() => setStep((prev) => (prev - 1) as Step)}
-                className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
+                className="p-2 hover:bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-lg transition-colors"
               >
-                <ChevronLeft className="w-5 h-5 text-gray-400" />
+                <ChevronLeft className="w-5 h-5 text-slate-500" />
               </button>
             )}
             <div>
-              <h2 className="text-xl font-bold text-white">
+              <h2 className="text-xl font-bold text-slate-900">
                 {step === 1 && 'Datos del Comprador'}
                 {step === 2 && 'Confirmar Pedido'}
                 {step === 3 && 'Comprobante de Pago'}
                 {step === 4 && 'Compra Registrada'}
               </h2>
-              <p className="text-sm text-gray-400">Paso {step} de 4</p>
+              <p className="text-sm text-slate-500">Paso {step} de 4</p>
             </div>
           </div>
           <button
             onClick={handleClose}
-            className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
+            className="p-2 hover:bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-lg transition-colors"
           >
-            <X className="w-5 h-5 text-gray-400" />
+            <X className="w-5 h-5 text-slate-500" />
           </button>
         </div>
 
@@ -205,13 +205,13 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
             <form onSubmit={handleSubmitCustomerInfo} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-600 mb-2">
                     Tipo de Documento
                   </label>
                   <select
                     value={formData.documento_tipo}
                     onChange={(e) => setFormData({ ...formData, documento_tipo: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     required
                   >
                     <option value="CC">Cédula de Ciudadanía</option>
@@ -222,50 +222,50 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-600 mb-2">
                     Número de Documento *
                   </label>
                   <input
                     type="text"
                     value={formData.documento_numero}
                     onChange={(e) => setFormData({ ...formData, documento_numero: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Nombre Completo *
                 </label>
                 <input
                   type="text"
                   value={formData.nombre_comprador}
                   onChange={(e) => setFormData({ ...formData, nombre_comprador: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Correo Electrónico *
                 </label>
                 <input
                   type="email"
                   value={formData.correo_comprador}
                   onChange={(e) => setFormData({ ...formData, correo_comprador: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   required
                 />
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-slate-400 mt-1">
                   Usarás este correo para consultar tus boletas
                 </p>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Teléfono / WhatsApp *
                 </label>
                 <div className="flex space-x-2">
@@ -273,67 +273,67 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
                     type="text"
                     value={formData.codigo_pais}
                     onChange={(e) => setFormData({ ...formData, codigo_pais: e.target.value })}
-                    className="w-24 px-3 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent text-center"
+                    className="w-24 px-3 py-3 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 focus:ring-2 focus:ring-orange-500 focus:border-transparent text-center"
                     placeholder="+593"
                   />
                   <input
                     type="tel"
                     value={formData.telefono}
                     onChange={(e) => setFormData({ ...formData, telefono: e.target.value.replace(/\D/g, '') })}
-                    className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="flex-1 px-4 py-3 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     placeholder="3001234567"
                     required
                   />
                 </div>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-slate-400 mt-1">
                   Ejemplo: 3001234567 (sin espacios ni guiones)
                 </p>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-600 mb-2">
                     País *
                   </label>
                   <input
                     type="text"
                     value={formData.pais}
                     onChange={(e) => setFormData({ ...formData, pais: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     placeholder="Ej: Ecuador"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-slate-600 mb-2">
                     Ciudad *
                   </label>
                   <input
                     type="text"
                     value={formData.ciudad}
                     onChange={(e) => setFormData({ ...formData, ciudad: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                     placeholder="Ej: Quito"
                     required
                   />
                 </div>
               </div>
 
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-                <h3 className="text-white font-semibold mb-2">Resumen</h3>
+              <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-lg p-4 border border-white/50">
+                <h3 className="text-slate-900 font-semibold mb-2">Resumen</h3>
                 <div className="space-y-1 text-sm">
-                  <div className="flex justify-between text-gray-400">
+                  <div className="flex justify-between text-slate-500">
                     <span>Cantidad de boletas:</span>
-                    <span className="text-white font-semibold">{quantity}</span>
+                    <span className="text-slate-900 font-semibold">{quantity}</span>
                   </div>
-                  <div className="flex justify-between text-gray-400">
+                  <div className="flex justify-between text-slate-500">
                     <span>Precio unitario:</span>
-                    <span className="text-white">${eventData.precio_por_entrada.toLocaleString()}</span>
+                    <span className="text-slate-900">${eventData.precio_por_entrada.toLocaleString()}</span>
                   </div>
-                  <div className="border-t border-gray-700 pt-2 mt-2 flex justify-between">
-                    <span className="text-white font-semibold">Total a pagar:</span>
-                    <span className="text-blue-400 font-bold text-lg">
+                  <div className="border-t border-white/50 pt-2 mt-2 flex justify-between">
+                    <span className="text-slate-900 font-semibold">Total a pagar:</span>
+                    <span className="text-orange-500 font-bold text-lg">
                       ${total.toLocaleString()} USD
                     </span>
                   </div>
@@ -343,7 +343,7 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition-colors"
+                className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-slate-100 disabled:cursor-not-allowed text-slate-900 font-semibold py-3 rounded-lg transition-colors"
               >
                 {loading ? 'Procesando...' : 'Continuar'}
               </button>
@@ -352,9 +352,9 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
 
           {step === 2 && (
             <div className="space-y-6">
-              <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+              <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-4">
                 <div className="flex items-start space-x-3">
-                  <AlertCircle className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                  <AlertCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
                   <div className="text-sm text-blue-300">
                     <p className="font-semibold mb-1">Importante</p>
                     <p>
@@ -365,30 +365,30 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
                 </div>
               </div>
 
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-                <h3 className="text-white font-semibold mb-3">Detalle de la Compra</h3>
+              <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-lg p-4 border border-white/50">
+                <h3 className="text-slate-900 font-semibold mb-3">Detalle de la Compra</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Evento:</span>
-                    <span className="text-white font-medium">{eventData.nombre}</span>
+                    <span className="text-slate-500">Evento:</span>
+                    <span className="text-slate-900 font-medium">{eventData.nombre}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Fecha sorteo:</span>
-                    <span className="text-white text-sm">
+                    <span className="text-slate-500">Fecha sorteo:</span>
+                    <span className="text-slate-900 text-sm">
                       El sorteo se realizará una vez se haya completado la venta total de números
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Cantidad:</span>
-                    <span className="text-white font-semibold">{quantity} boletas</span>
+                    <span className="text-slate-500">Cantidad:</span>
+                    <span className="text-slate-900 font-semibold">{quantity} boletas</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Valor unitario:</span>
-                    <span className="text-white">${eventData.precio_por_entrada.toLocaleString()}</span>
+                    <span className="text-slate-500">Valor unitario:</span>
+                    <span className="text-slate-900">${eventData.precio_por_entrada.toLocaleString()}</span>
                   </div>
-                  <div className="border-t border-gray-700 pt-2 mt-2 flex justify-between">
-                    <span className="text-white font-semibold">Total a pagar:</span>
-                    <span className="text-blue-400 font-bold text-lg">
+                  <div className="border-t border-white/50 pt-2 mt-2 flex justify-between">
+                    <span className="text-slate-900 font-semibold">Total a pagar:</span>
+                    <span className="text-orange-500 font-bold text-lg">
                       ${total.toLocaleString()} USD
                     </span>
                   </div>
@@ -396,12 +396,12 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-3">
+                <label className="block text-sm font-medium text-slate-600 mb-3">
                   Método de Pago
                 </label>
                 <div className="space-y-3">
                   {eventData.banco_numero_cuenta && (
-                    <label className="flex items-start space-x-3 p-4 bg-gray-800 border-2 border-gray-700 rounded-lg cursor-pointer hover:border-blue-500 transition-colors">
+                    <label className="flex items-start space-x-3 p-4 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border-2 border-white/50 rounded-lg cursor-pointer hover:border-orange-500 transition-colors">
                       <input
                         type="radio"
                         name="metodo_pago"
@@ -411,17 +411,17 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
                         className="mt-1"
                       />
                       <div className="flex-1">
-                        <div className="font-semibold text-white mb-2">Transferencia Bancaria</div>
-                        <div className="text-sm text-gray-400 space-y-1">
-                          <p><span className="font-medium text-gray-300">Banco:</span> {eventData.banco_nombre}</p>
-                          <p><span className="font-medium text-gray-300">Tipo:</span> {eventData.banco_tipo_cuenta}</p>
-                          <p><span className="font-medium text-gray-300">Cuenta:</span> {eventData.banco_numero_cuenta}</p>
-                          <p><span className="font-medium text-gray-300">Titular:</span> {eventData.banco_titular}</p>
+                        <div className="font-semibold text-slate-900 mb-2">Transferencia Bancaria</div>
+                        <div className="text-sm text-slate-500 space-y-1">
+                          <p><span className="font-medium text-slate-600">Banco:</span> {eventData.banco_nombre}</p>
+                          <p><span className="font-medium text-slate-600">Tipo:</span> {eventData.banco_tipo_cuenta}</p>
+                          <p><span className="font-medium text-slate-600">Cuenta:</span> {eventData.banco_numero_cuenta}</p>
+                          <p><span className="font-medium text-slate-600">Titular:</span> {eventData.banco_titular}</p>
                           {eventData.banco_documento && (
-                            <p><span className="font-medium text-gray-300">Documento:</span> {eventData.banco_documento}</p>
+                            <p><span className="font-medium text-slate-600">Documento:</span> {eventData.banco_documento}</p>
                           )}
                           {eventData.banco_info_adicional && (
-                            <p className="text-blue-400 mt-2">{eventData.banco_info_adicional}</p>
+                            <p className="text-orange-500 mt-2">{eventData.banco_info_adicional}</p>
                           )}
                         </div>
                       </div>
@@ -429,7 +429,7 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
                   )}
 
                   {eventData.nequi_numero && (
-                    <label className="flex items-start space-x-3 p-4 bg-gray-800 border-2 border-gray-700 rounded-lg cursor-pointer hover:border-blue-500 transition-colors">
+                    <label className="flex items-start space-x-3 p-4 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border-2 border-white/50 rounded-lg cursor-pointer hover:border-orange-500 transition-colors">
                       <input
                         type="radio"
                         name="metodo_pago"
@@ -439,10 +439,10 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
                         className="mt-1"
                       />
                       <div className="flex-1">
-                        <div className="font-semibold text-white mb-2">Nequi</div>
-                        <div className="text-sm text-gray-400 space-y-1">
-                          <p><span className="font-medium text-gray-300">Número:</span> {eventData.nequi_numero}</p>
-                          <p><span className="font-medium text-gray-300">Titular:</span> {eventData.nequi_titular}</p>
+                        <div className="font-semibold text-slate-900 mb-2">Nequi</div>
+                        <div className="text-sm text-slate-500 space-y-1">
+                          <p><span className="font-medium text-slate-600">Número:</span> {eventData.nequi_numero}</p>
+                          <p><span className="font-medium text-slate-600">Titular:</span> {eventData.nequi_titular}</p>
                         </div>
                       </div>
                     </label>
@@ -451,8 +451,8 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
               </div>
 
               {(packageData?.url_pago || eventData.url_pasarela) && (
-                <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-5 border-2 border-blue-400 shadow-lg">
-                  <h4 className="text-white font-bold mb-2 text-lg flex items-center">
+                <div className="bg-gradient-to-r from-orange-500 to-blue-700 rounded-lg p-5 border-2 border-blue-400 shadow-lg">
+                  <h4 className="text-slate-900 font-bold mb-2 text-lg flex items-center">
                     <span className="mr-2">💳</span> Pagar con PayPal
                   </h4>
                   <p className="text-sm text-blue-100 mb-4">
@@ -479,7 +479,7 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
 
               <button
                 onClick={() => setStep(3)}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors"
+                className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 font-semibold py-3 rounded-lg transition-colors"
               >
                 Continuar al Comprobante
               </button>
@@ -501,10 +501,10 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-3">
+                <label className="block text-sm font-medium text-slate-600 mb-3">
                   Comprobante de Pago *
                 </label>
-                <div className="border-2 border-dashed border-gray-700 rounded-lg p-6 text-center hover:border-blue-500 transition-colors">
+                <div className="border-2 border-dashed border-white/50 rounded-lg p-6 text-center hover:border-orange-500 transition-colors">
                   <input
                     type="file"
                     accept="image/*,.pdf"
@@ -521,27 +521,27 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
                           alt="Preview"
                           className="max-h-64 mx-auto rounded-lg"
                         />
-                        <p className="text-sm text-gray-400">Click para cambiar imagen</p>
+                        <p className="text-sm text-slate-500">Click para cambiar imagen</p>
                       </div>
                     ) : (
                       <div className="space-y-3">
-                        <Upload className="w-12 h-12 text-gray-400 mx-auto" />
+                        <Upload className="w-12 h-12 text-slate-500 mx-auto" />
                         <div>
-                          <p className="text-white font-medium">Selecciona una imagen</p>
-                          <p className="text-sm text-gray-400">PNG, JPG, PDF - Max 10MB</p>
+                          <p className="text-slate-900 font-medium">Selecciona una imagen</p>
+                          <p className="text-sm text-slate-500">PNG, JPG, PDF - Max 10MB</p>
                         </div>
                       </div>
                     )}
                   </label>
                 </div>
-                <p className="text-xs text-gray-500 mt-2">
+                <p className="text-xs text-slate-400 mt-2">
                   Formatos permitidos: .JPEG, .JPG, .PNG, .PDF
                 </p>
               </div>
 
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-                <h3 className="text-white font-semibold mb-2">Total pagado</h3>
-                <p className="text-3xl font-bold text-blue-400">
+              <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-lg p-4 border border-white/50">
+                <h3 className="text-slate-900 font-semibold mb-2">Total pagado</h3>
+                <p className="text-3xl font-bold text-orange-500">
                   ${total.toLocaleString()} USD
                 </p>
               </div>
@@ -549,7 +549,7 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
               <button
                 type="submit"
                 disabled={loading || !receiptFile}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-700 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-lg transition-colors"
+                className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-slate-100 disabled:cursor-not-allowed text-slate-900 font-semibold py-3 rounded-lg transition-colors"
               >
                 {loading ? 'Enviando...' : 'Enviar Comprobante de Pago'}
               </button>
@@ -565,41 +565,41 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-white mb-2">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">
                   Compra Registrada Exitosamente
                 </h3>
-                <p className="text-gray-400">
+                <p className="text-slate-500">
                   Tu comprobante ha sido enviado y está en proceso de revisión
                 </p>
               </div>
 
-              <div className="bg-gray-800 rounded-lg p-6 text-left border border-gray-700">
-                <h4 className="font-semibold text-white mb-3">¿Qué sigue?</h4>
-                <ol className="space-y-2 text-sm text-gray-400">
+              <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-lg p-6 text-left border border-white/50">
+                <h4 className="font-semibold text-slate-900 mb-3">¿Qué sigue?</h4>
+                <ol className="space-y-2 text-sm text-slate-500">
                   <li className="flex items-start space-x-2">
-                    <span className="font-bold text-blue-400">1.</span>
+                    <span className="font-bold text-orange-500">1.</span>
                     <span>Nuestro equipo revisará tu comprobante de pago</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-bold text-blue-400">2.</span>
+                    <span className="font-bold text-orange-500">2.</span>
                     <span>Una vez aprobado, recibirás un correo con tus números</span>
                   </li>
                   <li className="flex items-start space-x-2">
-                    <span className="font-bold text-blue-400">3.</span>
+                    <span className="font-bold text-orange-500">3.</span>
                     <span>Podrás consultar tus boletas con tu correo o documento</span>
                   </li>
                 </ol>
               </div>
 
-              <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+              <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-4">
                 <p className="text-sm text-blue-300">
-                  <span className="font-semibold">Recuerda:</span> Guarda tu correo <span className="font-mono bg-gray-800 px-2 py-1 rounded">{formData.correo_comprador}</span> y documento para consultar tus boletas. También recibirás notificaciones por WhatsApp al <span className="font-mono">{formData.codigo_pais}{formData.telefono}</span>.
+                  <span className="font-semibold">Recuerda:</span> Guarda tu correo <span className="font-mono bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm px-2 py-1 rounded">{formData.correo_comprador}</span> y documento para consultar tus boletas. También recibirás notificaciones por WhatsApp al <span className="font-mono">{formData.codigo_pais}{formData.telefono}</span>.
                 </p>
               </div>
 
               <button
                 onClick={handleClose}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors"
+                className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 font-semibold py-3 rounded-lg transition-colors"
               >
                 Entendido
               </button>

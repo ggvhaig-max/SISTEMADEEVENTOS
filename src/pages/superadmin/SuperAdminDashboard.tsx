@@ -82,19 +82,19 @@ export function SuperAdminDashboard() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">SuperAdmin Dashboard</h1>
+        <h1 className="text-2xl font-bold text-slate-900">SuperAdmin Dashboard</h1>
         <button 
           onClick={fetchDashboardStats}
-          className="px-4 py-2 bg-gray-800 text-sm text-gray-300 rounded-lg hover:bg-gray-700 transition"
+          className="px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm text-sm text-slate-600 rounded-lg hover:bg-slate-100 transition"
         >
           Actualizar Datos
         </button>
       </div>
 
       {/* Tenants Stats */}
-      <h2 className="text-lg font-medium text-gray-300 border-b border-gray-700 pb-2 mt-8">Licencias y Clientes</h2>
+      <h2 className="text-lg font-medium text-slate-600 border-b border-white/50 pb-2 mt-8">Licencias y Clientes</h2>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
-        <StatCard title="Total Clientes" value={stats.totalTenants} icon={<Users className="w-6 h-6 text-blue-400" />} />
+        <StatCard title="Total Clientes" value={stats.totalTenants} icon={<Users className="w-6 h-6 text-orange-500" />} />
         <StatCard title="En Prueba" value={stats.prueba} icon={<Clock className="w-6 h-6 text-purple-400" />} />
         <StatCard title="Activos" value={stats.activos} icon={<CheckCircle className="w-6 h-6 text-green-400" />} />
         <StatCard title="Vencidos" value={stats.vencidos} icon={<AlertTriangle className="w-6 h-6 text-yellow-400" />} />
@@ -102,12 +102,12 @@ export function SuperAdminDashboard() {
       </div>
 
       {/* Pagos Stats */}
-      <h2 className="text-lg font-medium text-gray-300 border-b border-gray-700 pb-2 mt-8">Operativa Financiera</h2>
+      <h2 className="text-lg font-medium text-slate-600 border-b border-white/50 pb-2 mt-8">Operativa Financiera</h2>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard title="Pagos Pendientes" value={stats.pagosPendientes} icon={<CreditCard className="w-6 h-6 text-yellow-400" />} />
         <StatCard title="Pagos Aprobados" value={stats.pagosAprobados} icon={<Shield className="w-6 h-6 text-green-400" />} />
         <StatCard title="Comisiones Por Pagar" value={formatCurrency(stats.comisionesPorPagar)} icon={<DollarSign className="w-6 h-6 text-orange-400" />} />
-        <StatCard title="Comisiones Pagadas" value={formatCurrency(stats.comisionesPagadas)} icon={<DollarSign className="w-6 h-6 text-blue-400" />} />
+        <StatCard title="Comisiones Pagadas" value={formatCurrency(stats.comisionesPagadas)} icon={<DollarSign className="w-6 h-6 text-orange-500" />} />
       </div>
     </div>
   );
@@ -115,16 +115,16 @@ export function SuperAdminDashboard() {
 
 function StatCard({ title, value, icon }: { title: string; value: string | number; icon: React.ReactNode }) {
   return (
-    <div className="bg-gray-800 overflow-hidden shadow rounded-lg border border-gray-700 relative group hover:border-gray-500 transition-colors">
+    <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm overflow-hidden shadow rounded-lg border border-white/50 relative group hover:border-gray-500 transition-colors">
       <div className="p-5">
         <div className="flex items-center">
-          <div className="flex-shrink-0 bg-gray-900 rounded-md p-3">
+          <div className="flex-shrink-0 bg-slate-50 rounded-md p-3">
             {icon}
           </div>
           <div className="ml-5 w-0 flex-1">
             <dl>
-              <dt className="text-sm font-medium text-gray-400 truncate">{title}</dt>
-              <dd className="text-2xl font-semibold text-white mt-1">{value}</dd>
+              <dt className="text-sm font-medium text-slate-500 truncate">{title}</dt>
+              <dd className="text-2xl font-semibold text-slate-900 mt-1">{value}</dd>
             </dl>
           </div>
         </div>

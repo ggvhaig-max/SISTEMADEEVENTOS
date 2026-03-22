@@ -39,10 +39,10 @@ export function InstallPWA() {
   if (!showInstallBanner) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg shadow-2xl p-4 z-50 animate-slide-up">
+    <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-900 rounded-lg shadow-2xl p-4 z-50 animate-slide-up">
       <button
         onClick={() => setShowInstallBanner(false)}
-        className="absolute top-2 right-2 text-white/80 hover:text-white"
+        className="absolute top-2 right-2 text-slate-900/80 hover:text-slate-900"
       >
         <X className="w-5 h-5" />
       </button>

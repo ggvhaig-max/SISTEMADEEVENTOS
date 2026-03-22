@@ -132,11 +132,11 @@ export const SuperAdminTickets = () => {
 
   const getStatusColor = (estado: string) => {
     switch(estado) {
-      case 'abierto': return 'bg-blue-500/10 text-blue-500 border-blue-500/20';
+      case 'abierto': return 'bg-orange-500/10 text-orange-500 border-orange-500/20';
       case 'en_proceso': return 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20';
       case 'resuelto': return 'bg-green-500/10 text-green-500 border-green-500/20';
-      case 'cerrado': return 'bg-gray-500/10 text-gray-500 border-gray-500/20';
-      default: return 'bg-gray-500/10 text-gray-500 border-gray-500/20';
+      case 'cerrado': return 'bg-gray-500/10 text-slate-400 border-gray-500/20';
+      default: return 'bg-gray-500/10 text-slate-400 border-gray-500/20';
     }
   };
 
@@ -159,18 +159,18 @@ export const SuperAdminTickets = () => {
     <div className="p-6 max-w-7xl mx-auto flex flex-col h-[calc(100vh-80px)]">
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h1 className="text-2xl font-bold font-outfit text-white">Inbox de Soporte</h1>
-          <p className="text-gray-400">Atención a quejas, dudas y problemas de Tenants</p>
+          <h1 className="text-2xl font-bold font-outfit text-slate-900">Inbox de Soporte</h1>
+          <p className="text-slate-500">Atención a quejas, dudas y problemas de Tenants</p>
         </div>
       </div>
 
       <div className="flex gap-6 flex-1 min-h-0">
         {/* Lado Izquierdo: Lista de Tickets y Filtros */}
-        <div className={`w-1/3 min-w-[320px] max-w-[400px] bg-gray-800 rounded-xl border border-gray-700 flex flex-col overflow-hidden ${selectedTicket ? 'hidden md:flex' : 'w-full'}`}>
-          <div className="p-4 border-b border-gray-700 bg-gray-800/50 space-y-3">
+        <div className={`w-1/3 min-w-[320px] max-w-[400px] bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 flex flex-col overflow-hidden ${selectedTicket ? 'hidden md:flex' : 'w-full'}`}>
+          <div className="p-4 border-b border-white/50 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm/50 space-y-3">
             <div className="flex gap-2">
                <select 
-                  className="bg-gray-900 border border-gray-700 text-sm text-white rounded-lg px-2 py-1.5 focus:outline-none flex-1"
+                  className="bg-slate-50 border border-white/50 text-sm text-slate-900 rounded-lg px-2 py-1.5 focus:outline-none flex-1"
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
                >
@@ -183,19 +183,19 @@ export const SuperAdminTickets = () => {
               <input
                 type="text"
                 placeholder="Buscar por asunto, tenant..."
-                className="w-full bg-gray-900 border border-gray-700 rounded-lg pl-9 pr-4 py-2 text-white text-sm focus:border-blue-500 focus:outline-none"
+                className="w-full bg-slate-50 border border-white/50 rounded-lg pl-9 pr-4 py-2 text-slate-900 text-sm focus:border-orange-500 focus:outline-none"
                 value={searchTerm}
                 onChange={e => setSearchTerm(e.target.value)}
               />
-              <Search className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
             </div>
           </div>
           
           <div className="overflow-y-auto flex-1 p-2 space-y-2 custom-scrollbar">
             {loading ? (
-               <p className="text-center p-4 text-gray-500 text-sm">Cargando bandeja...</p>
+               <p className="text-center p-4 text-slate-400 text-sm">Cargando bandeja...</p>
             ) : filteredTickets.length === 0 ? (
-              <div className="text-center p-8 text-gray-500">
+              <div className="text-center p-8 text-slate-400">
                 <CheckCircle className="w-12 h-12 mx-auto mb-3 opacity-20" />
                 <p>Inbox limpio. No hay tickets.</p>
               </div>
@@ -206,8 +206,8 @@ export const SuperAdminTickets = () => {
                   onClick={() => setSelectedTicket(ticket)}
                   className={`w-full text-left p-4 rounded-lg border transition-all ${
                     selectedTicket?.id === ticket.id 
-                      ? 'bg-blue-600/10 border-blue-500/50' 
-                      : 'bg-gray-800/50 border-gray-700/50 hover:border-gray-600'
+                      ? 'bg-orange-500/10 border-orange-500/50' 
+                      : 'bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm/50 border-white/50/50 hover:border-gray-600'
                   }`}
                 >
                   <div className="flex justify-between items-start mb-2">
@@ -218,9 +218,9 @@ export const SuperAdminTickets = () => {
                       P. {ticket.prioridad}
                     </span>
                   </div>
-                  <h3 className="text-white font-medium truncate text-sm mb-1">{ticket.asunto}</h3>
-                  <p className="text-gray-400 text-xs truncate mb-2">{ticket.tenant?.name || 'Tenant Desconocido'}</p>
-                  <div className="flex items-center gap-1 text-[10px] text-gray-500">
+                  <h3 className="text-slate-900 font-medium truncate text-sm mb-1">{ticket.asunto}</h3>
+                  <p className="text-slate-500 text-xs truncate mb-2">{ticket.tenant?.name || 'Tenant Desconocido'}</p>
+                  <div className="flex items-center gap-1 text-[10px] text-slate-400">
                     <Clock className="w-3 h-3" />
                     Actualizado: {new Date(ticket.ultimo_mensaje_at).toLocaleString()}
                   </div>
@@ -232,17 +232,17 @@ export const SuperAdminTickets = () => {
 
         {/* Lado Derecho: Staff Reply View */}
         {selectedTicket ? (
-          <div className="flex-1 bg-gray-800 rounded-xl border border-gray-700 flex flex-col overflow-hidden">
+          <div className="flex-1 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 flex flex-col overflow-hidden">
             {/* Header Desk */}
-            <div className="p-4 border-b border-gray-700 bg-gray-800/50 flex flex-col gap-3">
+            <div className="p-4 border-b border-white/50 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm/50 flex flex-col gap-3">
               <div className="flex justify-between items-start">
                 <div>
-                  <h2 className="font-bold text-lg text-white mb-1">{selectedTicket.asunto}</h2>
-                  <p className="text-sm text-gray-400">De: {selectedTicket.tenant?.name}</p>
+                  <h2 className="font-bold text-lg text-slate-900 mb-1">{selectedTicket.asunto}</h2>
+                  <p className="text-sm text-slate-500">De: {selectedTicket.tenant?.name}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <select 
-                    className={`text-sm font-medium px-3 py-1.5 rounded bg-gray-900 border border-gray-700 text-white focus:outline-none focus:border-blue-500`}
+                    className={`text-sm font-medium px-3 py-1.5 rounded bg-slate-50 border border-white/50 text-slate-900 focus:outline-none focus:border-orange-500`}
                     value={selectedTicket.estado}
                     onChange={(e) => handleStatusChange(selectedTicket.id, e.target.value)}
                   >
@@ -251,7 +251,7 @@ export const SuperAdminTickets = () => {
                     <option value="resuelto">Resuelto</option>
                     <option value="cerrado">Cerrado</option>
                   </select>
-                  <button onClick={() => setSelectedTicket(null)} className="md:hidden text-gray-400 hover:text-white p-1">
+                  <button onClick={() => setSelectedTicket(null)} className="md:hidden text-slate-500 hover:text-slate-900 p-1">
                     <X className="w-5 h-5" />
                   </button>
                 </div>
@@ -259,13 +259,13 @@ export const SuperAdminTickets = () => {
             </div>
 
             {/* Hilos de char */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar bg-gray-900/50">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 custom-scrollbar bg-slate-50/50">
               {messages.map(msg => {
                 const isStaff = msg.is_staff_reply || msg.usuario_id === user?.id; // asume admin
                 return (
                   <div key={msg.id} className={`flex ${isStaff ? 'justify-end' : 'justify-start'}`}>
                     <div className={`max-w-[80%] rounded-xl p-4 ${
-                      isStaff ? 'bg-blue-600 text-white rounded-br-none' : 'bg-gray-700 text-gray-100 rounded-bl-none'
+                      isStaff ? 'bg-orange-500 text-slate-900 rounded-br-none' : 'bg-slate-100 text-slate-800 rounded-bl-none'
                     }`}>
                       {isStaff && (
                         <div className="text-[10px] font-bold tracking-wider text-blue-200 mb-1 flex items-center justify-end gap-1">
@@ -273,12 +273,12 @@ export const SuperAdminTickets = () => {
                         </div>
                       )}
                       {!isStaff && (
-                        <div className="text-[10px] font-bold tracking-wider text-gray-400 mb-1 flex items-center gap-1">
+                        <div className="text-[10px] font-bold tracking-wider text-slate-500 mb-1 flex items-center gap-1">
                           CLIENTE
                         </div>
                       )}
                       <p className="whitespace-pre-wrap text-sm">{msg.mensaje}</p>
-                      <span className="text-[10px] text-white/50 block mt-2 text-right">
+                      <span className="text-[10px] text-slate-900/50 block mt-2 text-right">
                         {new Date(msg.created_at).toLocaleString()}
                       </span>
                     </div>
@@ -288,7 +288,7 @@ export const SuperAdminTickets = () => {
             </div>
 
             {/* Composer */}
-            <form onSubmit={handleReply} className="p-4 bg-gray-800 border-t border-gray-700">
+            <form onSubmit={handleReply} className="p-4 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border-t border-white/50">
               <div className="flex gap-2">
                 <input
                   type="text"
@@ -296,12 +296,12 @@ export const SuperAdminTickets = () => {
                   onChange={e => setReplyText(e.target.value)}
                   placeholder={selectedTicket.estado === 'cerrado' ? "El ticket está cerrado. Cambia el estado para responder." : "Escribe de parte del Equipo de Soporte..."}
                   disabled={selectedTicket.estado === 'cerrado'}
-                  className="flex-1 bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none disabled:opacity-50"
+                  className="flex-1 bg-slate-50 border border-white/50 rounded-lg px-4 py-2 text-slate-900 placeholder-gray-500 focus:border-orange-500 focus:outline-none disabled:opacity-50"
                 />
                 <button
                   type="submit"
                   disabled={!replyText.trim() || selectedTicket.estado === 'cerrado'}
-                  className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white p-2 px-6 rounded-lg transition-colors flex items-center gap-2 font-medium shadow-lg shadow-blue-500/20"
+                  className="bg-orange-500 hover:bg-orange-600 disabled:opacity-50 text-slate-900 p-2 px-6 rounded-lg transition-colors flex items-center gap-2 font-medium shadow-lg shadow-blue-500/20"
                 >
                   <Send className="w-4 h-4" />
                   <span className="hidden sm:inline">Enviar</span>
@@ -310,9 +310,9 @@ export const SuperAdminTickets = () => {
             </form>
           </div>
         ) : (
-          <div className="hidden md:flex flex-1 bg-gray-800/50 rounded-xl border border-gray-700 items-center justify-center flex-col text-gray-500 p-8 text-center">
+          <div className="hidden md:flex flex-1 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm/50 rounded-xl border border-white/50 items-center justify-center flex-col text-slate-400 p-8 text-center">
             <MessageSquare className="w-16 h-16 mb-4 opacity-20" />
-            <h3 className="text-xl font-medium text-gray-400 mb-2">Bandeja de Entrada</h3>
+            <h3 className="text-xl font-medium text-slate-500 mb-2">Bandeja de Entrada</h3>
             <p className="max-w-md">Selecciona un ticket de la lista para leer el hilo de conversación y emitir respuestas oficiales como parte del equipo.</p>
           </div>
         )}

@@ -143,7 +143,7 @@ export function PackagesPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -154,13 +154,13 @@ export function PackagesPage() {
         <div className="flex items-center space-x-4">
           <button
             onClick={() => navigate(`/admin/eventos/${id}/editar`)}
-            className="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors"
+            className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm hover:bg-slate-100 text-slate-600 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div>
-            <h1 className="text-3xl font-bold text-white">Paquetes de Boletas</h1>
-            <p className="text-gray-400 mt-1">{evento?.nombre}</p>
+            <h1 className="text-3xl font-bold text-slate-900">Paquetes de Boletas</h1>
+            <p className="text-slate-500 mt-1">{evento?.nombre}</p>
           </div>
         </div>
         <button
@@ -175,7 +175,7 @@ export function PackagesPage() {
               url_pago: '',
             });
           }}
-          className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+          className="flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 px-4 py-2 rounded-lg transition-colors"
         >
           <Plus className="w-5 h-5" />
           <span>Nuevo Paquete</span>
@@ -183,14 +183,14 @@ export function PackagesPage() {
       </div>
 
       {showForm && (
-        <form onSubmit={handleSubmit} className="bg-gray-800 rounded-xl border border-gray-700 p-6 space-y-4">
-          <h3 className="text-lg font-semibold text-white">
+        <form onSubmit={handleSubmit} className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 p-6 space-y-4">
+          <h3 className="text-lg font-semibold text-slate-900">
             {editingId ? 'Editar Paquete' : 'Nuevo Paquete'}
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-slate-600 mb-2">
                 Cantidad de Boletas *
               </label>
               <input
@@ -198,13 +198,13 @@ export function PackagesPage() {
                 min="1"
                 value={formData.cantidad_entradas}
                 onChange={(e) => setFormData({ ...formData, cantidad_entradas: Number(e.target.value) })}
-                className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-slate-600 mb-2">
                 Precio Total *
               </label>
               <input
@@ -213,14 +213,14 @@ export function PackagesPage() {
                 step="0.01"
                 value={formData.precio_total}
                 onChange={(e) => setFormData({ ...formData, precio_total: Number(e.target.value) })}
-                className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 required
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               URL de Pago (PayPal u otro)
             </label>
             <input
@@ -228,9 +228,9 @@ export function PackagesPage() {
               value={formData.url_pago}
               onChange={(e) => setFormData({ ...formData, url_pago: e.target.value })}
               placeholder="https://www.paypal.com/ncp/payment/..."
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
-            <p className="text-sm text-gray-400 mt-1">
+            <p className="text-sm text-slate-500 mt-1">
               URL del enlace de pago específico para este paquete
             </p>
           </div>
@@ -241,9 +241,9 @@ export function PackagesPage() {
                 type="checkbox"
                 checked={formData.es_mas_popular}
                 onChange={(e) => setFormData({ ...formData, es_mas_popular: e.target.checked })}
-                className="w-4 h-4 text-blue-600 bg-gray-900 border-gray-700 rounded focus:ring-blue-500"
+                className="w-4 h-4 text-blue-600 bg-slate-50 border-white/50 rounded focus:ring-orange-500"
               />
-              <span className="text-sm text-gray-300">Marcar como más popular</span>
+              <span className="text-sm text-slate-600">Marcar como más popular</span>
             </label>
 
             <label className="flex items-center space-x-2 cursor-pointer">
@@ -251,9 +251,9 @@ export function PackagesPage() {
                 type="checkbox"
                 checked={formData.activo}
                 onChange={(e) => setFormData({ ...formData, activo: e.target.checked })}
-                className="w-4 h-4 text-blue-600 bg-gray-900 border-gray-700 rounded focus:ring-blue-500"
+                className="w-4 h-4 text-blue-600 bg-slate-50 border-white/50 rounded focus:ring-orange-500"
               />
-              <span className="text-sm text-gray-300">Activo</span>
+              <span className="text-sm text-slate-600">Activo</span>
             </label>
           </div>
 
@@ -264,13 +264,13 @@ export function PackagesPage() {
                 setShowForm(false);
                 setEditingId(null);
               }}
-              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors"
+              className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-lg transition-colors"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+              className="flex-1 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 px-4 py-2 rounded-lg transition-colors"
             >
               {editingId ? 'Guardar Cambios' : 'Crear Paquete'}
             </button>
@@ -280,16 +280,16 @@ export function PackagesPage() {
 
       <div className="space-y-3">
         {packages.length === 0 ? (
-          <div className="bg-gray-800 rounded-xl border border-gray-700 p-12 text-center">
-            <p className="text-gray-400">No hay paquetes configurados</p>
-            <p className="text-sm text-gray-500 mt-2">Crea paquetes para que los usuarios puedan comprar boletas</p>
+          <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 p-12 text-center">
+            <p className="text-slate-500">No hay paquetes configurados</p>
+            <p className="text-sm text-slate-400 mt-2">Crea paquetes para que los usuarios puedan comprar boletas</p>
           </div>
         ) : (
           packages.map((pkg) => (
             <div
               key={pkg.id}
-              className={`bg-gray-800 rounded-xl border ${
-                pkg.activo ? 'border-gray-700' : 'border-gray-800 opacity-60'
+              className={`bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border ${
+                pkg.activo ? 'border-white/50' : 'border-white/60 opacity-60'
               } p-6 flex items-center justify-between`}
             >
               <div className="flex items-center space-x-4">
@@ -300,13 +300,13 @@ export function PackagesPage() {
                   </div>
                 )}
                 <div>
-                  <p className="text-xl font-bold text-white">
+                  <p className="text-xl font-bold text-slate-900">
                     {pkg.cantidad_entradas} Boletas
                   </p>
-                  <p className="text-2xl font-bold text-blue-500 mt-1">
+                  <p className="text-2xl font-bold text-orange-500 mt-1">
                     ${pkg.precio_total.toLocaleString()} USD
                   </p>
-                  <p className="text-sm text-gray-500 mt-1">
+                  <p className="text-sm text-slate-400 mt-1">
                     ${(pkg.precio_total / pkg.cantidad_entradas).toFixed(2)} por entrada
                   </p>
                 </div>
@@ -318,7 +318,7 @@ export function PackagesPage() {
                   className={`p-2 rounded-lg transition-colors ${
                     pkg.es_mas_popular
                       ? 'bg-orange-600/20 text-orange-500'
-                      : 'bg-gray-700 text-gray-400 hover:bg-gray-600'
+                      : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                   }`}
                   title="Marcar como popular"
                 >
@@ -338,7 +338,7 @@ export function PackagesPage() {
 
                 <button
                   onClick={() => handleEdit(pkg)}
-                  className="p-2 bg-blue-600/20 text-blue-500 hover:bg-blue-600/30 rounded-lg transition-colors"
+                  className="p-2 bg-orange-500/20 text-orange-500 hover:bg-orange-500/30 rounded-lg transition-colors"
                   title="Editar"
                 >
                   <Edit2 className="w-5 h-5" />

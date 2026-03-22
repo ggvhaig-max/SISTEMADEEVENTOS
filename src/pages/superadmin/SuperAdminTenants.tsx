@@ -102,8 +102,8 @@ export function SuperAdminTenants() {
       case 'prueba': return 'bg-purple-500/10 text-purple-400 border-purple-500/20';
       case 'vencido': return 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20';
       case 'suspendido': return 'bg-red-500/10 text-red-500 border-red-500/20';
-      case 'cancelado': return 'bg-gray-500/10 text-gray-500 border-gray-500/20';
-      default: return 'bg-gray-800 text-gray-300';
+      case 'cancelado': return 'bg-gray-500/10 text-slate-400 border-gray-500/20';
+      default: return 'bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm text-slate-600';
     }
   };
 
@@ -116,25 +116,25 @@ export function SuperAdminTenants() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-white">Gestión de Clientes (Agencias)</h1>
+        <h1 className="text-2xl font-bold text-slate-900">Gestión de Clientes (Agencias)</h1>
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
           <input
             type="text"
             placeholder="Buscar por nombre o slug..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           />
         </div>
         <div className="flex gap-2">
           <select
             value={filterEstado}
             onChange={(e) => setFilterEstado(e.target.value)}
-            className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white appearance-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 appearance-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="todos">Todos los Estados</option>
             <option value="prueba">En Prueba</option>
@@ -146,24 +146,24 @@ export function SuperAdminTenants() {
         </div>
       </div>
 
-      <div className="bg-gray-800 shadow-xl rounded-xl border border-gray-700 overflow-hidden">
+      <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm shadow-xl rounded-xl border border-white/50 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-700">
-            <thead className="bg-gray-900/50">
+          <table className="min-w-full divide-y divide-slate-200/50">
+            <thead className="bg-slate-50/50">
               <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Comercio</th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Estado</th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Vencimiento</th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Resp. Ventas</th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Comercio</th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Estado</th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Vencimiento</th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Resp. Ventas</th>
                 <th scope="col" className="relative px-6 py-3">
                   <span className="sr-only">Acciones</span>
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-gray-800 divide-y divide-gray-700">
+            <tbody className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm divide-y divide-slate-200/50">
               {loading ? (
                 <tr>
-                  <td colSpan={5} className="px-6 py-12 text-center text-gray-400">
+                  <td colSpan={5} className="px-6 py-12 text-center text-slate-500">
                     <div className="flex flex-col items-center justify-center">
                       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mb-4"></div>
                       Cargando base de datos de clientes...
@@ -172,7 +172,7 @@ export function SuperAdminTenants() {
                 </tr>
               ) : filteredTenants.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="px-6 py-12 text-center text-gray-400">
+                  <td colSpan={5} className="px-6 py-12 text-center text-slate-500">
                     No se encontraron clientes con esos filtros.
                   </td>
                 </tr>
@@ -182,8 +182,8 @@ export function SuperAdminTenants() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
                         <div className="ml-4">
-                          <div className="text-sm font-medium text-white">{t.nombre}</div>
-                          <div className="text-sm text-gray-400">/{t.slug}</div>
+                          <div className="text-sm font-medium text-slate-900">{t.nombre}</div>
+                          <div className="text-sm text-slate-500">/{t.slug}</div>
                         </div>
                       </div>
                     </td>
@@ -192,7 +192,7 @@ export function SuperAdminTenants() {
                         <select
                           value={editEstado}
                           onChange={(e) => setEditEstado(e.target.value)}
-                          className="px-2 py-1 bg-gray-900 border border-gray-600 rounded text-sm text-white focus:ring-2 focus:ring-blue-500"
+                          className="px-2 py-1 bg-slate-50 border border-gray-600 rounded text-sm text-slate-900 focus:ring-2 focus:ring-orange-500"
                         >
                           <option value="prueba">Prueba</option>
                           <option value="activo">Activo</option>
@@ -206,21 +206,21 @@ export function SuperAdminTenants() {
                         </span>
                       )}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
                       {editingId === t.id ? (
                         <input
                           type="date"
                           value={editFecha}
                           onChange={(e) => setEditFecha(e.target.value)}
-                          className="px-2 py-1 bg-gray-900 border border-gray-600 rounded text-sm text-white focus:ring-2 focus:ring-blue-500"
+                          className="px-2 py-1 bg-slate-50 border border-gray-600 rounded text-sm text-slate-900 focus:ring-2 focus:ring-orange-500"
                         />
                       ) : (
                         t.fecha_vencimiento 
                           ? new Date(t.fecha_vencimiento).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })
-                          : <span className="text-gray-500 italic">Sin límite</span>
+                          : <span className="text-slate-400 italic">Sin límite</span>
                       )}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">
                       {t.vendedor?.nombre || <span className="text-gray-600 italic">No asignado</span>}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-3">
@@ -229,13 +229,13 @@ export function SuperAdminTenants() {
                           <button onClick={() => handleSaveEdit(t.id)} className="text-green-400 hover:text-green-300 p-1">
                             <Save className="w-5 h-5 inline" />
                           </button>
-                          <button onClick={() => setEditingId(null)} className="text-gray-400 hover:text-gray-300 p-1">
+                          <button onClick={() => setEditingId(null)} className="text-slate-500 hover:text-slate-600 p-1">
                             <XCircle className="w-5 h-5 inline" />
                           </button>
                         </>
                       ) : (
                         <>
-                          <button onClick={() => handleEditClick(t)} className="text-blue-400 hover:text-blue-300 p-1" title="Editar Licencia">
+                          <button onClick={() => handleEditClick(t)} className="text-orange-500 hover:text-blue-300 p-1" title="Editar Licencia">
                             <Edit2 className="w-4 h-4 inline" />
                           </button>
                           <a 

@@ -298,7 +298,7 @@ export function PurchasesPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -314,41 +314,41 @@ export function PurchasesPage() {
       <div className="flex items-center space-x-4">
         <button
           onClick={() => navigate(`/admin/eventos/${id}/editar`)}
-          className="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors"
+          className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm hover:bg-slate-100 text-slate-600 transition-colors"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-3xl font-bold text-white">Gestión de Compras</h1>
-          <p className="text-gray-400 mt-1">Administra y aprueba las compras</p>
+          <h1 className="text-3xl font-bold text-slate-900">Gestión de Compras</h1>
+          <p className="text-slate-500 mt-1">Administra y aprueba las compras</p>
         </div>
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <p className="text-sm text-gray-400">Pendientes</p>
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl p-4 border border-white/50">
+          <p className="text-sm text-slate-500">Pendientes</p>
           <p className="text-2xl font-bold text-yellow-400 mt-1">{stats.pendientes}</p>
         </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <p className="text-sm text-gray-400">Aprobadas</p>
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl p-4 border border-white/50">
+          <p className="text-sm text-slate-500">Aprobadas</p>
           <p className="text-2xl font-bold text-green-400 mt-1">{stats.aprobadas}</p>
         </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <p className="text-sm text-gray-400">Rechazadas</p>
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl p-4 border border-white/50">
+          <p className="text-sm text-slate-500">Rechazadas</p>
           <p className="text-2xl font-bold text-red-400 mt-1">{stats.rechazadas}</p>
         </div>
       </div>
 
-      <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-        <div className="p-6 border-b border-gray-700 flex items-center justify-between">
-          <h2 className="text-xl font-semibold text-white">Compras</h2>
+      <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 overflow-hidden">
+        <div className="p-6 border-b border-white/50 flex items-center justify-between">
+          <h2 className="text-xl font-semibold text-slate-900">Compras</h2>
           <div className="flex space-x-2">
             <button
               onClick={() => setFilter('todas')}
               className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
                 filter === 'todas'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                  ? 'bg-orange-500 text-slate-900'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               Todas
@@ -357,8 +357,8 @@ export function PurchasesPage() {
               onClick={() => setFilter('pendiente')}
               className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
                 filter === 'pendiente'
-                  ? 'bg-yellow-600 text-white'
-                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                  ? 'bg-yellow-600 text-slate-900'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               Pendientes
@@ -367,8 +367,8 @@ export function PurchasesPage() {
               onClick={() => setFilter('aprobada')}
               className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
                 filter === 'aprobada'
-                  ? 'bg-green-600 text-white'
-                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                  ? 'bg-green-600 text-slate-900'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               Aprobadas
@@ -377,8 +377,8 @@ export function PurchasesPage() {
               onClick={() => setFilter('rechazada')}
               className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
                 filter === 'rechazada'
-                  ? 'bg-red-600 text-white'
-                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                  ? 'bg-red-600 text-slate-900'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               Rechazadas
@@ -387,63 +387,63 @@ export function PurchasesPage() {
         </div>
 
         {filteredCompras.length === 0 ? (
-          <div className="p-12 text-center text-gray-400">
+          <div className="p-12 text-center text-slate-500">
             No hay compras {filter !== 'todas' && filter}
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-900">
+              <thead className="bg-slate-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Comprador
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Contacto
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Boletas
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Monto
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Método
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Estado
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Comprobante
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Acciones
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-slate-200/50">
                 {filteredCompras.map((compra) => (
-                  <tr key={compra.id} className="hover:bg-gray-700/50">
+                  <tr key={compra.id} className="hover:bg-slate-100/50">
                     <td className="px-6 py-4">
-                      <div className="text-sm font-medium text-white">{compra.nombre_comprador}</div>
-                      <div className="text-sm text-gray-400">{compra.correo_comprador}</div>
-                      <div className="text-xs text-gray-500 mt-1">
+                      <div className="text-sm font-medium text-slate-900">{compra.nombre_comprador}</div>
+                      <div className="text-sm text-slate-500">{compra.correo_comprador}</div>
+                      <div className="text-xs text-slate-400 mt-1">
                         {compra.documento_tipo}: {compra.documento_numero}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-300">{compra.telefono}</div>
+                      <div className="text-sm text-slate-600">{compra.telefono}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-white">{compra.cantidad_entradas}</div>
+                      <div className="text-sm text-slate-900">{compra.cantidad_entradas}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-white">
+                      <div className="text-sm font-medium text-slate-900">
                         ${compra.monto_total.toLocaleString()}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="px-2 py-1 text-xs font-medium rounded-full bg-blue-500/20 text-blue-400">
+                      <span className="px-2 py-1 text-xs font-medium rounded-full bg-orange-500/20 text-orange-500">
                         {compra.metodo_pago}
                       </span>
                     </td>
@@ -464,13 +464,13 @@ export function PurchasesPage() {
                           href={compra.comprobante_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center space-x-1 text-blue-400 hover:text-blue-300 text-sm"
+                          className="flex items-center space-x-1 text-orange-500 hover:text-blue-300 text-sm"
                         >
                           <ExternalLink className="w-4 h-4" />
                           <span>Ver</span>
                         </a>
                       ) : (
-                        <span className="text-gray-500 text-sm">-</span>
+                        <span className="text-slate-400 text-sm">-</span>
                       )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -479,14 +479,14 @@ export function PurchasesPage() {
                           <>
                             <button
                               onClick={() => handleApprove(compra.id)}
-                              className="p-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+                              className="p-2 bg-green-500 hover:bg-green-600 text-white shadow-md rounded-lg transition-colors"
                               title="Aprobar"
                             >
                               <Check className="w-4 h-4" />
                             </button>
                             <button
                               onClick={() => handleReject(compra.id)}
-                              className="p-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+                              className="p-2 bg-red-500 hover:bg-red-600 text-white shadow-md rounded-lg transition-colors"
                               title="Rechazar"
                             >
                               <X className="w-4 h-4" />
@@ -494,7 +494,7 @@ export function PurchasesPage() {
                             <button
                               onClick={() => handleDelete(compra.id)}
                               disabled={deletingCompraId === compra.id}
-                              className="p-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors"
+                              className="p-2 bg-slate-200 hover:bg-gray-500 text-slate-900 rounded-lg transition-colors"
                               title="Eliminar transacción"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -505,7 +505,7 @@ export function PurchasesPage() {
                           <button
                             onClick={() => handleDelete(compra.id)}
                             disabled={deletingCompraId === compra.id}
-                            className="inline-flex items-center space-x-2 px-3 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="inline-flex items-center space-x-2 px-3 py-2 bg-slate-200 hover:bg-gray-500 text-slate-900 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                             title="Eliminar transacción"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -516,7 +516,7 @@ export function PurchasesPage() {
                           <>
                             <button
                               onClick={() => handleDownloadTicket(compra.id)}
-                              className="p-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                              className="p-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 rounded-lg transition-colors"
                               title="Descargar Boleta PDF"
                               disabled={generatingPDF}
                             >
@@ -524,7 +524,7 @@ export function PurchasesPage() {
                             </button>
                             <button
                               onClick={() => handleShareWhatsApp(compra.id)}
-                              className="p-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+                              className="p-2 bg-green-500 hover:bg-green-600 text-white shadow-md rounded-lg transition-colors"
                               title="Compartir boleta (texto corto, no es el mensaje de compra aprobada)"
                             >
                               <Share2 className="w-4 h-4" />
@@ -543,15 +543,15 @@ export function PurchasesPage() {
 
       {showNumbersModal && approvedBuyer && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="bg-gray-900 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto border border-gray-700">
-            <div className="sticky top-0 bg-gray-900 border-b border-gray-700 px-6 py-4 flex items-center justify-between">
+          <div className="bg-slate-50 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto border border-white/50">
+            <div className="sticky top-0 bg-slate-50 border-b border-white/50 px-6 py-4 flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-bold text-white">Compra Aprobada</h2>
-                <p className="text-sm text-gray-400 mt-1">Números asignados exitosamente</p>
+                <h2 className="text-2xl font-bold text-slate-900">Compra Aprobada</h2>
+                <p className="text-sm text-slate-500 mt-1">Números asignados exitosamente</p>
               </div>
               <button
                 onClick={() => setShowNumbersModal(false)}
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-slate-500 hover:text-slate-900 transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -562,7 +562,7 @@ export function PurchasesPage() {
                 <div className="flex items-center space-x-3">
                   <Check className="w-6 h-6 text-green-400" />
                   <div>
-                    <p className="text-white font-semibold">Compra aprobada exitosamente</p>
+                    <p className="text-slate-900 font-semibold">Compra aprobada exitosamente</p>
                     <p className="text-sm text-green-300 mt-1">
                       Se asignaron {assignedNumbers.length} boletas al comprador
                     </p>
@@ -570,34 +570,34 @@ export function PurchasesPage() {
                 </div>
               </div>
 
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-                <h3 className="text-white font-semibold mb-3">Información del Comprador</h3>
+              <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-lg p-4 border border-white/50">
+                <h3 className="text-slate-900 font-semibold mb-3">Información del Comprador</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Nombre:</span>
-                    <span className="text-white font-medium">{approvedBuyer.nombre}</span>
+                    <span className="text-slate-500">Nombre:</span>
+                    <span className="text-slate-900 font-medium">{approvedBuyer.nombre}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Correo:</span>
-                    <span className="text-white">{approvedBuyer.correo}</span>
+                    <span className="text-slate-500">Correo:</span>
+                    <span className="text-slate-900">{approvedBuyer.correo}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-400">Teléfono:</span>
-                    <span className="text-white">{approvedBuyer.telefono}</span>
+                    <span className="text-slate-500">Teléfono:</span>
+                    <span className="text-slate-900">{approvedBuyer.telefono}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
+              <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-lg p-4 border border-white/50">
                 <div className="flex items-center space-x-2 mb-3">
-                  <Ticket className="w-5 h-5 text-blue-400" />
-                  <h3 className="text-white font-semibold">Números Asignados ({assignedNumbers.length})</h3>
+                  <Ticket className="w-5 h-5 text-orange-500" />
+                  <h3 className="text-slate-900 font-semibold">Números Asignados ({assignedNumbers.length})</h3>
                 </div>
                 <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-2 max-h-96 overflow-y-auto">
                   {assignedNumbers.map((numero) => (
                     <div
                       key={numero}
-                      className="bg-blue-600 text-white text-center py-2 rounded-lg font-semibold text-sm"
+                      className="bg-orange-500 text-slate-900 text-center py-2 rounded-lg font-semibold text-sm"
                     >
                       {numero}
                     </div>
@@ -605,7 +605,7 @@ export function PurchasesPage() {
                 </div>
               </div>
 
-              <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+              <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-4">
                 <p className="text-sm text-blue-300">
                   <span className="font-semibold">Siguiente paso:</span> El comprador puede consultar sus números
                   en la página del evento usando su correo electrónico: <span className="font-mono">{approvedBuyer.correo}</span>
@@ -613,7 +613,7 @@ export function PurchasesPage() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-white font-semibold text-lg flex items-center">
+                <h3 className="text-slate-900 font-semibold text-lg flex items-center">
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Notificaciones al Cliente
                 </h3>
@@ -623,7 +623,7 @@ export function PurchasesPage() {
                     <div className="flex items-center space-x-3">
                       <Mail className="w-5 h-5 text-green-400 flex-shrink-0" />
                       <div>
-                        <p className="text-white font-medium">Email enviado automáticamente</p>
+                        <p className="text-slate-900 font-medium">Email enviado automáticamente</p>
                         <p className="text-sm text-green-300 mt-1">
                           Se envió un correo con todos los números y detalles a: {approvedBuyer.correo}
                         </p>
@@ -633,19 +633,19 @@ export function PurchasesPage() {
                 )}
 
                 {whatsappUrl && approvedBuyer.telefono && (
-                  <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
+                  <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-lg p-4 border border-white/50">
                     <div className="flex items-start space-x-3">
                       <MessageCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-1" />
                       <div className="flex-1">
-                        <p className="text-white font-medium mb-2">Enviar notificación por WhatsApp (compra aprobada)</p>
-                        <p className="text-sm text-gray-400 mb-3">
+                        <p className="text-slate-900 font-medium mb-2">Enviar notificación por WhatsApp (compra aprobada)</p>
+                        <p className="text-sm text-slate-500 mb-3">
                           Mensaje oficial: pago verificado, números y enlace a la rifa. Usa este botón para notificar al cliente.
                         </p>
                         <a
                           href={whatsappUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-lg transition-colors"
+                          className="inline-flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white shadow-md font-semibold px-4 py-2 rounded-lg transition-colors"
                         >
                           <MessageCircle className="w-4 h-4" />
                           <span>Enviar Mensaje WhatsApp</span>
@@ -667,26 +667,26 @@ export function PurchasesPage() {
 
               <div className="space-y-3">
                 {currentCompraId && (
-                  <div className="bg-gray-800 rounded-lg p-4 border border-gray-700">
-                    <h3 className="text-white font-semibold mb-3 flex items-center">
+                  <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-lg p-4 border border-white/50">
+                    <h3 className="text-slate-900 font-semibold mb-3 flex items-center">
                       <Ticket className="w-5 h-5 mr-2" />
                       Boleta del Cliente
                     </h3>
-                    <p className="text-sm text-gray-400 mb-4">
+                    <p className="text-sm text-slate-500 mb-4">
                       PDF de la boleta. El botón verde usa un texto corto distinto al mensaje de &quot;compra aprobada&quot; de arriba.
                     </p>
                     <div className="flex space-x-3">
                       <button
                         onClick={() => handleDownloadTicket(currentCompraId)}
                         disabled={generatingPDF}
-                        className="flex-1 flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 text-white font-semibold py-3 rounded-lg transition-colors"
+                        className="flex-1 flex items-center justify-center space-x-2 bg-orange-500 hover:bg-orange-600 disabled:bg-slate-200 text-slate-900 font-semibold py-3 rounded-lg transition-colors"
                       >
                         <Download className="w-5 h-5" />
                         <span>{generatingPDF ? 'Generando...' : 'Descargar PDF'}</span>
                       </button>
                       <button
                         onClick={() => handleShareWhatsApp(currentCompraId)}
-                        className="flex-1 flex items-center justify-center space-x-2 bg-emerald-700 hover:bg-emerald-600 text-white font-semibold py-3 rounded-lg transition-colors"
+                        className="flex-1 flex items-center justify-center space-x-2 bg-emerald-700 hover:bg-emerald-600 text-slate-900 font-semibold py-3 rounded-lg transition-colors"
                         title="Solo formato corto tipo Mi boleta…"
                       >
                         <Share2 className="w-5 h-5" />
@@ -698,7 +698,7 @@ export function PurchasesPage() {
 
                 <button
                   onClick={() => setShowNumbersModal(false)}
-                  className="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 rounded-lg transition-colors"
+                  className="w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold py-3 rounded-lg transition-colors"
                 >
                   Cerrar
                 </button>

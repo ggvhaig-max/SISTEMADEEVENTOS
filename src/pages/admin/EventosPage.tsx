@@ -71,7 +71,7 @@ export function EventosPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -80,12 +80,12 @@ export function EventosPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Eventos</h1>
-          <p className="text-gray-400 mt-1">Gestiona todos tus eventos</p>
+          <h1 className="text-3xl font-bold text-slate-900">Eventos</h1>
+          <p className="text-slate-500 mt-1">Gestiona todos tus eventos</p>
         </div>
         <Link
           to="/admin/eventos/nuevo"
-          className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+          className="flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 px-4 py-2 rounded-lg transition-colors"
         >
           <Plus className="w-5 h-5" />
           <span>Nuevo Evento</span>
@@ -93,13 +93,13 @@ export function EventosPage() {
       </div>
 
       {eventos.length === 0 ? (
-        <div className="bg-gray-800 rounded-xl border border-gray-700 p-12 text-center">
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 p-12 text-center">
           <Calendar className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-300 mb-2">No hay eventos</h3>
-          <p className="text-gray-500 mb-6">Crea tu primer evento para comenzar</p>
+          <h3 className="text-lg font-medium text-slate-600 mb-2">No hay eventos</h3>
+          <p className="text-slate-400 mb-6">Crea tu primer evento para comenzar</p>
           <Link
             to="/admin/eventos/nuevo"
-            className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 px-4 py-2 rounded-lg transition-colors"
           >
             <Plus className="w-5 h-5" />
             <span>Crear Evento</span>
@@ -110,21 +110,21 @@ export function EventosPage() {
           {eventos.map((evento) => (
             <div
               key={evento.id}
-              className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden hover:border-gray-600 transition-colors"
+              className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 overflow-hidden hover:border-gray-600 transition-colors"
             >
               <div className="p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white mb-1">
+                    <h3 className="text-lg font-semibold text-slate-900 mb-1">
                       {evento.nombre}
                     </h3>
-                    <p className="text-sm text-gray-400">/evento/{evento.slug}</p>
+                    <p className="text-sm text-slate-500">/evento/{evento.slug}</p>
                   </div>
                   <div className="flex items-center space-x-2">
                     <button
                       onClick={() => toggleActivo(evento.id, evento.activo)}
                       className={`w-10 h-6 rounded-full transition-colors ${
-                        evento.activo ? 'bg-green-600' : 'bg-gray-600'
+                        evento.activo ? 'bg-green-600' : 'bg-slate-200'
                       }`}
                     >
                       <div className={`w-4 h-4 bg-white rounded-full transition-transform ${
@@ -136,31 +136,31 @@ export function EventosPage() {
 
                 <div className="space-y-2 mb-4">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">Total Boletas:</span>
-                    <span className="text-white font-medium">{evento.total_entradas.toLocaleString()}</span>
+                    <span className="text-slate-500">Total Boletas:</span>
+                    <span className="text-slate-900 font-medium">{evento.total_entradas.toLocaleString()}</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">Precio:</span>
-                    <span className="text-white font-medium">${evento.precio_por_entrada.toLocaleString()}</span>
+                    <span className="text-slate-500">Precio:</span>
+                    <span className="text-slate-900 font-medium">${evento.precio_por_entrada.toLocaleString()}</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">Estado:</span>
+                    <span className="text-slate-500">Estado:</span>
                     <span className={`px-2 py-1 text-xs font-medium rounded-full ${
                       evento.estado === 'activo'
                         ? 'bg-green-500/20 text-green-400'
                         : evento.estado === 'cerrado'
                         ? 'bg-yellow-500/20 text-yellow-400'
-                        : 'bg-gray-500/20 text-gray-400'
+                        : 'bg-gray-500/20 text-slate-500'
                     }`}>
                       {evento.estado.charAt(0).toUpperCase() + evento.estado.slice(1)}
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-2 pt-4 border-t border-gray-700">
+                <div className="flex items-center space-x-2 pt-4 border-t border-white/50">
                   <Link
                     to={`/admin/eventos/${evento.id}/editar`}
-                    className="flex-1 flex items-center justify-center space-x-2 bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded-lg transition-colors text-sm"
+                    className="flex-1 flex items-center justify-center space-x-2 bg-slate-100 hover:bg-slate-200 text-slate-900 px-3 py-2 rounded-lg transition-colors text-sm"
                   >
                     <Edit className="w-4 h-4" />
                     <span>Editar</span>
@@ -168,14 +168,14 @@ export function EventosPage() {
                   <Link
                     to={`/evento/${evento.slug}`}
                     target="_blank"
-                    className="flex-1 flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded-lg transition-colors text-sm"
+                    className="flex-1 flex items-center justify-center space-x-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 px-3 py-2 rounded-lg transition-colors text-sm"
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span>Ver</span>
                   </Link>
                   <button
                     onClick={() => handleDelete(evento.id)}
-                    className="flex items-center justify-center bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-lg transition-colors"
+                    className="flex items-center justify-center bg-red-500 hover:bg-red-600 text-white shadow-md px-3 py-2 rounded-lg transition-colors"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>

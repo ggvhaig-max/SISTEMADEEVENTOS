@@ -82,7 +82,7 @@ export function ImageUpload({ value, onChange, disabled, recommendedSize, descri
       />
 
       {value ? (
-        <div className="relative rounded-lg overflow-hidden border border-gray-700 bg-gray-900">
+        <div className="relative rounded-lg overflow-hidden border border-white/50 bg-slate-50">
           <img
             src={value}
             alt="Preview"
@@ -92,7 +92,7 @@ export function ImageUpload({ value, onChange, disabled, recommendedSize, descri
             <button
               type="button"
               onClick={handleRemove}
-              className="absolute top-2 right-2 p-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+              className="absolute top-2 right-2 p-2 bg-red-500 hover:bg-red-600 text-white shadow-md rounded-lg transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -103,39 +103,39 @@ export function ImageUpload({ value, onChange, disabled, recommendedSize, descri
           type="button"
           onClick={() => fileInputRef.current?.click()}
           disabled={disabled || uploading}
-          className="w-full h-64 border-2 border-dashed border-gray-700 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors flex flex-col items-center justify-center space-y-3 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full h-64 border-2 border-dashed border-white/50 rounded-lg bg-slate-50 hover:bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm transition-colors flex flex-col items-center justify-center space-y-3 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {uploading ? (
             <>
-              <Loader2 className="w-12 h-12 text-blue-500 animate-spin" />
-              <span className="text-gray-400">Subiendo imagen...</span>
+              <Loader2 className="w-12 h-12 text-orange-500 animate-spin" />
+              <span className="text-slate-500">Subiendo imagen...</span>
             </>
           ) : (
             <>
-              <div className="p-4 bg-gray-800 rounded-full">
-                <ImageIcon className="w-8 h-8 text-gray-500" />
+              <div className="p-4 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-full">
+                <ImageIcon className="w-8 h-8 text-slate-400" />
               </div>
               <div className="text-center">
-                <p className="text-gray-300 font-medium mb-1">
+                <p className="text-slate-600 font-medium mb-1">
                   Haz clic para subir una imagen
                 </p>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-slate-400">
                   PNG, JPG o WEBP (máx. 5MB)
                 </p>
                 {recommendedSize && (
-                  <p className="text-xs text-blue-400 font-semibold mt-2">
+                  <p className="text-xs text-orange-500 font-semibold mt-2">
                     Recomendado: {recommendedSize}
                   </p>
                 )}
               </div>
-              <Upload className="w-5 h-5 text-gray-500" />
+              <Upload className="w-5 h-5 text-slate-400" />
             </>
           )}
         </button>
       )}
 
       {description && (
-        <p className="text-xs text-gray-400 italic">
+        <p className="text-xs text-slate-500 italic">
           {description}
         </p>
       )}

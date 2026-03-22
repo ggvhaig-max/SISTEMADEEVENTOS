@@ -12,28 +12,28 @@ export function LegalModal({ isOpen, onClose, title, content }: LegalModalProps)
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-      <div className="bg-gray-900 rounded-xl w-full max-w-4xl max-h-[90vh] flex flex-col border border-gray-700 shadow-2xl">
-        <div className="flex items-center justify-between p-6 border-b border-gray-700">
-          <h2 className="text-2xl font-bold text-white">{title}</h2>
+      <div className="bg-slate-50 rounded-xl w-full max-w-4xl max-h-[90vh] flex flex-col border border-white/50 shadow-2xl">
+        <div className="flex items-center justify-between p-6 border-b border-white/50">
+          <h2 className="text-2xl font-bold text-slate-900">{title}</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
+            className="p-2 hover:bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-lg transition-colors"
           >
-            <X className="w-6 h-6 text-gray-400" />
+            <X className="w-6 h-6 text-slate-500" />
           </button>
         </div>
 
         <div className="flex-1 overflow-y-auto p-6">
           <div
-            className="text-gray-300 prose prose-invert max-w-none"
+            className="text-slate-600 prose prose-invert max-w-none"
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </div>
 
-        <div className="p-6 border-t border-gray-700">
+        <div className="p-6 border-t border-white/50">
           <button
             onClick={onClose}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors"
+            className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 font-semibold py-3 rounded-lg transition-colors"
           >
             Cerrar
           </button>

@@ -145,7 +145,7 @@ export function EventEntriesPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -155,41 +155,41 @@ export function EventEntriesPage() {
       <div className="flex items-center space-x-4">
         <button
           onClick={() => navigate(`/admin/eventos/${id}/editar`)}
-          className="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors"
+          className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm hover:bg-slate-100 text-slate-600 transition-colors"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-3xl font-bold text-white">Gestión de Boletas</h1>
-          <p className="text-gray-400 mt-1">Administra todas las boletas del evento</p>
+          <h1 className="text-3xl font-bold text-slate-900">Gestión de Boletas</h1>
+          <p className="text-slate-500 mt-1">Administra todas las boletas del evento</p>
         </div>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <p className="text-sm text-gray-400">Disponibles</p>
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl p-4 border border-white/50">
+          <p className="text-sm text-slate-500">Disponibles</p>
           <p className="text-2xl font-bold text-green-400 mt-1">{stats.disponibles.toLocaleString()}</p>
         </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <p className="text-sm text-gray-400">Reservadas</p>
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl p-4 border border-white/50">
+          <p className="text-sm text-slate-500">Reservadas</p>
           <p className="text-2xl font-bold text-yellow-400 mt-1">{stats.reservadas.toLocaleString()}</p>
         </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <p className="text-sm text-gray-400">Pagadas</p>
-          <p className="text-2xl font-bold text-blue-400 mt-1">{stats.pagadas.toLocaleString()}</p>
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl p-4 border border-white/50">
+          <p className="text-sm text-slate-500">Pagadas</p>
+          <p className="text-2xl font-bold text-orange-500 mt-1">{stats.pagadas.toLocaleString()}</p>
         </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <p className="text-sm text-gray-400">Premiadas</p>
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl p-4 border border-white/50">
+          <p className="text-sm text-slate-500">Premiadas</p>
           <p className="text-2xl font-bold text-purple-400 mt-1">{stats.premiadas.toLocaleString()}</p>
         </div>
-        <div className="bg-gray-800 rounded-xl p-4 border border-gray-700">
-          <p className="text-sm text-gray-400">Bendecidas</p>
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl p-4 border border-white/50">
+          <p className="text-sm text-slate-500">Bendecidas</p>
           <p className="text-2xl font-bold text-orange-400 mt-1">{stats.bendecidas.toLocaleString()}</p>
         </div>
       </div>
 
-      <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 flex items-start space-x-3">
-        <Info className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+      <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-4 flex items-start space-x-3">
+        <Info className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
         <div className="text-sm text-blue-300">
           <p className="font-medium mb-1">Búsqueda Inteligente</p>
           <p className="text-blue-300/80">
@@ -198,15 +198,15 @@ export function EventEntriesPage() {
         </div>
       </div>
 
-      <div className="bg-gray-800 rounded-xl border border-gray-700 p-6">
+      <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 p-6">
         <div className="space-y-4">
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setSearchType('numero')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 searchType === 'numero'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                  ? 'bg-orange-500 text-slate-900'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               Número Específico
@@ -215,8 +215,8 @@ export function EventEntriesPage() {
               onClick={() => setSearchType('rango')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 searchType === 'rango'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                  ? 'bg-orange-500 text-slate-900'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               Rango de Números
@@ -225,8 +225,8 @@ export function EventEntriesPage() {
               onClick={() => setSearchType('email')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 searchType === 'email'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                  ? 'bg-orange-500 text-slate-900'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               Email
@@ -235,8 +235,8 @@ export function EventEntriesPage() {
               onClick={() => setSearchType('documento')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 searchType === 'documento'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                  ? 'bg-orange-500 text-slate-900'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
               Documento
@@ -253,7 +253,7 @@ export function EventEntriesPage() {
                     onChange={(e) => setRangoInicio(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Número inicial (ej: 1)"
-                    className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   />
                 </div>
                 <div className="flex-1 relative">
@@ -263,13 +263,13 @@ export function EventEntriesPage() {
                     onChange={(e) => setRangoFin(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder="Número final (ej: 1000)"
-                    className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   />
                 </div>
               </>
             ) : (
               <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-500" />
                 <input
                   type={searchType === 'numero' ? 'number' : 'text'}
                   value={searchValue}
@@ -282,17 +282,17 @@ export function EventEntriesPage() {
                       ? 'Ingresa el correo del comprador'
                       : 'Ingresa el documento del comprador'
                   }
-                  className="w-full pl-10 pr-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
             )}
 
             <div className="flex items-center space-x-2">
-              <Filter className="w-5 h-5 text-gray-400" />
+              <Filter className="w-5 h-5 text-slate-500" />
               <select
                 value={estadoFilter}
                 onChange={(e) => setEstadoFilter(e.target.value)}
-                className="px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
               >
                 <option value="todos">Todos los estados</option>
                 <option value="disponible">Disponibles</option>
@@ -306,7 +306,7 @@ export function EventEntriesPage() {
             <button
               onClick={handleSearch}
               disabled={searching || (!searchValue && searchType !== 'rango') || (searchType === 'rango' && (!rangoInicio || !rangoFin))}
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-700 disabled:text-gray-500 text-white font-medium rounded-lg transition-colors flex items-center space-x-2"
+              className="px-6 py-3 bg-orange-500 hover:bg-orange-600 disabled:bg-slate-100 disabled:text-slate-400 text-slate-900 font-medium rounded-lg transition-colors flex items-center space-x-2"
             >
               <Search className="w-5 h-5" />
               <span>{searching ? 'Buscando...' : 'Buscar'}</span>
@@ -317,10 +317,10 @@ export function EventEntriesPage() {
         {!hasSearched && (
           <div className="mt-8 text-center py-12">
             <Search className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-            <p className="text-gray-400 text-lg">
+            <p className="text-slate-500 text-lg">
               Realiza una búsqueda para ver boletas específicas
             </p>
-            <p className="text-gray-500 text-sm mt-2">
+            <p className="text-slate-400 text-sm mt-2">
               Puedes buscar por número, rango, email o documento del comprador
             </p>
           </div>
@@ -328,8 +328,8 @@ export function EventEntriesPage() {
 
         {hasSearched && boletas.length === 0 && (
           <div className="mt-8 text-center py-12">
-            <p className="text-gray-400 text-lg">No se encontraron resultados</p>
-            <p className="text-gray-500 text-sm mt-2">
+            <p className="text-slate-500 text-lg">No se encontraron resultados</p>
+            <p className="text-slate-400 text-sm mt-2">
               Intenta con otros criterios de búsqueda
             </p>
           </div>
@@ -339,33 +339,33 @@ export function EventEntriesPage() {
           <>
             <div className="mt-6 overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-900">
+                <thead className="bg-slate-50">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                       Entrada
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                       Estado
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                       Comprador
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                       Email
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                       Documento
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">
                       Bendecida
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-700">
+                <tbody className="divide-y divide-slate-200/50">
                   {boletas.map((entrada) => (
-                    <tr key={entrada.id} className="hover:bg-gray-700/50">
+                    <tr key={entrada.id} className="hover:bg-slate-100/50">
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="text-white font-mono font-bold text-lg">
+                        <span className="text-slate-900 font-mono font-bold text-lg">
                           #{entrada.numero_entrada.toString().padStart(5, '0')}
                         </span>
                       </td>
@@ -376,24 +376,24 @@ export function EventEntriesPage() {
                             : entrada.estado === 'reservada'
                             ? 'bg-yellow-500/20 text-yellow-400'
                             : entrada.estado === 'pagada'
-                            ? 'bg-blue-500/20 text-blue-400'
+                            ? 'bg-orange-500/20 text-orange-500'
                             : 'bg-purple-500/20 text-purple-400'
                         }`}>
                           {entrada.estado}
                         </span>
                       </td>
                       <td className="px-6 py-4">
-                        <span className="text-gray-300">
+                        <span className="text-slate-600">
                           {entrada.nombre_comprador || '-'}
                         </span>
                       </td>
                       <td className="px-6 py-4">
-                        <span className="text-gray-300 text-sm">
+                        <span className="text-slate-600 text-sm">
                           {entrada.correo_comprador || '-'}
                         </span>
                       </td>
                       <td className="px-6 py-4">
-                        <span className="text-gray-300 text-sm font-mono">
+                        <span className="text-slate-600 text-sm font-mono">
                           {entrada.documento || '-'}
                         </span>
                       </td>
@@ -410,7 +410,7 @@ export function EventEntriesPage() {
               </table>
             </div>
 
-            <div className="mt-4 text-center text-sm text-gray-400">
+            <div className="mt-4 text-center text-sm text-slate-500">
               Mostrando {boletas.length.toLocaleString()} resultado{boletas.length !== 1 ? 's' : ''}
               {boletas.length >= 500 && ' (máximo 500 por búsqueda)'}
             </div>

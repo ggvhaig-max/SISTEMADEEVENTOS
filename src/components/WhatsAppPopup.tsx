@@ -16,7 +16,7 @@ export function WhatsAppPopup({ phoneNumber, eventName }: WhatsAppPopupProps) {
     <>
       <button
         onClick={handleWhatsAppClick}
-        className="fixed bottom-6 right-6 z-50 bg-gradient-to-br from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white rounded-full p-4 shadow-2xl transition-all transform hover:scale-110 animate-bounce-slow"
+        className="fixed bottom-6 right-6 z-50 bg-gradient-to-br from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-slate-900 rounded-full p-4 shadow-2xl transition-all transform hover:scale-110 animate-bounce-slow"
         title="Contactar por WhatsApp"
       >
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">

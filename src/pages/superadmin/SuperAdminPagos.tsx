@@ -53,7 +53,7 @@ export function SuperAdminPagos() {
     }
   };
 
-  if (loading) return <div className="p-8 text-white">Cargando pagos...</div>;
+  if (loading) return <div className="p-8 text-slate-900">Cargando pagos...</div>;
 
   const filteredPagos = pagos.filter(p => {
     const matchesEstado = filterEstado === 'todos' || p.estado === filterEstado;
@@ -65,7 +65,7 @@ export function SuperAdminPagos() {
     <div className="p-6">
       <div className="flex items-center gap-3 mb-6">
         <DollarSign className="w-8 h-8 text-green-500" />
-        <h1 className="text-2xl font-bold text-white">Solicitudes de Pagos SaaS</h1>
+        <h1 className="text-2xl font-bold text-slate-900">Solicitudes de Pagos SaaS</h1>
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
@@ -75,14 +75,14 @@ export function SuperAdminPagos() {
             placeholder="Buscar por cliente/tenant..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           />
         </div>
         <div className="flex gap-2">
           <select
             value={filterEstado}
             onChange={(e) => setFilterEstado(e.target.value)}
-            className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white appearance-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 appearance-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="todos">Todos los Estados</option>
             <option value="pendiente">Pendientes</option>
@@ -92,10 +92,10 @@ export function SuperAdminPagos() {
         </div>
       </div>
 
-      <div className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
+      <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl overflow-hidden border border-white/50">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-gray-300">
-            <thead className="bg-gray-900/50 text-xs uppercase font-semibold text-gray-400">
+          <table className="w-full text-left text-slate-600">
+            <thead className="bg-slate-50/50 text-xs uppercase font-semibold text-slate-500">
               <tr>
                 <th className="px-6 py-4">ID Pago</th>
                 <th className="px-6 py-4">Negocio (Tenant)</th>
@@ -106,13 +106,13 @@ export function SuperAdminPagos() {
                 <th className="px-6 py-4 text-right">Acciones</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-700/50">
+            <tbody className="divide-y divide-slate-200/50/50">
               {filteredPagos.map((pago) => (
-                <tr key={pago.id} className="hover:bg-gray-700/20 transition-colors">
+                <tr key={pago.id} className="hover:bg-slate-100/20 transition-colors">
                   <td className="px-6 py-4 font-mono text-sm">{pago.id.substring(0, 8)}...</td>
-                  <td className="px-6 py-4 font-medium text-white">{pago.tenant?.nombre || 'Desconocido'}</td>
+                  <td className="px-6 py-4 font-medium text-slate-900">{pago.tenant?.nombre || 'Desconocido'}</td>
                   <td className="px-6 py-4">
-                    <span className="capitalize text-blue-400">{pago.tipo}</span> - {pago.plan}
+                    <span className="capitalize text-orange-500">{pago.tipo}</span> - {pago.plan}
                   </td>
                   <td className="px-6 py-4">${pago.monto_pagado}</td>
                   <td className="px-6 py-4">{pago.dias_a_activar} días</td>
@@ -150,7 +150,7 @@ export function SuperAdminPagos() {
               ))}
               {filteredPagos.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="px-6 py-8 text-center text-gray-400">
+                  <td colSpan={7} className="px-6 py-8 text-center text-slate-500">
                     No hay pagos registrados.
                   </td>
                 </tr>

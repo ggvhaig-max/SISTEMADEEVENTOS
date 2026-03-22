@@ -94,7 +94,7 @@ export function TicketReceipt({ compraId }: TicketReceiptProps) {
       <div className="text-center mb-6">
         <div className="text-2xl font-bold mb-2">SISTEMADEEVENTOS</div>
         <div className="text-xs mb-4">Sorteos en Vivo</div>
-        <div className="border-t-2 border-b-2 border-dashed border-gray-800 py-2 my-4">
+        <div className="border-t-2 border-b-2 border-dashed border-white/60 py-2 my-4">
           <div className="font-bold text-lg">BOLETA DE SORTEO</div>
         </div>
       </div>
@@ -173,7 +173,7 @@ export function TicketReceipt({ compraId }: TicketReceiptProps) {
         </div>
       </div>
 
-      <div className="border-t-2 border-dashed border-gray-800 pt-4 text-xs text-center">
+      <div className="border-t-2 border-dashed border-white/60 pt-4 text-xs text-center">
         <div className="mb-2">
           <strong>ID de Compra:</strong>
         </div>
@@ -188,7 +188,7 @@ export function TicketReceipt({ compraId }: TicketReceiptProps) {
         </div>
       </div>
 
-      <div className="mt-4 pt-4 border-t-2 border-dashed border-gray-800 text-center text-[10px] text-gray-600">
+      <div className="mt-4 pt-4 border-t-2 border-dashed border-white/60 text-center text-[10px] text-gray-600">
         <div>Esta es tu boleta oficial</div>
         <div>Guárdala hasta el día del sorteo</div>
       </div>

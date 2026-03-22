@@ -97,12 +97,12 @@ export function MyTicketPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-orange-50/30">
       <div className="max-w-4xl mx-auto px-4 py-12">
         <div className="mb-8">
           <button
             onClick={() => navigate(tenant ? `/${tenant}/evento/${eventSlug}` : `/evento/${eventSlug}`)}
-            className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors mb-6"
+            className="flex items-center space-x-2 text-slate-500 hover:text-slate-900 transition-colors mb-6"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Volver al evento</span>
@@ -110,25 +110,25 @@ export function MyTicketPage() {
 
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-green-600 rounded-full mb-4">
-              <Ticket className="w-8 h-8 text-white" />
+              <Ticket className="w-8 h-8 text-slate-900" />
             </div>
-            <h1 className="text-4xl font-bold text-white mb-2">
+            <h1 className="text-4xl font-bold text-slate-900 mb-2">
               Mi Boleta
             </h1>
-            <p className="text-gray-400">
+            <p className="text-slate-500">
               Consulta y descarga tu boleta de sorteo
             </p>
           </div>
         </div>
 
         {!compra ? (
-          <div className="bg-gray-800 rounded-2xl border border-gray-700 p-8">
-            <h2 className="text-2xl font-bold text-white mb-6">
+          <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-2xl border border-white/50 p-8">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">
               Buscar mi boleta
             </h2>
             <form onSubmit={handleSearch} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Correo electrónico
                 </label>
                 <input
@@ -137,9 +137,9 @@ export function MyTicketPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="tu@email.com"
                   required
-                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500"
                 />
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-sm text-slate-500 mt-2">
                   Ingresa el correo electrónico que usaste al comprar tus boletas
                 </p>
               </div>
@@ -153,7 +153,7 @@ export function MyTicketPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-600 text-white font-bold py-3 rounded-lg transition-colors"
+                className="w-full bg-green-600 hover:bg-green-700 disabled:bg-slate-200 text-slate-900 font-bold py-3 rounded-lg transition-colors"
               >
                 {loading ? 'Buscando...' : 'Buscar mi boleta'}
               </button>
@@ -167,10 +167,10 @@ export function MyTicketPage() {
               </p>
             </div>
 
-            <div className="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden">
-              <div className="p-6 border-b border-gray-700">
-                <h2 className="text-2xl font-bold text-white">Tu Boleta</h2>
-                <p className="text-gray-400 mt-1">
+            <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-2xl border border-white/50 overflow-hidden">
+              <div className="p-6 border-b border-white/50">
+                <h2 className="text-2xl font-bold text-slate-900">Tu Boleta</h2>
+                <p className="text-slate-500 mt-1">
                   {compra.evento?.nombre}
                 </p>
               </div>
@@ -183,7 +183,7 @@ export function MyTicketPage() {
                 <button
                   onClick={handleDownload}
                   disabled={generatingPDF}
-                  className="w-full flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 text-white font-bold py-3 rounded-lg transition-colors"
+                  className="w-full flex items-center justify-center space-x-2 bg-orange-500 hover:bg-orange-600 disabled:bg-slate-200 text-slate-900 font-bold py-3 rounded-lg transition-colors"
                 >
                   <Download className="w-5 h-5" />
                   <span>{generatingPDF ? 'Generando PDF...' : 'Descargar PDF'}</span>
@@ -191,7 +191,7 @@ export function MyTicketPage() {
 
                 <button
                   onClick={handleShare}
-                  className="w-full flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition-colors"
+                  className="w-full flex items-center justify-center space-x-2 bg-green-500 hover:bg-green-600 text-white shadow-md font-bold py-3 rounded-lg transition-colors"
                 >
                   <Share2 className="w-5 h-5" />
                   <span>Compartir por WhatsApp</span>
@@ -199,7 +199,7 @@ export function MyTicketPage() {
 
                 <button
                   onClick={() => setCompra(null)}
-                  className="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 rounded-lg transition-colors"
+                  className="w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-semibold py-3 rounded-lg transition-colors"
                 >
                   Buscar otra boleta
                 </button>

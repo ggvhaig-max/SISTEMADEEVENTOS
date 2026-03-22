@@ -88,15 +88,15 @@ export function InstagramTestimonials({ testimonios }: InstagramTestimonialsProp
             100% CONFIABLE Y SEGURO
           </div>
 
-          <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl font-black text-slate-900 mb-4">
             Lo Que Dicen Nuestros Ganadores
           </h2>
 
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-6">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-6">
             Miles de personas ya han confiado en nosotros. ¡Mira sus testimonios reales!
           </p>
 
-          <div className="flex flex-wrap justify-center gap-6 text-gray-300">
+          <div className="flex flex-wrap justify-center gap-6 text-slate-600">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-6 h-6 text-green-400" />
               <span className="font-semibold">Sorteos Transparentes</span>
@@ -178,7 +178,7 @@ export function InstagramTestimonials({ testimonios }: InstagramTestimonialsProp
                     }}
                     className={`h-2 rounded-full transition-all ${
                       index === currentIndex
-                        ? 'w-8 bg-blue-500'
+                        ? 'w-8 bg-orange-500'
                         : 'w-2 bg-gray-500 hover:bg-gray-400'
                     }`}
                     aria-label={`Ir a testimonio ${index + 1}`}
@@ -190,7 +190,7 @@ export function InstagramTestimonials({ testimonios }: InstagramTestimonialsProp
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-400 text-sm">
+          <p className="text-slate-500 text-sm">
             Testimonios reales de usuarios
           </p>
         </div>

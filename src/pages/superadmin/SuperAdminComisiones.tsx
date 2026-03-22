@@ -43,7 +43,7 @@ export function SuperAdminComisiones() {
     }
   };
 
-  if (loading) return <div className="p-8 text-white">Cargando comisiones...</div>;
+  if (loading) return <div className="p-8 text-slate-900">Cargando comisiones...</div>;
 
   const filteredComisiones = comisiones.filter(c => {
     return filterEstado === 'todos' || c.estado === filterEstado;
@@ -53,7 +53,7 @@ export function SuperAdminComisiones() {
     <div className="p-6">
       <div className="flex items-center gap-3 mb-6">
         <Wallet className="w-8 h-8 text-purple-500" />
-        <h1 className="text-2xl font-bold text-white">Dispersión de Comisiones</h1>
+        <h1 className="text-2xl font-bold text-slate-900">Dispersión de Comisiones</h1>
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
@@ -61,7 +61,7 @@ export function SuperAdminComisiones() {
           <select
             value={filterEstado}
             onChange={(e) => setFilterEstado(e.target.value)}
-            className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white appearance-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900 appearance-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           >
             <option value="todos">Todos los Estados</option>
             <option value="por_pagar">Por Pagar</option>
@@ -70,10 +70,10 @@ export function SuperAdminComisiones() {
         </div>
       </div>
 
-      <div className="bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
+      <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl overflow-hidden border border-white/50">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-gray-300">
-            <thead className="bg-gray-900/50 text-xs uppercase font-semibold text-gray-400">
+          <table className="w-full text-left text-slate-600">
+            <thead className="bg-slate-50/50 text-xs uppercase font-semibold text-slate-500">
               <tr>
                 <th className="px-6 py-4">ID Comisión</th>
                 <th className="px-6 py-4">Base Pago</th>
@@ -83,7 +83,7 @@ export function SuperAdminComisiones() {
                 <th className="px-6 py-4 text-right">Acciones</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-700/50">
+            <tbody className="divide-y divide-slate-200/50/50">
               {filteredComisiones.map((c) => (
                 <tr key={c.id}>
                   <td className="px-6 py-4 font-mono text-sm">{c.id.substring(0, 8)}</td>
@@ -113,7 +113,7 @@ export function SuperAdminComisiones() {
               ))}
               {filteredComisiones.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="px-6 py-8 text-center text-gray-400">
+                  <td colSpan={6} className="px-6 py-8 text-center text-slate-500">
                     No hay comisiones registradas. Se generan automáticamente al aprobar un pago de un Vendedor.
                   </td>
                 </tr>

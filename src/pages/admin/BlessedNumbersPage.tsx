@@ -189,7 +189,7 @@ export function BlessedNumbersPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -204,13 +204,13 @@ export function BlessedNumbersPage() {
         <div className="flex items-center space-x-4">
           <button
             onClick={() => navigate(`/admin/eventos/${id}/editar`)}
-            className="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors"
+            className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm hover:bg-slate-100 text-slate-600 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div>
-            <h1 className="text-3xl font-bold text-white">Números Bendecidos</h1>
-            <p className="text-gray-400 mt-1">{evento?.nombre}</p>
+            <h1 className="text-3xl font-bold text-slate-900">Números Bendecidos</h1>
+            <p className="text-slate-500 mt-1">{evento?.nombre}</p>
           </div>
         </div>
         <div className="flex items-center space-x-3">
@@ -224,7 +224,7 @@ export function BlessedNumbersPage() {
           )}
           <button
             onClick={() => setShowForm(!showForm)}
-            className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+            className="flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 px-4 py-2 rounded-lg transition-colors"
           >
             <Plus className="w-5 h-5" />
             <span>Bendecir Números</span>
@@ -233,36 +233,36 @@ export function BlessedNumbersPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl p-6 border border-white/50">
           <div className="flex items-center space-x-3 mb-2">
             <Star className="w-5 h-5 text-yellow-500 fill-current" />
-            <p className="text-sm text-gray-400">Números Bendecidos</p>
+            <p className="text-sm text-slate-500">Números Bendecidos</p>
           </div>
-          <p className="text-3xl font-bold text-white">{blessedEntries.length}</p>
+          <p className="text-3xl font-bold text-slate-900">{blessedEntries.length}</p>
         </div>
 
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-          <p className="text-sm text-gray-400 mb-2">Bloqueados</p>
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl p-6 border border-white/50">
+          <p className="text-sm text-slate-500 mb-2">Bloqueados</p>
           <p className="text-3xl font-bold text-yellow-400">{bloqueados.length}</p>
         </div>
 
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-          <p className="text-sm text-gray-400 mb-2">Total Boletas Adicionales</p>
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl p-6 border border-white/50">
+          <p className="text-sm text-slate-500 mb-2">Total Boletas Adicionales</p>
           <p className="text-3xl font-bold text-green-400">+{totalPremios.toLocaleString()}</p>
         </div>
 
-        <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-          <p className="text-sm text-gray-400 mb-2">Premios Ganados</p>
+        <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl p-6 border border-white/50">
+          <p className="text-sm text-slate-500 mb-2">Premios Ganados</p>
           <p className="text-3xl font-bold text-orange-400">{ganados.length}</p>
         </div>
       </div>
 
       {showForm && (
-        <form onSubmit={handleSubmit} className="bg-gray-800 rounded-xl border border-gray-700 p-6 space-y-4">
-          <h3 className="text-lg font-semibold text-white">Bendecir Números</h3>
+        <form onSubmit={handleSubmit} className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 p-6 space-y-4">
+          <h3 className="text-lg font-semibold text-slate-900">Bendecir Números</h3>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Números a Bendecir (separados por coma) *
             </label>
             <input
@@ -270,16 +270,16 @@ export function BlessedNumbersPage() {
               value={formData.numeros}
               onChange={(e) => setFormData({ ...formData, numeros: e.target.value })}
               placeholder="Ej: 1234, 5678, 9999"
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
               required
             />
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-slate-400 mt-1">
               Ingresa los números separados por comas. Rango: 1 - {evento?.total_entradas.toLocaleString()}
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Cantidad de Boletas Adicionales *
             </label>
             <input
@@ -289,35 +289,35 @@ export function BlessedNumbersPage() {
               value={formData.premio_valor}
               onChange={(e) => setFormData({ ...formData, premio_valor: Number(e.target.value) })}
               placeholder="Ej: 100, 200, 500"
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
               required
             />
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-slate-400 mt-1">
               El cliente que obtenga este número recibirá boletas adicionales gratis al azar (ej: 100, 200, 500)
             </p>
           </div>
 
-          <div className="border-t border-gray-700 pt-4">
+          <div className="border-t border-white/50 pt-4">
             <label className="flex items-center space-x-3 cursor-pointer">
               <input
                 type="checkbox"
                 checked={formData.premio_especie_activo}
                 onChange={(e) => setFormData({ ...formData, premio_especie_activo: e.target.checked })}
-                className="w-5 h-5 text-blue-600 bg-gray-900 border-gray-700 rounded focus:ring-2 focus:ring-blue-500"
+                className="w-5 h-5 text-blue-600 bg-slate-50 border-white/50 rounded focus:ring-2 focus:ring-orange-500"
               />
-              <span className="text-sm font-medium text-gray-300">
+              <span className="text-sm font-medium text-slate-600">
                 Agregar Premio en Especie Adicional (opcional)
               </span>
             </label>
-            <p className="text-xs text-gray-500 mt-1 ml-8">
+            <p className="text-xs text-slate-400 mt-1 ml-8">
               Agrega un premio extra como efectivo, productos, bonos, etc. que se mostrará en la landing page
             </p>
           </div>
 
           {formData.premio_especie_activo && (
-            <div className="bg-gray-900/50 border border-gray-700 rounded-lg p-4 space-y-4">
+            <div className="bg-slate-50/50 border border-white/50 rounded-lg p-4 space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Descripción del Premio *
                 </label>
                 <input
@@ -325,13 +325,13 @@ export function BlessedNumbersPage() {
                   value={formData.premio_especie_descripcion}
                   onChange={(e) => setFormData({ ...formData, premio_especie_descripcion: e.target.value })}
                   placeholder="Ej: $50.000 en efectivo, Camiseta oficial, Entrada VIP"
-                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required={formData.premio_especie_activo}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   URL de la Imagen del Premio
                 </label>
                 <input
@@ -339,9 +339,9 @@ export function BlessedNumbersPage() {
                   value={formData.premio_especie_imagen_url}
                   onChange={(e) => setFormData({ ...formData, premio_especie_imagen_url: e.target.value })}
                   placeholder="https://ejemplo.com/imagen-premio.jpg"
-                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-slate-400 mt-1">
                   Si se deja vacío, se mostrará un ícono de regalo por defecto
                 </p>
               </div>
@@ -352,13 +352,13 @@ export function BlessedNumbersPage() {
             <button
               type="button"
               onClick={() => setShowForm(false)}
-              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors"
+              className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-lg transition-colors"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+              className="flex-1 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 px-4 py-2 rounded-lg transition-colors"
             >
               Bendecir Números
             </button>
@@ -366,51 +366,51 @@ export function BlessedNumbersPage() {
         </form>
       )}
 
-      <div className="bg-gray-800 rounded-xl border border-gray-700">
-        <div className="p-6 border-b border-gray-700">
-          <h2 className="text-xl font-semibold text-white">Números Bendecidos</h2>
+      <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50">
+        <div className="p-6 border-b border-white/50">
+          <h2 className="text-xl font-semibold text-slate-900">Números Bendecidos</h2>
         </div>
 
         {blessedEntries.length === 0 ? (
           <div className="p-12 text-center">
             <Star className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-            <p className="text-gray-400">No hay números bendecidos</p>
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-slate-500">No hay números bendecidos</p>
+            <p className="text-sm text-slate-400 mt-2">
               Los números bendecidos son premios especiales que ganan los clientes al obtener esos números
             </p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-900">
+              <thead className="bg-slate-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Número
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Boletas Adicionales
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Disponibilidad
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Estado
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Ganador
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase">
                     Acciones
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-700">
+              <tbody className="divide-y divide-slate-200/50">
                 {blessedEntries.map((entry) => (
-                  <tr key={entry.id} className="hover:bg-gray-700/50">
+                  <tr key={entry.id} className="hover:bg-slate-100/50">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center space-x-2">
                         <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                        <span className="text-xl font-bold text-white font-mono">
+                        <span className="text-xl font-bold text-slate-900 font-mono">
                           #{entry.numero_entrada.toString().padStart(5, '0')}
                         </span>
                       </div>
@@ -447,12 +447,12 @@ export function BlessedNumbersPage() {
                       <span
                         className={`px-3 py-1 text-xs font-medium rounded-full ${
                           entry.estado === 'disponible'
-                            ? 'bg-gray-600/20 text-gray-400'
+                            ? 'bg-slate-200/20 text-slate-500'
                             : entry.estado === 'reservada'
                             ? 'bg-yellow-600/20 text-yellow-400'
                             : entry.estado === 'pagada' || entry.estado === 'premiada'
                             ? 'bg-green-600/20 text-green-400'
-                            : 'bg-gray-600/20 text-gray-400'
+                            : 'bg-slate-200/20 text-slate-500'
                         }`}
                       >
                         {entry.estado}
@@ -460,9 +460,9 @@ export function BlessedNumbersPage() {
                     </td>
                     <td className="px-6 py-4">
                       {entry.correo_comprador ? (
-                        <span className="text-sm text-white">{entry.correo_comprador}</span>
+                        <span className="text-sm text-slate-900">{entry.correo_comprador}</span>
                       ) : (
-                        <span className="text-sm text-gray-500">-</span>
+                        <span className="text-sm text-slate-400">-</span>
                       )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">

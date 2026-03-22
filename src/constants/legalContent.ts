@@ -13,7 +13,7 @@ export const PRIVACY_POLICY = `
   aceptación plena de estas políticas.
 </p>
 
-<div class="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 mb-6">
+<div class="bg-blue-900/20 border border-orange-500/30 rounded-lg p-4 mb-6">
   <p class="text-blue-200">
     <strong>PARA CUALQUIER COMUNICACIÓN DIRÍJASE AL CORREO:</strong><br>
     [correo de contacto]

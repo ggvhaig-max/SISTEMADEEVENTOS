@@ -241,7 +241,7 @@ export function EditEventPage() {
   if (loading || !evento) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -251,126 +251,126 @@ export function EditEventPage() {
       <div className="flex items-center space-x-4">
         <button
           onClick={() => navigate('/admin/eventos')}
-          className="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors"
+          className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm hover:bg-slate-100 text-slate-600 transition-colors"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-3xl font-bold text-white">{evento.nombre}</h1>
-          <p className="text-gray-400 mt-1">/evento/{evento.slug}</p>
+          <h1 className="text-3xl font-bold text-slate-900">{evento.nombre}</h1>
+          <p className="text-slate-500 mt-1">/evento/{evento.slug}</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Link
           to={`/admin/eventos/${id}/paquetes`}
-          className="bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-xl p-6 transition-colors"
+          className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm hover:bg-slate-100 border border-white/50 rounded-xl p-6 transition-colors"
         >
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center">
               <Package className="w-6 h-6 text-purple-500" />
             </div>
             <div>
-              <p className="text-sm text-gray-400">Configurar</p>
-              <p className="text-lg font-semibold text-white">Paquetes</p>
+              <p className="text-sm text-slate-500">Configurar</p>
+              <p className="text-lg font-semibold text-slate-900">Paquetes</p>
             </div>
           </div>
         </Link>
 
         <Link
           to={`/admin/eventos/${id}/bendecidos`}
-          className="bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-xl p-6 transition-colors"
+          className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm hover:bg-slate-100 border border-white/50 rounded-xl p-6 transition-colors"
         >
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 bg-yellow-600/20 rounded-lg flex items-center justify-center">
               <Gift className="w-6 h-6 text-yellow-500" />
             </div>
             <div>
-              <p className="text-sm text-gray-400">Números</p>
-              <p className="text-lg font-semibold text-white">Bendecidos</p>
+              <p className="text-sm text-slate-500">Números</p>
+              <p className="text-lg font-semibold text-slate-900">Bendecidos</p>
             </div>
           </div>
         </Link>
 
         <Link
           to={`/admin/eventos/${id}/boletas`}
-          className="bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-xl p-6 transition-colors"
+          className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm hover:bg-slate-100 border border-white/50 rounded-xl p-6 transition-colors"
         >
           <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center">
-              <Ticket className="w-6 h-6 text-blue-500" />
+            <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center">
+              <Ticket className="w-6 h-6 text-orange-500" />
             </div>
             <div>
-              <p className="text-sm text-gray-400">Gestionar</p>
-              <p className="text-lg font-semibold text-white">Boletas</p>
+              <p className="text-sm text-slate-500">Gestionar</p>
+              <p className="text-lg font-semibold text-slate-900">Boletas</p>
             </div>
           </div>
         </Link>
 
         <Link
           to={`/admin/eventos/${id}/compras`}
-          className="bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-xl p-6 transition-colors"
+          className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm hover:bg-slate-100 border border-white/50 rounded-xl p-6 transition-colors"
         >
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 bg-green-600/20 rounded-lg flex items-center justify-center">
               <CreditCard className="w-6 h-6 text-green-500" />
             </div>
             <div>
-              <p className="text-sm text-gray-400">Gestionar</p>
-              <p className="text-lg font-semibold text-white">Compras</p>
+              <p className="text-sm text-slate-500">Gestionar</p>
+              <p className="text-lg font-semibold text-slate-900">Compras</p>
             </div>
           </div>
         </Link>
 
         <Link
           to={`/admin/eventos/${id}/premios`}
-          className="bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-xl p-6 transition-colors"
+          className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm hover:bg-slate-100 border border-white/50 rounded-xl p-6 transition-colors"
         >
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center">
               <Gift className="w-6 h-6 text-orange-500" />
             </div>
             <div>
-              <p className="text-sm text-gray-400">Gestionar</p>
-              <p className="text-lg font-semibold text-white">Premios</p>
+              <p className="text-sm text-slate-500">Gestionar</p>
+              <p className="text-lg font-semibold text-slate-900">Premios</p>
             </div>
           </div>
         </Link>
 
         <Link
           to={`/admin/eventos/${id}/ganadores`}
-          className="bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-xl p-6 transition-colors"
+          className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm hover:bg-slate-100 border border-white/50 rounded-xl p-6 transition-colors"
         >
           <div className="flex items-center space-x-4">
             <div className="w-12 h-12 bg-yellow-600/20 rounded-lg flex items-center justify-center">
               <Trophy className="w-6 h-6 text-yellow-500" />
             </div>
             <div>
-              <p className="text-sm text-gray-400">Gestionar</p>
-              <p className="text-lg font-semibold text-white">Ganadores</p>
+              <p className="text-sm text-slate-500">Gestionar</p>
+              <p className="text-lg font-semibold text-slate-900">Ganadores</p>
             </div>
           </div>
         </Link>
       </div>
 
-      <form onSubmit={handleSubmit} className="bg-gray-800 rounded-xl border border-gray-700 p-8 space-y-6">
-        <h2 className="text-xl font-semibold text-white">Configuración del Evento</h2>
+      <form onSubmit={handleSubmit} className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 p-8 space-y-6">
+        <h2 className="text-xl font-semibold text-slate-900">Configuración del Evento</h2>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-slate-600 mb-2">
             Nombre del Evento *
           </label>
           <input
             type="text"
             value={evento.nombre}
             onChange={(e) => setEvento({ ...evento, nombre: e.target.value })}
-            className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
             required
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-slate-600 mb-2">
             Imagen del Evento
           </label>
           <ImageUpload
@@ -383,43 +383,43 @@ export function EditEventPage() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-slate-600 mb-2">
             Descripción
           </label>
           <textarea
             value={evento.descripcion || ''}
             onChange={(e) => setEvento({ ...evento, descripcion: e.target.value })}
-            className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 resize-none"
+            className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 h-32 resize-none"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-slate-600 mb-2">
             Condiciones e Instrucciones
           </label>
           <textarea
             value={evento.condiciones || ''}
             onChange={(e) => setEvento({ ...evento, condiciones: e.target.value })}
-            className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 h-40 resize-none"
+            className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 h-40 resize-none"
             placeholder="Ej: ¿Cómo participar? 1. Selecciona el paquete de números que desees... 2. Serás redirigido a una página donde seleccionarás tu forma de pago..."
           />
-          <p className="text-sm text-gray-400 mt-2">
+          <p className="text-sm text-slate-500 mt-2">
             Este texto se mostrará en la página del evento explicando cómo participar y las condiciones.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Fecha de Cierre
             </label>
             <input
               type="datetime-local"
               value={evento.fecha_cierre || ''}
               onChange={(e) => setEvento({ ...evento, fecha_cierre: e.target.value })}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
-            <p className="text-sm text-gray-400 mt-2">
+            <p className="text-sm text-slate-500 mt-2">
               Opcional. Si no se establece, el evento estará activo hasta que se complete la venta.
             </p>
           </div>
@@ -436,26 +436,26 @@ export function EditEventPage() {
                     setEvento({ ...evento, fecha_sorteo: '' });
                   }
                 }}
-                className="w-4 h-4 text-blue-600 bg-gray-900 border-gray-700 rounded focus:ring-blue-500"
+                className="w-4 h-4 text-blue-600 bg-slate-50 border-white/50 rounded focus:ring-orange-500"
               />
-              <label htmlFor="usar_fecha_sorteo" className="text-sm font-medium text-gray-300">
+              <label htmlFor="usar_fecha_sorteo" className="text-sm font-medium text-slate-600">
                 Establecer fecha específica del sorteo
               </label>
             </div>
             {usarFechaSorteo ? (
               <>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Fecha del Sorteo
                 </label>
                 <input
                   type="datetime-local"
                   value={evento.fecha_sorteo || ''}
                   onChange={(e) => setEvento({ ...evento, fecha_sorteo: e.target.value })}
-                  className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </>
             ) : (
-              <p className="text-sm text-gray-400 bg-gray-900/50 border border-gray-700 rounded-lg p-3">
+              <p className="text-sm text-slate-500 bg-slate-50/50 border border-white/50 rounded-lg p-3">
                 El sorteo se realizará una vez se haya completado la venta total de números
               </p>
             )}
@@ -463,43 +463,43 @@ export function EditEventPage() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-slate-600 mb-2">
             Canal de Transmisión del Sorteo
           </label>
           <input
             type="text"
             value={evento.loteria_referencia || ''}
             onChange={(e) => setEvento({ ...evento, loteria_referencia: e.target.value })}
-            className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
             placeholder="Ej: https://kick.com/misorteo"
           />
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm text-slate-400 mt-1">
             El ganador será determinado en sorteo en vivo por este canal
           </p>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-medium text-slate-600 mb-2">
             URL del Video (YouTube, Vimeo, etc)
           </label>
           <input
             type="url"
             value={evento.video_url || ''}
             onChange={(e) => setEvento({ ...evento, video_url: e.target.value })}
-            className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
             placeholder="https://youtube.com/..."
           />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Total de Boletas *
             </label>
             <select
               value={evento.total_entradas}
               onChange={(e) => setEvento({ ...evento, total_entradas: Number(e.target.value) })}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
               required
             >
               <option value={1000}>1,000 boletas</option>
@@ -509,13 +509,13 @@ export function EditEventPage() {
               <option value={50000}>50,000 boletas</option>
               <option value={99999}>99,999 boletas</option>
             </select>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-slate-400 mt-1">
               Al aumentar: se generarán nuevas boletas. Al reducir: se eliminarán boletas disponibles
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Precio por Entrada *
             </label>
             <input
@@ -524,7 +524,7 @@ export function EditEventPage() {
               step="0.01"
               value={evento.precio_por_entrada}
               onChange={(e) => setEvento({ ...evento, precio_por_entrada: Number(e.target.value) })}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
               required
             />
           </div>
@@ -532,13 +532,13 @@ export function EditEventPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Estado *
             </label>
             <select
               value={evento.estado}
               onChange={(e) => setEvento({ ...evento, estado: e.target.value })}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
             >
               <option value="activo">Activo</option>
               <option value="cerrado">Cerrado</option>
@@ -552,114 +552,114 @@ export function EditEventPage() {
                 type="checkbox"
                 checked={evento.activo}
                 onChange={(e) => setEvento({ ...evento, activo: e.target.checked })}
-                className="w-4 h-4 text-blue-600 bg-gray-900 border-gray-700 rounded focus:ring-blue-500"
+                className="w-4 h-4 text-blue-600 bg-slate-50 border-white/50 rounded focus:ring-orange-500"
               />
-              <span className="text-sm font-medium text-gray-300">
+              <span className="text-sm font-medium text-slate-600">
                 Evento activo (visible públicamente)
               </span>
             </label>
           </div>
         </div>
 
-        <div className="pt-6 border-t border-gray-700 space-y-4">
-          <h3 className="text-lg font-semibold text-white">Marketing y Promoción</h3>
-          <p className="text-sm text-gray-400">Configura elementos para hacer tu landing más atractiva</p>
+        <div className="pt-6 border-t border-white/50 space-y-4">
+          <h3 className="text-lg font-semibold text-slate-900">Marketing y Promoción</h3>
+          <p className="text-sm text-slate-500">Configura elementos para hacer tu landing más atractiva</p>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Noticias en Movimiento (Marquee)
             </label>
             <input
               type="text"
               value={evento.noticias_marquee || ''}
               onChange={(e) => setEvento({ ...evento, noticias_marquee: e.target.value })}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
               placeholder="Ej: ¡Quedan pocas boletas! | ¡No te quedes sin tu número! | ¡Gana hasta 2 millones!"
             />
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-slate-400 mt-1">
               Separa múltiples mensajes con | (barra vertical). Se mostrarán deslizándose arriba de la imagen.
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Mensaje de WhatsApp
             </label>
             <textarea
               value={evento.mensaje_whatsapp || ''}
               onChange={(e) => setEvento({ ...evento, mensaje_whatsapp: e.target.value })}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 h-24 resize-none"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 h-24 resize-none"
               placeholder="Ej: Premios extras, eventos gratis y mucho más. Actualizaciones exclusivas!"
             />
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-slate-400 mt-1">
               Mensaje que invita a los usuarios a unirse al grupo de WhatsApp.
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Link de WhatsApp
             </label>
             <input
               type="url"
               value={evento.link_whatsapp || ''}
               onChange={(e) => setEvento({ ...evento, link_whatsapp: e.target.value })}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
               placeholder="https://chat.whatsapp.com/..."
             />
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-slate-400 mt-1">
               Link de invitación al grupo de WhatsApp. Deja vacío para no mostrar la sección.
             </p>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-white">Telegram (Opcional)</h3>
-          <p className="text-sm text-gray-400">
+          <h3 className="text-lg font-semibold text-slate-900">Telegram (Opcional)</h3>
+          <p className="text-sm text-slate-500">
             Si prefieres usar Telegram en lugar de WhatsApp, completa estos campos. Se mostrará solo si ambos campos están llenos.
           </p>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Mensaje de Telegram
             </label>
             <textarea
               value={evento.telegram_mensaje || ''}
               onChange={(e) => setEvento({ ...evento, telegram_mensaje: e.target.value })}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 h-24 resize-none"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 h-24 resize-none"
               placeholder="Ej: Únete a nuestro grupo de Telegram para actualizaciones exclusivas y premios especiales!"
             />
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-slate-400 mt-1">
               Mensaje que invita a los usuarios a unirse al grupo de Telegram.
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Link de Telegram
             </label>
             <input
               type="url"
               value={evento.telegram_link || ''}
               onChange={(e) => setEvento({ ...evento, telegram_link: e.target.value })}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500"
               placeholder="https://t.me/..."
             />
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-slate-400 mt-1">
               Link de invitación al grupo de Telegram. Deja vacío para no mostrar la sección.
             </p>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-white">Testimonios y Redes Sociales</h3>
+          <h3 className="text-lg font-semibold text-slate-900">Testimonios y Redes Sociales</h3>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2 flex items-center gap-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2 flex items-center gap-2">
               <Video className="w-5 h-5" />
               Testimonios (Videos & Instagram)
             </label>
-            <p className="text-sm text-gray-400 mb-3">
+            <p className="text-sm text-slate-500 mb-3">
               Sube videos directamente o agrega URLs de Instagram. Los videos se reproducen en la página sin sacar al usuario. ¡Ideal para generar confianza!
             </p>
 
@@ -670,8 +670,8 @@ export function EditEventPage() {
                   onClick={() => setTestimonioType('video')}
                   className={`flex-1 px-4 py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 ${
                     testimonioType === 'video'
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                      ? 'bg-orange-500 text-slate-900'
+                      : 'bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm text-slate-500 hover:bg-slate-100'
                   }`}
                 >
                   <Video className="w-5 h-5" />
@@ -682,8 +682,8 @@ export function EditEventPage() {
                   onClick={() => setTestimonioType('instagram')}
                   className={`flex-1 px-4 py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 ${
                     testimonioType === 'instagram'
-                      ? 'bg-pink-600 text-white'
-                      : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                      ? 'bg-pink-600 text-slate-900'
+                      : 'bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm text-slate-500 hover:bg-slate-100'
                   }`}
                 >
                   <Instagram className="w-5 h-5" />
@@ -696,19 +696,19 @@ export function EditEventPage() {
                   <label className="block w-full">
                     <div className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
                       uploadingVideo
-                        ? 'border-blue-500 bg-blue-500/10'
-                        : 'border-gray-700 hover:border-gray-600 bg-gray-900'
+                        ? 'border-orange-500 bg-orange-500/10'
+                        : 'border-white/50 hover:border-gray-600 bg-slate-50'
                     }`}>
                       {uploadingVideo ? (
                         <div className="flex flex-col items-center gap-2">
-                          <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
-                          <p className="text-sm text-gray-400">Subiendo video...</p>
+                          <Loader2 className="w-8 h-8 text-orange-500 animate-spin" />
+                          <p className="text-sm text-slate-500">Subiendo video...</p>
                         </div>
                       ) : (
                         <div className="flex flex-col items-center gap-2">
-                          <Upload className="w-8 h-8 text-gray-500" />
-                          <p className="text-sm text-gray-300 font-medium">Haz clic para subir un video</p>
-                          <p className="text-xs text-gray-500">MP4, WebM o MOV • Máximo 50MB</p>
+                          <Upload className="w-8 h-8 text-slate-400" />
+                          <p className="text-sm text-slate-600 font-medium">Haz clic para subir un video</p>
+                          <p className="text-xs text-slate-400">MP4, WebM o MOV • Máximo 50MB</p>
                         </div>
                       )}
                     </div>
@@ -728,13 +728,13 @@ export function EditEventPage() {
                     value={newTestimonioUrl}
                     onChange={(e) => setNewTestimonioUrl(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddTestimonio())}
-                    className="flex-1 px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    className="flex-1 px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-pink-500"
                     placeholder="https://www.instagram.com/p/ABC123/"
                   />
                   <button
                     type="button"
                     onClick={handleAddTestimonio}
-                    className="px-4 py-3 bg-pink-600 hover:bg-pink-700 text-white rounded-lg transition-colors flex items-center gap-2"
+                    className="px-4 py-3 bg-pink-600 hover:bg-pink-700 text-slate-900 rounded-lg transition-colors flex items-center gap-2"
                   >
                     <Plus className="w-5 h-5" />
                     Agregar
@@ -747,21 +747,21 @@ export function EditEventPage() {
                   {evento.testimonios.map((testimonio, index) => (
                     <div
                       key={index}
-                      className="flex items-center gap-2 p-3 bg-gray-900 border border-gray-700 rounded-lg"
+                      className="flex items-center gap-2 p-3 bg-slate-50 border border-white/50 rounded-lg"
                     >
                       {testimonio.type === 'video' ? (
-                        <Video className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                        <Video className="w-4 h-4 text-orange-500 flex-shrink-0" />
                       ) : (
                         <Instagram className="w-4 h-4 text-pink-400 flex-shrink-0" />
                       )}
-                      <span className="text-xs text-gray-500 px-2 py-1 bg-gray-800 rounded">
+                      <span className="text-xs text-slate-400 px-2 py-1 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded">
                         {testimonio.type}
                       </span>
-                      <span className="text-sm text-gray-300 flex-1 truncate">{testimonio.url}</span>
+                      <span className="text-sm text-slate-600 flex-1 truncate">{testimonio.url}</span>
                       <button
                         type="button"
                         onClick={() => handleRemoveTestimonio(index)}
-                        className="p-1 hover:bg-gray-800 rounded text-red-400 hover:text-red-300 transition-colors"
+                        className="p-1 hover:bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded text-red-400 hover:text-red-300 transition-colors"
                       >
                         <X className="w-4 h-4" />
                       </button>
@@ -770,7 +770,7 @@ export function EditEventPage() {
                 </div>
               )}
 
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-slate-400">
                 {testimonioType === 'video'
                   ? 'Los videos se reproducen directamente en el landing sin enlaces externos'
                   : 'Ejemplo: https://www.instagram.com/p/ABC123/ o https://www.instagram.com/reel/XYZ789/'}
@@ -779,33 +779,33 @@ export function EditEventPage() {
           </div>
         </div>
 
-        <div className="pt-6 border-t border-gray-700 space-y-4">
-          <h3 className="text-lg font-semibold text-white">Métodos de Pago</h3>
-          <p className="text-sm text-gray-400">Configura las cuentas donde los clientes pueden realizar pagos</p>
+        <div className="pt-6 border-t border-white/50 space-y-4">
+          <h3 className="text-lg font-semibold text-slate-900">Métodos de Pago</h3>
+          <p className="text-sm text-slate-500">Configura las cuentas donde los clientes pueden realizar pagos</p>
 
-          <div className="bg-gray-900 rounded-lg p-4 space-y-4">
-            <h4 className="font-medium text-white">Transferencia Bancaria</h4>
+          <div className="bg-slate-50 rounded-lg p-4 space-y-4">
+            <h4 className="font-medium text-slate-900">Transferencia Bancaria</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Banco
                 </label>
                 <input
                   type="text"
                   value={evento.banco_nombre || ''}
                   onChange={(e) => setEvento({ ...evento, banco_nombre: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white"
+                  className="w-full px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900"
                   placeholder="Ej: Bancolombia"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Tipo de Cuenta
                 </label>
                 <select
                   value={evento.banco_tipo_cuenta || ''}
                   onChange={(e) => setEvento({ ...evento, banco_tipo_cuenta: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white"
+                  className="w-full px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900"
                 >
                   <option value="">Seleccionar...</option>
                   <option value="Ahorros">Ahorros</option>
@@ -813,133 +813,133 @@ export function EditEventPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Número de Cuenta
                 </label>
                 <input
                   type="text"
                   value={evento.banco_numero_cuenta || ''}
                   onChange={(e) => setEvento({ ...evento, banco_numero_cuenta: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white"
+                  className="w-full px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900"
                   placeholder="Ej: 12345678900"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Titular de la Cuenta
                 </label>
                 <input
                   type="text"
                   value={evento.banco_titular || ''}
                   onChange={(e) => setEvento({ ...evento, banco_titular: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white"
+                  className="w-full px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900"
                   placeholder="Ej: Juan Pérez"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Documento del Titular
                 </label>
                 <input
                   type="text"
                   value={evento.banco_documento || ''}
                   onChange={(e) => setEvento({ ...evento, banco_documento: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white"
+                  className="w-full px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900"
                   placeholder="Ej: 1234567890"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Información Adicional
                 </label>
                 <input
                   type="text"
                   value={evento.banco_info_adicional || ''}
                   onChange={(e) => setEvento({ ...evento, banco_info_adicional: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white"
+                  className="w-full px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900"
                   placeholder="Ej: Por favor incluir referencia"
                 />
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-900 rounded-lg p-4 space-y-4">
-            <h4 className="font-medium text-white">Nequi</h4>
+          <div className="bg-slate-50 rounded-lg p-4 space-y-4">
+            <h4 className="font-medium text-slate-900">Nequi</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Número de Nequi
                 </label>
                 <input
                   type="text"
                   value={evento.nequi_numero || ''}
                   onChange={(e) => setEvento({ ...evento, nequi_numero: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white"
+                  className="w-full px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900"
                   placeholder="Ej: 3001234567"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-slate-600 mb-2">
                   Titular de Nequi
                 </label>
                 <input
                   type="text"
                   value={evento.nequi_titular || ''}
                   onChange={(e) => setEvento({ ...evento, nequi_titular: e.target.value })}
-                  className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white"
+                  className="w-full px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900"
                   placeholder="Ej: Juan Pérez"
                 />
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-900 rounded-lg p-4 space-y-4">
-            <h4 className="font-medium text-white">Pasarela de Pago</h4>
+          <div className="bg-slate-50 rounded-lg p-4 space-y-4">
+            <h4 className="font-medium text-slate-900">Pasarela de Pago</h4>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-slate-600 mb-2">
                 URL de Pasarela de Pago
               </label>
               <input
                 type="url"
                 value={evento.url_pasarela || ''}
                 onChange={(e) => setEvento({ ...evento, url_pasarela: e.target.value })}
-                className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white"
+                className="w-full px-4 py-2 bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm border border-white/50 rounded-lg text-slate-900"
                 placeholder="Ej: https://checkout.wompi.co/..."
               />
-              <p className="text-sm text-gray-500 mt-1">
+              <p className="text-sm text-slate-400 mt-1">
                 Si proporcionas una URL, se mostrará un botón para que los usuarios paguen directamente en la pasarela.
               </p>
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Instrucciones de Pago Adicionales
             </label>
             <textarea
               value={evento.instrucciones_pago || ''}
               onChange={(e) => setEvento({ ...evento, instrucciones_pago: e.target.value })}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 h-24 resize-none"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 h-24 resize-none"
               placeholder="Ej: Por favor incluye tu número de boleta en la descripción de la transferencia."
             />
-            <p className="text-sm text-gray-500 mt-1">
+            <p className="text-sm text-slate-400 mt-1">
               Instrucciones adicionales que verán los compradores al momento de realizar el pago.
             </p>
           </div>
         </div>
 
-        <div className="flex items-center space-x-4 pt-6 border-t border-gray-700">
+        <div className="flex items-center space-x-4 pt-6 border-t border-white/50">
           <button
             type="button"
             onClick={() => navigate('/admin/eventos')}
-            className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors"
+            className="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-lg transition-colors"
           >
             Cancelar
           </button>
           <button
             type="submit"
             disabled={saving}
-            className="flex-1 flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex-1 flex items-center justify-center space-x-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 px-6 py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {saving ? (
               <>

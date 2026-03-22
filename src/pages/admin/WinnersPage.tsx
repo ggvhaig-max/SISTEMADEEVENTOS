@@ -103,7 +103,7 @@ export function WinnersPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -113,28 +113,28 @@ export function WinnersPage() {
       <div className="flex items-center space-x-4">
         <button
           onClick={() => navigate(`/admin/eventos/${id}/editar`)}
-          className="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors"
+          className="flex items-center justify-center w-10 h-10 rounded-lg bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm hover:bg-slate-100 text-slate-600 transition-colors"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-3xl font-bold text-white">Gestión de Ganadores</h1>
-          <p className="text-gray-400 mt-1">Selecciona y publica los ganadores</p>
+          <h1 className="text-3xl font-bold text-slate-900">Gestión de Ganadores</h1>
+          <p className="text-slate-500 mt-1">Selecciona y publica los ganadores</p>
         </div>
       </div>
 
-      <div className="bg-gray-800 rounded-xl border border-gray-700 p-8">
-        <h2 className="text-xl font-semibold text-white mb-6">Seleccionar Ganador</h2>
+      <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 p-8">
+        <h2 className="text-xl font-semibold text-slate-900 mb-6">Seleccionar Ganador</h2>
 
         <div className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Selecciona el Premio
             </label>
             <select
               value={selectedPrize || ''}
               onChange={(e) => setSelectedPrize(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
             >
               <option value="">Seleccionar premio...</option>
               {premios.map((premio) => (
@@ -146,7 +146,7 @@ export function WinnersPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-slate-600 mb-2">
               Entrada Ganadora
             </label>
             <input
@@ -154,45 +154,45 @@ export function WinnersPage() {
               min="1"
               value={winnerNumber || ''}
               onChange={(e) => setWinnerNumber(Number(e.target.value))}
-              className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-3 bg-slate-50 border border-white/50 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
               placeholder="Ej: 12345"
             />
           </div>
 
           <button
             onClick={handleSetWinner}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg transition-colors"
+            className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-md shadow-orange-500/20 py-3 px-4 rounded-lg transition-colors"
           >
             Establecer Ganador
           </button>
         </div>
       </div>
 
-      <div className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-        <div className="p-6 border-b border-gray-700">
-          <h2 className="text-xl font-semibold text-white">Ganadores</h2>
+      <div className="bg-white/70 backdrop-blur-xl border border-white/50 shadow-sm rounded-xl border border-white/50 overflow-hidden">
+        <div className="p-6 border-b border-white/50">
+          <h2 className="text-xl font-semibold text-slate-900">Ganadores</h2>
         </div>
 
-        <div className="divide-y divide-gray-700">
+        <div className="divide-y divide-slate-200/50">
           {premios.filter(p => p.numero_ganador).map((premio) => (
-            <div key={premio.id} className="p-6 hover:bg-gray-700/50">
+            <div key={premio.id} className="p-6 hover:bg-slate-100/50">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <div className="flex items-center space-x-3 mb-2">
                     <Trophy className="w-6 h-6 text-yellow-500" />
-                    <h3 className="text-lg font-semibold text-white">{premio.titulo}</h3>
+                    <h3 className="text-lg font-semibold text-slate-900">{premio.titulo}</h3>
                     <span
                       className={`px-2 py-1 text-xs font-medium rounded-full ${
                         premio.tipo === 'principal'
                           ? 'bg-purple-500/20 text-purple-400'
-                          : 'bg-blue-500/20 text-blue-400'
+                          : 'bg-orange-500/20 text-orange-500'
                       }`}
                     >
                       {premio.tipo}
                     </span>
                   </div>
 
-                  <p className="text-2xl font-bold text-white mb-2">
+                  <p className="text-2xl font-bold text-slate-900 mb-2">
                     ${premio.valor.toLocaleString()}
                   </p>
 
@@ -208,14 +208,14 @@ export function WinnersPage() {
                   {premio.publicado ? (
                     <button
                       onClick={() => handlePublishWinner(premio.id, false)}
-                      className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-lg transition-colors"
+                      className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg transition-colors"
                     >
                       Ocultar
                     </button>
                   ) : (
                     <button
                       onClick={() => handlePublishWinner(premio.id, true)}
-                      className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+                      className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white shadow-md rounded-lg transition-colors"
                     >
                       Publicar
                     </button>
@@ -226,7 +226,7 @@ export function WinnersPage() {
           ))}
 
           {premios.filter(p => p.numero_ganador).length === 0 && (
-            <div className="p-12 text-center text-gray-400">
+            <div className="p-12 text-center text-slate-500">
               No hay ganadores establecidos aún
             </div>
           )}
