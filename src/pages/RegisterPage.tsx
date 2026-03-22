@@ -56,11 +56,7 @@ export function RegisterPage() {
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center mb-4">
-            <img
-              src="/Diseno_sin_titulo.png"
-              alt="SISTEMADEEVENTOS"
-              className="h-24 w-auto object-contain"
-            />
+            <span className="font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">SISTEMA DE EVENTOS</span>
           </div>
           <p className="text-gray-400">Crear Cuenta de Administrador</p>
         </div>

@@ -23,6 +23,7 @@ import { BlessedNumbersPage } from './pages/admin/BlessedNumbersPage';
 import { TenantSupport } from './pages/admin/TenantSupport';
 
 // Públicas
+import { LandingPage } from './pages/public/LandingPage';
 import { EventLanding } from './pages/public/EventLanding';
 import { MyTicketPage } from './pages/public/MyTicketPage';
 import { ProtectedRoute } from './components/ProtectedRoute';
@@ -63,7 +64,7 @@ function App() {
         <Toaster position="top-right" richColors />
         <Routes>
           {/* ====== PUBLIC ====== */}
-          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           

@@ -78,11 +78,7 @@ export function TenantLayout() {
       <aside className="w-64 bg-gray-800 border-r border-gray-700 hidden md:flex flex-col">
         <div className="p-4 flex items-center justify-center border-b border-gray-700">
           <Link to={`${tenantPath}/dashboard`}>
-            <img
-              src="/Diseno_sin_titulo.png"
-              alt="SISTEMADEEVENTOS"
-              className="h-10 w-auto object-contain"
-            />
+            <span className="font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">SISTEMA DE EVENTOS</span>
           </Link>
         </div>
         
@@ -140,7 +136,7 @@ export function TenantLayout() {
         {/* Mobile Header (similar to old AdminLayout top nav but for mobile) */}
         <header className="md:hidden bg-gray-800 border-b border-gray-700 h-16 flex items-center justify-between px-4">
           <Link to={`${tenantPath}/dashboard`} className="flex items-center">
-            <img src="/Diseno_sin_titulo.png" alt="SISTEMADEEVENTOS" className="h-8 w-auto" />
+            <span className="font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">SISTEMA DE EVENTOS</span>
           </Link>
           <div className="flex items-center space-x-3">
             <Link

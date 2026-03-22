@@ -32,11 +32,7 @@ export function SuperAdminLayout() {
       {/* Sidebar (SuperAdmin) */}
       <aside className="w-64 bg-gray-800 border-r border-gray-700 hidden md:flex flex-col">
         <div className="p-4 flex items-center justify-center border-b border-gray-700">
-          <img
-            src="/Diseno_sin_titulo.png"
-            alt="SISTEMADEEVENTOS"
-            className="h-10 w-auto object-contain"
-          />
+          <span className="font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">SISTEMA DE EVENTOS</span>
         </div>
         
         <div className="p-4 bg-blue-900/30 text-blue-400 text-xs font-bold uppercase tracking-wider text-center border-b border-gray-700">
@@ -78,7 +74,7 @@ export function SuperAdminLayout() {
       <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile Header */}
         <header className="md:hidden bg-gray-800 border-b border-gray-700 h-16 flex items-center justify-between px-4">
-          <img src="/Diseno_sin_titulo.png" alt="SISTEMADEEVENTOS" className="h-8 w-auto" />
+          <span className="font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">SISTEMA DE EVENTOS</span>
           <div className="text-blue-400 text-xs font-bold uppercase">SuperAdmin</div>
         </header>
 

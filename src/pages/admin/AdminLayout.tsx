@@ -25,11 +25,7 @@ export function AdminLayout() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2 sm:space-x-8 flex-1 min-w-0">
               <Link to="/admin" className="flex items-center space-x-2 flex-shrink-0">
-                <img
-                  src="/Diseno_sin_titulo.png"
-                  alt="SISTEMADEEVENTOS"
-                  className="h-10 sm:h-14 w-auto object-contain"
-                />
+                <span className="font-extrabold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">SISTEMA DE EVENTOS</span>
               </Link>
 
               <div className="flex space-x-1 sm:space-x-4">
