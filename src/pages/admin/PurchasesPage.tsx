@@ -372,6 +372,16 @@ export function PurchasesPage() {
             >
               Aprobadas
             </button>
+            <button
+              onClick={() => setFilter('rechazada')}
+              className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${
+                filter === 'rechazada'
+                  ? 'bg-red-600 text-white'
+                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              }`}
+            >
+              Rechazadas
+            </button>
           </div>
         </div>
 
@@ -514,7 +524,7 @@ export function PurchasesPage() {
                             <button
                               onClick={() => handleShareWhatsApp(compra.id)}
                               className="p-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
-                              title="Compartir por WhatsApp"
+                              title="Compartir boleta (texto corto, no es el mensaje de compra aprobada)"
                             >
                               <Share2 className="w-4 h-4" />
                             </button>
@@ -626,9 +636,9 @@ export function PurchasesPage() {
                     <div className="flex items-start space-x-3">
                       <MessageCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-1" />
                       <div className="flex-1">
-                        <p className="text-white font-medium mb-2">Enviar notificación por WhatsApp</p>
+                        <p className="text-white font-medium mb-2">Enviar notificación por WhatsApp (compra aprobada)</p>
                         <p className="text-sm text-gray-400 mb-3">
-                          Haz clic para abrir WhatsApp y enviar un mensaje al cliente con el enlace para consultar sus boletas.
+                          Mensaje oficial: pago verificado, números y enlace a la rifa. Usa este botón para notificar al cliente.
                         </p>
                         <a
                           href={whatsappUrl}
@@ -662,7 +672,7 @@ export function PurchasesPage() {
                       Boleta del Cliente
                     </h3>
                     <p className="text-sm text-gray-400 mb-4">
-                      Descarga la boleta en PDF o compártela directamente por WhatsApp con el cliente
+                      PDF de la boleta. El botón verde usa un texto corto distinto al mensaje de &quot;compra aprobada&quot; de arriba.
                     </p>
                     <div className="flex space-x-3">
                       <button
@@ -675,10 +685,11 @@ export function PurchasesPage() {
                       </button>
                       <button
                         onClick={() => handleShareWhatsApp(currentCompraId)}
-                        className="flex-1 flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition-colors"
+                        className="flex-1 flex items-center justify-center space-x-2 bg-emerald-700 hover:bg-emerald-600 text-white font-semibold py-3 rounded-lg transition-colors"
+                        title="Solo formato corto tipo Mi boleta…"
                       >
                         <Share2 className="w-5 h-5" />
-                        <span>Compartir WhatsApp</span>
+                        <span>Boleta corta (WhatsApp)</span>
                       </button>
                     </div>
                   </div>

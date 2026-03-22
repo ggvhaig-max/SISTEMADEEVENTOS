@@ -58,6 +58,11 @@ export async function downloadTicketPDF(
   URL.revokeObjectURL(url);
 }
 
+/**
+ * Plantilla SOLO para "compartir mi boleta" (usuario o admin reenvía números en formato corto).
+ * NO usar para notificación de compra aprobada / pago verificado.
+ * Esa usa la plantilla del backend: buildApprovalWhatsAppMessage (Edge Function + fallback en approve-purchase).
+ */
 function buildShareTicketWhatsAppMessage(
   eventoNombre: string,
   numerosBoletas: string[]
@@ -68,6 +73,7 @@ function buildShareTicketWhatsAppMessage(
     `www.dolaritoganador.com`;
 }
 
+/** Abre WhatsApp con texto corto tipo "Mi boleta…" — distinto al mensaje oficial de compra aprobada. */
 export function shareTicketWhatsApp(
   phoneNumber: string,
   eventoNombre: string,

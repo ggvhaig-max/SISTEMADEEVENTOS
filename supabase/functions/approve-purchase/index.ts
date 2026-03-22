@@ -1,4 +1,6 @@
 import { createClient } from 'npm:@supabase/supabase-js@2';
+import { buildApprovalWhatsAppMessage } from '../_shared/whatsapp-templates.ts';
+import { getEventLandingUrl } from '../_shared/event-links.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -181,7 +183,33 @@ Deno.serve(async (req: Request) => {
       console.error('Error sending email notification:', emailError);
     }
 
-    let whatsappUrl = null;
+    /** Misma plantilla que send-approval-whatsapp (pago verificado). NO usar plantilla de "compartir boleta". */
+    function buildApprovalWhatsAppUrl(
+      telefonoRaw: string,
+      payload: {
+        nombre: string;
+        evento_nombre: string;
+        evento_slug: string;
+        cantidad_entradas: number;
+        numeros: number[];
+      },
+    ): string | null {
+      const telefonoLimpio = telefonoRaw.replace(/\D/g, '');
+      if (!telefonoLimpio || telefonoLimpio.length < 10) {
+        return null;
+      }
+      const landingUrl = getEventLandingUrl(payload.evento_slug);
+      const mensaje = buildApprovalWhatsAppMessage({
+        nombre: payload.nombre,
+        evento_nombre: payload.evento_nombre,
+        cantidad_entradas: payload.cantidad_entradas,
+        numeros: payload.numeros,
+        landingUrl,
+      });
+      return `https://wa.me/${telefonoLimpio}?text=${encodeURIComponent(mensaje)}`;
+    }
+
+    let whatsappUrl: string | null = null;
     if (compra.telefono) {
       try {
         const whatsappResponse = await fetch(`${supabaseUrl}/functions/v1/send-approval-whatsapp`, {
@@ -193,10 +221,27 @@ Deno.serve(async (req: Request) => {
           body: JSON.stringify(whatsappNotificationData),
         });
         const whatsappResult = await whatsappResponse.json();
-        whatsappUrl = whatsappResult.whatsapp_url;
-        console.log('WhatsApp notification URL generated successfully');
+        if (whatsappResponse.ok && typeof whatsappResult.whatsapp_url === 'string' && whatsappResult.whatsapp_url.length > 0) {
+          whatsappUrl = whatsappResult.whatsapp_url;
+          console.log('WhatsApp notification URL from send-approval-whatsapp');
+        } else {
+          console.warn('send-approval-whatsapp no devolvió URL válida, usando fallback local', whatsappResult);
+        }
       } catch (whatsappError) {
-        console.error('Error generating WhatsApp notification:', whatsappError);
+        console.error('Error calling send-approval-whatsapp:', whatsappError);
+      }
+
+      if (!whatsappUrl) {
+        whatsappUrl = buildApprovalWhatsAppUrl(compra.telefono, {
+          nombre: compra.nombre_comprador,
+          evento_nombre: evento?.nombre || 'Evento',
+          evento_slug: evento?.slug || '',
+          cantidad_entradas: numerosAsignados.length,
+          numeros: numerosAsignados.sort((a, b) => a - b),
+        });
+        if (whatsappUrl) {
+          console.log('WhatsApp URL generada con fallback (plantilla compra aprobada)');
+        }
       }
     }
 

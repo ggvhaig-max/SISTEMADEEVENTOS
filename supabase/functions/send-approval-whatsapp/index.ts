@@ -1,3 +1,7 @@
+/**
+ * Genera wa.me con plantilla "compra aprobada / pago verificado".
+ * Debe coincidir con el fallback en approve-purchase (mismos helpers _shared).
+ */
 import { getEventLandingUrl } from '../_shared/event-links.ts';
 import { buildApprovalWhatsAppMessage } from '../_shared/whatsapp-templates.ts';
 

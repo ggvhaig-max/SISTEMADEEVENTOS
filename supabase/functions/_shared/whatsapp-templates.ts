@@ -1,3 +1,7 @@
+/**
+ * Plantilla única para WhatsApp tras aprobar compra (pago verificado).
+ * No mezclar con compartir boleta (pdfGenerator / shareTicketWhatsApp).
+ */
 interface ApprovalWhatsAppMessageInput {
   nombre: string;
   evento_nombre: string;
