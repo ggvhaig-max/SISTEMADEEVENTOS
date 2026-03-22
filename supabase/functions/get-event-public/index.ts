@@ -37,9 +37,26 @@ Deno.serve(async (req: Request) => {
 
     const { data: evento, error: eventoError } = await supabase
       .from('eventos')
-      .select('*')
+      .select('*, tenant:tenants(estado)')
       .eq('slug', slug)
       .maybeSingle();
+
+    if (evento && evento.tenant) {
+      const estadoTenant = Array.isArray(evento.tenant) ? evento.tenant[0].estado : evento.tenant.estado;
+      if (!['prueba', 'activo'].includes(estadoTenant)) {
+        return new Response(
+          JSON.stringify({ error: 'La licencia de este negocio se encuentra inactiva o suspendida.' }),
+          {
+            status: 403,
+            headers: {
+              ...corsHeaders,
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+      }
+      delete evento.tenant; // Remove extra data before serving to client
+    }
 
     if (eventoError) {
       console.error('Error fetching evento:', eventoError);

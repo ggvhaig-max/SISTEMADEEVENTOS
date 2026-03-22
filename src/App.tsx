@@ -62,7 +62,7 @@ function App() {
           <Route path="/:tenant/evento/:eventSlug/mis-boletas" element={<MyTicketPage />} />
           <Route path="/:tenant/evento/:eventSlug" element={<EventLanding />} />
           {/* ====== SUPERADMIN ====== */}
-          <Route path="/superadmin" element={<ProtectedRoute><SuperAdminLayout /></ProtectedRoute>}>
+          <Route path="/superadmin" element={<ProtectedRoute allowedRoles={['superadmin']}><SuperAdminLayout /></ProtectedRoute>}>
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<Placeholder title="SuperAdmin Dashboard" />} />
             <Route path="clientes" element={<Placeholder title="Gestión de Clientes" />} />
@@ -74,7 +74,7 @@ function App() {
           </Route>
 
           {/* ====== VENDEDOR ====== */}
-          <Route path="/vendedor" element={<ProtectedRoute><VendedorLayout /></ProtectedRoute>}>
+          <Route path="/vendedor" element={<ProtectedRoute allowedRoles={['vendedor']}><VendedorLayout /></ProtectedRoute>}>
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<Placeholder title="Vendedor Dashboard" />} />
             <Route path="mis-clientes" element={<Placeholder title="Mis Clientes Asignados" />} />
@@ -84,7 +84,7 @@ function App() {
           </Route>
 
           {/* ====== CLIENTE / TENANT ====== */}
-          <Route path="/:slug" element={<ProtectedRoute><TenantLayout /></ProtectedRoute>}>
+          <Route path="/:slug" element={<ProtectedRoute allowedRoles={['cliente', 'superadmin']}><TenantLayout /></ProtectedRoute>}>
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<AdminDashboard />} />
             

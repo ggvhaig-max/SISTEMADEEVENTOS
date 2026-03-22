@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -9,8 +9,20 @@ export function RegisterPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const { signUp } = useAuth();
+  const { signUp, user, profile, tenant, loading: authLoading } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user && !authLoading) {
+      if (profile?.rol === 'superadmin') {
+        navigate('/superadmin/dashboard');
+      } else if (profile?.rol === 'vendedor') {
+        navigate('/vendedor/dashboard');
+      } else if (profile?.rol === 'cliente' && tenant) {
+        navigate(`/${tenant.slug}/dashboard`);
+      }
+    }
+  }, [user, profile, tenant, authLoading, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
