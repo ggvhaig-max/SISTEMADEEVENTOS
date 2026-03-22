@@ -1,5 +1,5 @@
 export function getAppBaseUrl(): string {
-  return (Deno.env.get('APP_URL') || 'https://dolaritoganador.com').replace(/\/$/, '');
+  return (Deno.env.get('APP_URL') || 'https://suerte.dolaritoganador.com').replace(/\/$/, '');
 }
 
 export function getEventLandingUrl(eventoSlug: string): string {
