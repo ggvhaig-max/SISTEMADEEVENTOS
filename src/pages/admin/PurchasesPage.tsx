@@ -494,10 +494,11 @@ export function PurchasesPage() {
                           <button
                             onClick={() => handleDelete(compra.id)}
                             disabled={deletingCompraId === compra.id}
-                            className="p-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors"
+                            className="inline-flex items-center space-x-2 px-3 py-2 bg-gray-600 hover:bg-gray-500 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                             title="Eliminar transacción"
                           >
                             <Trash2 className="w-4 h-4" />
+                            <span>{deletingCompraId === compra.id ? 'Eliminando...' : 'Eliminar'}</span>
                           </button>
                         )}
                         {compra.estado === 'aprobada' && (

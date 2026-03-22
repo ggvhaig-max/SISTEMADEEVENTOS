@@ -1,4 +1,5 @@
 import { getEventLandingUrl } from '../_shared/event-links.ts';
+import { buildApprovalWhatsAppMessage } from '../_shared/whatsapp-templates.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -37,35 +38,13 @@ Deno.serve(async (req: Request) => {
 
     const landingUrl = getEventLandingUrl(evento_slug);
 
-    const numerosOrdenados = numeros.sort((a, b) => a - b);
-
-    let numerosTexto = '';
-    if (numerosOrdenados.length <= 50) {
-      numerosTexto = numerosOrdenados.join(', ');
-    } else {
-      const primerosNumeros = numerosOrdenados.slice(0, 25);
-      const ultimosNumeros = numerosOrdenados.slice(-25);
-      numerosTexto = `${primerosNumeros.join(', ')} ... ${ultimosNumeros.join(', ')}`;
-    }
-
-    const mensaje = `🎉 *¡Tu Compra ha sido Aprobada!*
-
-Hola *${nombre}*,
-
-✅ Tu pago ha sido verificado exitosamente.
-
-📋 *Detalles:*
-• Evento: ${evento_nombre}
-• Cantidad de entradas: ${cantidad_entradas}
-• Números: ${numerosTexto}
-
-🎟️ *Consulta tus números:*
-${landingUrl}
-Busca: *CONSULTA TUS NÚMEROS*
-
-📧 También recibirás un correo electrónico con todos los detalles.
-
-🍀 *¡Mucha suerte en el sorteo!*`;
+    const mensaje = buildApprovalWhatsAppMessage({
+      nombre,
+      evento_nombre,
+      cantidad_entradas,
+      numeros,
+      landingUrl,
+    });
 
     const telefonoLimpio = telefono.replace(/\D/g, '');
 

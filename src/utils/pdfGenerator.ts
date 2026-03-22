@@ -58,15 +58,22 @@ export async function downloadTicketPDF(
   URL.revokeObjectURL(url);
 }
 
+function buildShareTicketWhatsAppMessage(
+  eventoNombre: string,
+  numerosBoletas: string[]
+): string {
+  return `¡Mi boleta para el sorteo "${eventoNombre}"!\n\n` +
+    `Mis números de la suerte:\n${numerosBoletas.map(n => `🎫 ${n}`).join('\n')}\n\n` +
+    `¡Deséame suerte! 🍀\n\n` +
+    `www.dolaritoganador.com`;
+}
+
 export function shareTicketWhatsApp(
   phoneNumber: string,
   eventoNombre: string,
   numerosBoletas: string[]
 ): void {
-  const message = `¡Mi boleta para el sorteo "${eventoNombre}"!\n\n` +
-    `Mis números de la suerte:\n${numerosBoletas.map(n => `🎫 ${n}`).join('\n')}\n\n` +
-    `¡Deséame suerte! 🍀\n\n` +
-    `www.dolaritoganador.com`;
+  const message = buildShareTicketWhatsAppMessage(eventoNombre, numerosBoletas);
 
   const encodedMessage = encodeURIComponent(message);
   const whatsappUrl = phoneNumber
