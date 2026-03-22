@@ -27,7 +27,7 @@ export function AdminLayout() {
               <Link to="/admin" className="flex items-center space-x-2 flex-shrink-0">
                 <img
                   src="/Diseno_sin_titulo.png"
-                  alt="DolaritoGanador.com"
+                  alt="SISTEMADEEVENTOS"
                   className="h-10 sm:h-14 w-auto object-contain"
                 />
               </Link>

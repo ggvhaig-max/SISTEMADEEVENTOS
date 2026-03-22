@@ -70,7 +70,7 @@ function buildShareTicketWhatsAppMessage(
   return `¡Mi boleta para el sorteo "${eventoNombre}"!\n\n` +
     `Mis números de la suerte:\n${numerosBoletas.map(n => `🎫 ${n}`).join('\n')}\n\n` +
     `¡Deséame suerte! 🍀\n\n` +
-    `www.dolaritoganador.com`;
+    `www.sistemadeeventos.com`;
 }
 
 /** Abre WhatsApp con texto corto tipo "Mi boleta…" — distinto al mensaje oficial de compra aprobada. */

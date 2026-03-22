@@ -18,7 +18,7 @@ interface CompraData {
 }
 
 export function MyTicketPage() {
-  const { slug } = useParams();
+  const { tenant, eventSlug } = useParams<{ tenant?: string; eventSlug: string }>();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
@@ -30,16 +30,20 @@ export function MyTicketPage() {
     e.preventDefault();
     setLoading(true);
     setError('');
-    setCompra(null);
-
     try {
+      if (!eventSlug) {
+        setError('Evento no especificado en la URL');
+        return;
+      }
+
+      // Revertimos a buscar estrictamente dentro del evento (seguridad cross-tenant)
       const { data: eventoData } = await supabase
         .from('eventos')
         .select('id')
-        .eq('slug', slug)
-        .single();
+        .eq('slug', eventSlug)
+        .single() as { data: { id: string } | null };
 
-      if (!eventoData) {
+      if (!eventoData || !eventoData.id) {
         setError('Evento no encontrado');
         return;
       }
@@ -109,7 +113,7 @@ export function MyTicketPage() {
       <div className="max-w-4xl mx-auto px-4 py-12">
         <div className="mb-8">
           <button
-            onClick={() => navigate(`/evento/${slug}`)}
+            onClick={() => navigate(tenant ? `/${tenant}/evento/${eventSlug}` : `/evento/${eventSlug}`)}
             className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors mb-6"
           >
             <ArrowLeft className="w-5 h-5" />

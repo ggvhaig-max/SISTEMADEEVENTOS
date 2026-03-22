@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { Ticket } from 'lucide-react';
 
 export function RegisterPage() {
   const [email, setEmail] = useState('');
@@ -47,7 +46,7 @@ export function RegisterPage() {
           <div className="inline-flex items-center justify-center mb-4">
             <img
               src="/Diseno_sin_titulo.png"
-              alt="DolaritoGanador.com"
+              alt="SISTEMADEEVENTOS"
               className="h-24 w-auto object-contain"
             />
           </div>

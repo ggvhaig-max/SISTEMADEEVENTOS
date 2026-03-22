@@ -119,7 +119,7 @@ export function TicketReceipt({ compraId }: TicketReceiptProps) {
       }}
     >
       <div className="text-center mb-6">
-        <div className="text-2xl font-bold mb-2">DOLARITOGANADOR.COM</div>
+        <div className="text-2xl font-bold mb-2">SISTEMADEEVENTOS</div>
         <div className="text-xs mb-4">Sorteos en Vivo</div>
         <div className="border-t-2 border-b-2 border-dashed border-gray-800 py-2 my-4">
           <div className="font-bold text-lg">BOLETA DE SORTEO</div>
@@ -211,7 +211,7 @@ export function TicketReceipt({ compraId }: TicketReceiptProps) {
           ¡Mucha suerte en el sorteo!
         </div>
         <div className="text-xs font-bold">
-          www.dolaritoganador.com
+          www.sistemadeeventos.com
         </div>
       </div>
 

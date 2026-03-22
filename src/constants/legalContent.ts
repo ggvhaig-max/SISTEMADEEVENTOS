@@ -2,7 +2,7 @@ export const PRIVACY_POLICY = `
 <h3 class="text-xl font-bold mb-4">Política de Tratamiento de Datos Personales</h3>
 
 <p class="mb-6">
-  <strong>DOLARITOGANADOR.COM</strong> (en adelante "LA EMPRESA" o "EL RESPONSABLE"),
+  <strong>SISTEMADEEVENTOS</strong> (en adelante "LA EMPRESA" o "EL RESPONSABLE"),
   en cumplimiento de lo previsto por la Ley 1581 de 2012 (Ley de Protección de Datos Personales) y sus
   decretos reglamentarios, pone a disposición de sus usuarios, clientes y proveedores la presente
   Política de Tratamiento de Datos Personales.
@@ -126,8 +126,7 @@ export const TERMS_AND_CONDITIONS = `
 
 <h4 class="text-lg font-semibold mb-3 mt-6">3. Selección del Ganador</h4>
 <p class="mb-4">
-  El ganador | los ganadores, serán determinados en sorteo realizado en vivo por mi canal de KICK
-  <a href="https://kick.com/dolaritoganador" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline">https://kick.com/dolaritoganador</a>
+  El ganador | los ganadores, serán determinados en sorteo realizado en vivo por mi canal de streaming
 </p>
 
 <h4 class="text-lg font-semibold mb-3 mt-6">4. Premio</h4>
@@ -139,13 +138,8 @@ export const TERMS_AND_CONDITIONS = `
 <h4 class="text-lg font-semibold mb-3 mt-6">5. Notificación al Ganador</h4>
 <p class="mb-4">
   Nos pondremos en contacto con el ganador a través de los datos proporcionados al participar en el sorteo.
-  Los resultados serán publicados en la web y redes sociales oficiales de Dolarito Ganador:
+  Los resultados serán publicados en la web y redes sociales oficiales de SISTEMADEEVENTOS:
 </p>
-<ul class="list-disc pl-6 mb-4 space-y-2">
-  <li><strong>TELEGRAM:</strong> <a href="https://t.me/elverdazo_vip" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline">https://t.me/elverdazo_vip</a></li>
-  <li><strong>TIKTOK:</strong> <a href="https://www.tiktok.com/@dolaritoganador" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline">https://www.tiktok.com/@dolaritoganador</a></li>
-  <li><strong>WEB:</strong> <a href="https://www.dolaritoganador.com" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline">https://www.dolaritoganador.com</a></li>
-</ul>
 
 <h4 class="text-lg font-semibold mb-3 mt-6">6. Propiedad Intelectual</h4>
 <p class="mb-4">
@@ -166,7 +160,7 @@ export const TERMS_AND_CONDITIONS = `
 <h4 class="text-lg font-semibold mb-3 mt-6">9. Ganadores</h4>
 <p class="mb-4">
   Los ganadores estarán dispuestos y aceptan ser grabados en video al momento de la entrega del premio,
-  o en su defecto deberán enviar un video mencionando a dolaritoganador.com, en dicho video deben
+  o en su defecto deberán enviar un video mencionando a SISTEMADEEVENTOS, en dicho video deben
   mencionar el sorteo, el premio y enseñar el número con el que fue ganador.
 </p>
 

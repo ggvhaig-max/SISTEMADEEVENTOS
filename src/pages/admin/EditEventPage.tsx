@@ -470,7 +470,7 @@ export function EditEventPage() {
             value={evento.loteria_referencia || ''}
             onChange={(e) => setEvento({ ...evento, loteria_referencia: e.target.value })}
             className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Ej: https://kick.com/dolaritoganador"
+            placeholder="Ej: https://kick.com/misorteo"
           />
           <p className="text-sm text-gray-500 mt-1">
             El ganador será determinado en sorteo en vivo por este canal
