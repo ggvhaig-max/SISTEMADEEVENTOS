@@ -5,6 +5,7 @@ import type { Database } from '../../lib/database.types';
 import { ArrowLeft, Check, X, ExternalLink, Ticket, Mail, MessageCircle, Download, Share2, Trash2 } from 'lucide-react';
 import { TicketReceipt } from '../../components/TicketReceipt';
 import { downloadTicketPDF, shareTicketWhatsApp } from '../../utils/pdfGenerator';
+import { toast } from 'sonner';
 
 type Compra = Database['public']['Tables']['compras']['Row'];
 type EntradaUpdate = Database['public']['Tables']['entradas']['Update'];
@@ -122,7 +123,7 @@ export function PurchasesPage() {
       setCompras(compras.map(c => c.id === compraId ? { ...c, estado: 'aprobada' } : c));
     } catch (error: unknown) {
       console.error('Error approving compra:', error);
-      alert(getErrorMessage(error, 'Error al aprobar la compra'));
+      toast.error(getErrorMessage(error, 'Error al aprobar la compra'));
     }
   };
 
@@ -134,7 +135,7 @@ export function PurchasesPage() {
       await downloadTicketPDF(`ticket-${compraId}`, `boleta-${compraId}`);
     } catch (error: unknown) {
       console.error('Error generating PDF:', error);
-      alert(getErrorMessage(error, 'Error al generar el PDF'));
+      toast.error(getErrorMessage(error, 'Error al generar el PDF'));
     } finally {
       setGeneratingPDF(false);
     }
@@ -152,12 +153,12 @@ export function PurchasesPage() {
 
       if (compraError) {
         console.error('Error loading compra:', compraError);
-        alert('Error al cargar la información de la compra');
+        toast.error('Error al cargar la información de la compra');
         return;
       }
 
       if (!compraData) {
-        alert('No se encontró la información de la compra');
+        toast('No se encontró la información de la compra');
         return;
       }
 
@@ -171,7 +172,7 @@ export function PurchasesPage() {
 
       if (entradasError) {
         console.error('Error loading entradas:', entradasError);
-        alert('Error al cargar las entradas');
+        toast.error('Error al cargar las entradas');
         return;
       }
 
@@ -179,7 +180,7 @@ export function PurchasesPage() {
       console.log('Number of entradas:', entradasData?.length);
 
       if (!entradasData || entradasData.length === 0) {
-        alert('No se encontraron números asignados para esta compra');
+        toast('No se encontraron números asignados para esta compra');
         return;
       }
 
@@ -196,7 +197,7 @@ export function PurchasesPage() {
       );
     } catch (error) {
       console.error('Error sharing WhatsApp:', error);
-      alert('Error al compartir por WhatsApp');
+      toast.error('Error al compartir por WhatsApp');
     }
   };
 
@@ -238,7 +239,7 @@ export function PurchasesPage() {
       setCompras(compras.map(c => c.id === compraId ? { ...c, estado: 'rechazada' } : c));
     } catch (error: unknown) {
       console.error('Error rejecting compra:', error);
-      alert(getErrorMessage(error, 'Error al rechazar la compra'));
+      toast.error(getErrorMessage(error, 'Error al rechazar la compra'));
     }
   };
 
@@ -247,7 +248,7 @@ export function PurchasesPage() {
     if (!compra) return;
 
     if (compra.estado === 'aprobada') {
-      alert('No se puede eliminar una compra aprobada. Las boletas ya fueron asignadas al comprador.');
+      toast.error('No se puede eliminar una compra aprobada. Las boletas ya fueron asignadas al comprador.');
       return;
     }
 
@@ -284,7 +285,7 @@ export function PurchasesPage() {
 
     } catch (error: unknown) {
       console.error('Error deleting compra:', error);
-      alert(getErrorMessage(error, 'Error al eliminar la transacción'));
+      toast.error(getErrorMessage(error, 'Error al eliminar la transacción'));
     } finally {
       setDeletingCompraId(null);
     }

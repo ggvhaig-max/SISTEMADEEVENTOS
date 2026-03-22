@@ -6,6 +6,7 @@ import { LegalModal } from '../../components/LegalModal';
 import { WhatsAppPopup } from '../../components/WhatsAppPopup';
 import { InstagramTestimonials } from '../../components/InstagramTestimonials';
 import { PRIVACY_POLICY, TERMS_AND_CONDITIONS } from '../../constants/legalContent';
+import { toast } from 'sonner';
 
 const DEFAULT_WHATSAPP_LINK = 'https://chat.whatsapp.com/FuJjgGkmLSk9cMrZgcfbxc';
 const LOGO_URL = 'https://e-contacto.net/wp-content/uploads/2026/03/Logos-HIHHN-4.png';
@@ -267,10 +268,10 @@ export function EventLanding() {
       if (response.ok) {
         setLookupResults(result);
       } else {
-        alert(result.error || 'No se encontraron boletas');
+        toast.error(result.error || 'No se encontraron boletas');
       }
     } catch {
-      alert('Error al buscar boletas');
+      toast.error('Error al buscar boletas');
     } finally {
       setLookingUp(false);
     }

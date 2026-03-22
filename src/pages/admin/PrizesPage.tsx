@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { ArrowLeft, Plus, Gift, Trash2 } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface Premio {
   id: string;
@@ -67,7 +68,7 @@ export function PrizesPage() {
       loadData();
     } catch (error) {
       console.error('Error adding prize:', error);
-      alert('Error al agregar premio');
+      toast.error('Error al agregar premio');
     }
   };
 
@@ -80,7 +81,7 @@ export function PrizesPage() {
       loadData();
     } catch (error) {
       console.error('Error deleting prize:', error);
-      alert('Error al eliminar premio');
+      toast.error('Error al eliminar premio');
     }
   };
 

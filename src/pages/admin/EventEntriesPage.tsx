@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { ArrowLeft, Search, Filter, Info } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface Entrada {
   id: string;
@@ -129,7 +130,7 @@ export function EventEntriesPage() {
       setBoletas(data || []);
     } catch (error) {
       console.error('Error searching:', error);
-      alert('Error al buscar boletas');
+      toast.error('Error al buscar boletas');
     } finally {
       setSearching(false);
     }

@@ -1,6 +1,6 @@
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { LayoutDashboard, Users, UserSquare2, CreditCard, DollarSign, CalendarDays, LifeBuoy, LogOut } from 'lucide-react';
+import { LayoutDashboard, Users, UserSquare2, CreditCard, DollarSign, CalendarDays, LifeBuoy, LogOut, ShieldCheck } from 'lucide-react';
 
 export function SuperAdminLayout() {
   const location = useLocation();
@@ -24,6 +24,7 @@ export function SuperAdminLayout() {
     { path: '/superadmin/comisiones', icon: DollarSign, label: 'Comisiones' },
     { path: '/superadmin/vencimientos', icon: CalendarDays, label: 'Vencimientos' },
     { path: '/superadmin/soporte', icon: LifeBuoy, label: 'Soporte' },
+    { path: '/superadmin/auditoria', icon: ShieldCheck, label: 'Auditoría' },
   ];
 
   return (

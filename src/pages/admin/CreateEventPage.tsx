@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { ArrowLeft, Loader2 } from 'lucide-react';
 import { ImageUpload } from '../../components/ImageUpload';
+import { toast } from 'sonner';
 
 export function CreateEventPage() {
   const navigate = useNavigate();
@@ -83,7 +84,7 @@ export function CreateEventPage() {
       navigate('/admin/eventos');
     } catch (error) {
       console.error('Error creating evento:', error);
-      alert('Error al crear el evento');
+      toast.error('Error al crear el evento');
     } finally {
       setLoading(false);
     }

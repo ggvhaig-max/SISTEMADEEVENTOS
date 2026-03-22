@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { ArrowLeft, Plus, Trash2, Star, Lock, Unlock } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface BlessedEntry {
   id: string;
@@ -66,7 +67,7 @@ export function BlessedNumbersPage() {
         .map((n) => parseInt(n));
 
       if (numerosArray.length === 0) {
-        alert('Debes ingresar al menos un número');
+        toast.error('Debes ingresar al menos un número');
         return;
       }
 
@@ -75,7 +76,7 @@ export function BlessedNumbersPage() {
       );
 
       if (invalidNumbers.length > 0) {
-        alert(`Números inválidos: ${invalidNumbers.join(', ')}`);
+        toast.error(`Números inválidos: ${invalidNumbers.join(', ')}`);
         return;
       }
 
@@ -115,7 +116,7 @@ export function BlessedNumbersPage() {
       loadData();
     } catch (error) {
       console.error('Error blessing numbers:', error);
-      alert('Error al bendecir números');
+      toast.error('Error al bendecir números');
     }
   };
 
@@ -153,7 +154,7 @@ export function BlessedNumbersPage() {
       loadData();
     } catch (error) {
       console.error('Error toggling block status:', error);
-      alert(`Error al ${action} el número`);
+      toast.error(`Error al ${action} el número`);
     }
   };
 
@@ -161,7 +162,7 @@ export function BlessedNumbersPage() {
     const bloqueados = blessedEntries.filter(e => e.bloqueada && e.estado === 'disponible');
 
     if (bloqueados.length === 0) {
-      alert('No hay números bendecidos bloqueados para liberar');
+      toast.error('No hay números bendecidos bloqueados para liberar');
       return;
     }
 
@@ -181,7 +182,7 @@ export function BlessedNumbersPage() {
       loadData();
     } catch (error) {
       console.error('Error releasing blessed numbers:', error);
-      alert('Error al liberar números');
+      toast.error('Error al liberar números');
     }
   };
 

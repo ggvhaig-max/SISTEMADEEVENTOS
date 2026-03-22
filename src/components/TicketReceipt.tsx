@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabase';
 
 interface TicketReceiptProps {
   compraId: string;
@@ -37,17 +36,16 @@ export function TicketReceipt({ compraId }: TicketReceiptProps) {
 
   const loadCompra = async () => {
     try {
-      const { data: compraData, error: compraError } = await supabase
-        .from('compras')
-        .select('*')
-        .eq('id', compraId)
-        .maybeSingle();
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const response = await fetch(`${supabaseUrl}/functions/v1/lookup-entries?compra_id=${compraId}`);
+      const result = await response.json();
 
-      if (compraError) {
-        console.error('Error loading compra:', compraError);
+      if (result.error) {
+        console.error('Error loading compra via edge func:', result.error);
         return;
       }
 
+      const compraData = result.compras?.[0];
       if (!compraData) {
         console.error('Compra not found');
         return;
@@ -55,35 +53,10 @@ export function TicketReceipt({ compraId }: TicketReceiptProps) {
 
       console.log('Compra data loaded:', compraData);
 
-      const { data: eventoData, error: eventoError } = await supabase
-        .from('eventos')
-        .select('nombre, slug')
-        .eq('id', compraData.evento_id)
-        .maybeSingle();
-
-      if (eventoError) {
-        console.error('Error loading evento:', eventoError);
-      }
-
-      console.log('Evento data loaded:', eventoData);
-
-      const { data: entradasData, error: entradasError } = await supabase
-        .from('entradas')
-        .select('numero_entrada, premio_valor')
-        .eq('compra_id', compraId)
-        .order('numero_entrada');
-
-      if (entradasError) {
-        console.error('Error loading entradas:', entradasError);
-      }
-
-      console.log('Entradas data loaded:', entradasData);
-      console.log('Number of entradas:', entradasData?.length);
-
       setCompra({
         ...compraData,
-        evento: eventoData || undefined,
-        entradas: entradasData || []
+        evento: compraData.eventos,
+        entradas: compraData.entradas || []
       });
     } catch (error) {
       console.error('Error loading compra:', error);

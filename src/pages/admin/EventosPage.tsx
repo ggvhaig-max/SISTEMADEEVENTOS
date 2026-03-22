@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { Plus, Calendar, ExternalLink, Edit, Trash2 } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface Evento {
   id: string;
@@ -50,7 +51,7 @@ export function EventosPage() {
       setEventos(eventos.filter(e => e.id !== id));
     } catch (error) {
       console.error('Error deleting evento:', error);
-      alert('Error al eliminar el evento');
+      toast.error('Error al eliminar el evento');
     }
   };
 

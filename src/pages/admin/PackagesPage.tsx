@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { ArrowLeft, Plus, Trash2, Star, CreditCard as Edit2 } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface Package {
   id: string;
@@ -80,7 +81,7 @@ export function PackagesPage() {
       loadData();
     } catch (error) {
       console.error('Error saving package:', error);
-      alert('Error al guardar el paquete');
+      toast.error('Error al guardar el paquete');
     }
   };
 

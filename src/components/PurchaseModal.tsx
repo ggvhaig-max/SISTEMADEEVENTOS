@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { X, ChevronLeft, Upload, CheckCircle, AlertCircle } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface PurchaseModalProps {
   isOpen: boolean;
@@ -106,7 +107,7 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
       setPurchaseId(result.compra_id);
       setStep(2);
     } catch (error: any) {
-      alert(error.message);
+      toast.error(error.message);
     } finally {
       setLoading(false);
     }
@@ -116,7 +117,7 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
     e.preventDefault();
 
     if (!receiptFile || !purchaseId) {
-      alert('Debes seleccionar un comprobante');
+      toast.error('Debes seleccionar un comprobante');
       return;
     }
 
@@ -145,7 +146,7 @@ export function PurchaseModal({ isOpen, onClose, eventData, quantity, packageDat
 
       setStep(4);
     } catch (error: any) {
-      alert(error.message);
+      toast.error(error.message);
     } finally {
       setLoading(false);
     }

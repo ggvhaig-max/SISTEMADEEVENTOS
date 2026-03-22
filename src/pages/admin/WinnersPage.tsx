@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { ArrowLeft, Trophy, CheckCircle } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface Premio {
   id: string;
@@ -45,7 +46,7 @@ export function WinnersPage() {
 
   const handleSetWinner = async () => {
     if (!selectedPrize || !winnerNumber) {
-      alert('Selecciona un premio y entrada ganadora');
+      toast.error('Selecciona un premio y entrada ganadora');
       return;
     }
 
@@ -58,7 +59,7 @@ export function WinnersPage() {
         .single();
 
       if (!entrada) {
-        alert('Entrada no encontrada');
+        toast('Entrada no encontrada');
         return;
       }
 
@@ -75,13 +76,13 @@ export function WinnersPage() {
         })
         .eq('id', selectedPrize);
 
-      alert('Ganador establecido exitosamente');
+      toast.success('Ganador establecido exitosamente');
       setSelectedPrize(null);
       setWinnerNumber(0);
       loadPremios();
     } catch (error) {
       console.error('Error setting winner:', error);
-      alert('Error al establecer ganador');
+      toast.error('Error al establecer ganador');
     }
   };
 
@@ -95,7 +96,7 @@ export function WinnersPage() {
       loadPremios();
     } catch (error) {
       console.error('Error publishing winner:', error);
-      alert('Error al publicar ganador');
+      toast.error('Error al publicar ganador');
     }
   };
 

@@ -19,10 +19,11 @@ Deno.serve(async (req: Request) => {
     const email = url.searchParams.get('email');
     const documento = url.searchParams.get('documento');
     const evento_id = url.searchParams.get('evento_id');
+    const compra_id = url.searchParams.get('compra_id');
 
-    if (!email && !documento) {
+    if (!email && !documento && !compra_id) {
       return new Response(
-        JSON.stringify({ error: 'Email o documento es requerido' }),
+        JSON.stringify({ error: 'Falta parámetro de búsqueda (email, documento o ID)' }),
         {
           status: 400,
           headers: {
@@ -53,6 +54,10 @@ Deno.serve(async (req: Request) => {
 
     if (evento_id) {
       comprasQuery = comprasQuery.eq('evento_id', evento_id);
+    }
+
+    if (compra_id) {
+      comprasQuery = comprasQuery.eq('id', compra_id);
     }
 
     comprasQuery = comprasQuery.order('created_at', { ascending: false });

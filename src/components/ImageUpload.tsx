@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { Upload, X, Loader2, ImageIcon } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { toast } from 'sonner';
 
 interface ImageUploadProps {
   value?: string;
@@ -19,12 +20,12 @@ export function ImageUpload({ value, onChange, disabled, recommendedSize, descri
     if (!file) return;
 
     if (!file.type.startsWith('image/')) {
-      alert('Por favor selecciona una imagen válida');
+      toast.error('Por favor selecciona una imagen válida');
       return;
     }
 
     if (file.size > 5 * 1024 * 1024) {
-      alert('La imagen no puede superar los 5MB');
+      toast('La imagen no puede superar los 5MB');
       return;
     }
 
@@ -48,7 +49,7 @@ export function ImageUpload({ value, onChange, disabled, recommendedSize, descri
       onChange(data.publicUrl);
     } catch (error) {
       console.error('Error uploading image:', error);
-      alert('Error al subir la imagen');
+      toast.error('Error al subir la imagen');
     } finally {
       setUploading(false);
       if (fileInputRef.current) {

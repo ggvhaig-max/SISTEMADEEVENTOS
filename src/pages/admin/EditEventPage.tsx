@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { ArrowLeft, Loader2, Gift, CreditCard, Ticket, Trophy, Package, Plus, X, Instagram, Video, Upload } from 'lucide-react';
 import { ImageUpload } from '../../components/ImageUpload';
+import { toast } from 'sonner';
 
 interface Evento {
   id: string;
@@ -106,7 +107,7 @@ export function EditEventPage() {
     if (!file || !evento) return;
 
     if (file.size > 50 * 1024 * 1024) {
-      alert('El archivo es muy grande. Máximo 50MB.');
+      toast('El archivo es muy grande. Máximo 50MB.');
       return;
     }
 
@@ -134,7 +135,7 @@ export function EditEventPage() {
       e.target.value = '';
     } catch (error) {
       console.error('Error uploading video:', error);
-      alert('Error al subir el video. Intenta de nuevo.');
+      toast.error('Error al subir el video. Intenta de nuevo.');
     } finally {
       setUploadingVideo(false);
     }
@@ -182,7 +183,7 @@ export function EditEventPage() {
           .neq('estado', 'disponible');
 
         if (boletasOcupadas && boletasOcupadas.length > 0) {
-          alert(`No se puede reducir el total. Hay ${boletasOcupadas.length} boletas vendidas/reservadas con números mayores a ${newTotal}`);
+          toast.error(`No se puede reducir el total. Hay ${boletasOcupadas.length} boletas vendidas/reservadas con números mayores a ${newTotal}`);
           setSaving(false);
           return;
         }
@@ -231,7 +232,7 @@ export function EditEventPage() {
       navigate('/admin/eventos');
     } catch (error) {
       console.error('Error updating evento:', error);
-      alert('Error al actualizar el evento');
+      toast.error('Error al actualizar el evento');
     } finally {
       setSaving(false);
     }

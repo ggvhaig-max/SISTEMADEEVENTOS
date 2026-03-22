@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { supabase } from '../../lib/supabase';
 import { Download, Share2, ArrowLeft, Ticket } from 'lucide-react';
 import { TicketReceipt } from '../../components/TicketReceipt';
 import { downloadTicketPDF, shareTicketWhatsApp } from '../../utils/pdfGenerator';
+import { toast } from 'sonner';
 
 interface CompraData {
   id: string;
@@ -13,7 +13,8 @@ interface CompraData {
     nombre: string;
   };
   entradas?: Array<{
-    numero_boleta: number;
+    numero_entrada: number;
+    estado?: string;
   }>;
 }
 
@@ -36,35 +37,22 @@ export function MyTicketPage() {
         return;
       }
 
-      // Revertimos a buscar estrictamente dentro del evento (seguridad cross-tenant)
-      const { data: eventoData } = await supabase
-        .from('eventos')
-        .select('id')
-        .eq('slug', eventSlug)
-        .single() as { data: { id: string } | null };
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const eventRes = await fetch(`${supabaseUrl}/functions/v1/get-event-public?slug=${eventSlug}`);
+      const eventJson = await eventRes.json();
+      const eventoData = eventJson.evento;
 
       if (!eventoData || !eventoData.id) {
-        setError('Evento no encontrado');
+        setError(eventJson.error || 'Evento no encontrado');
         return;
       }
 
-      const { data, error: searchError } = await supabase
-        .from('compras')
-        .select(`
-          id,
-          buyer_email,
-          buyer_phone,
-          evento:eventos(nombre),
-          entradas(numero_boleta)
-        `)
-        .eq('evento_id', eventoData.id)
-        .eq('buyer_email', email.toLowerCase().trim())
-        .eq('estado', 'aprobada')
-        .order('created_at', { ascending: false })
-        .limit(1)
-        .maybeSingle();
+      const response = await fetch(`${supabaseUrl}/functions/v1/lookup-entries?evento_id=${eventoData.id}&email=${encodeURIComponent(email.toLowerCase().trim())}`);
+      const result = await response.json();
+      if (result.error) throw new Error(result.error);
 
-      if (searchError) throw searchError;
+      // Find the approved one directly from edge function results
+      const data = result.compras?.find((c: any) => c.estado === 'aprobada' || c.estado === 'completada');
 
       if (!data) {
         setError('No se encontró ninguna compra aprobada con ese correo electrónico');
@@ -88,7 +76,7 @@ export function MyTicketPage() {
       await downloadTicketPDF(`ticket-${compra.id}`, `mi-boleta-${compra.id}`);
     } catch (error: any) {
       console.error('Error generating PDF:', error);
-      alert(error.message || 'Error al generar el PDF');
+      toast.error(error.message || 'Error al generar el PDF');
     } finally {
       setGeneratingPDF(false);
     }
@@ -98,7 +86,7 @@ export function MyTicketPage() {
     if (!compra) return;
 
     const numeros = compra.entradas?.map((e) =>
-      e.numero_boleta.toString().padStart(4, '0')
+      e.numero_entrada.toString().padStart(4, '0')
     ) || [];
 
     shareTicketWhatsApp(
